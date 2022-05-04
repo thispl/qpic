@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include qpic *.css
+recursive-include qpic *.csv
+recursive-include qpic *.html
+recursive-include qpic *.ico
+recursive-include qpic *.js
+recursive-include qpic *.json
+recursive-include qpic *.md
+recursive-include qpic *.png
+recursive-include qpic *.py
+recursive-include qpic *.svg
+recursive-include qpic *.txt
+recursive-exclude qpic *.pyc

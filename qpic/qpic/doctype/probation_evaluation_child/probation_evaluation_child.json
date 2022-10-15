@@ -1,0 +1,44 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-10-12 15:00:37.634267",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "factors",
+  "rating",
+  "comment"
+ ],
+ "fields": [
+  {
+   "fieldname": "factors",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Factors"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Rating",
+   "in_list_view": 1,
+   "label": "Rating"
+  },
+  {
+   "fieldname": "comment",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Comment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-10-12 15:01:00.538389",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Probation Evaluation Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

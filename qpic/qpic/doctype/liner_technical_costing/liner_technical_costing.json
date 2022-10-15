@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-09-26 15:38:32.190426",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "data_1",
+  "pre_coat",
+  "coating",
+  "post_coating"
+ ],
+ "fields": [
+  {
+   "fieldname": "data_1",
+   "fieldtype": "Data",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "pre_coat",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Bag Size"
+  },
+  {
+   "fieldname": "coating",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Extra"
+  },
+  {
+   "fieldname": "post_coating",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Liner Size"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-09-26 15:38:32.190426",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Liner Technical Costing",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,211 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "LRJ.####",
+ "creation": "2022-06-23 18:13:24.896805",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "status",
+  "leave_application",
+  "employee_details",
+  "emp_no",
+  "employee_name",
+  "designation",
+  "department",
+  "column_break_3",
+  "resident_id_number",
+  "date_of_joining",
+  "company",
+  "re_join",
+  "section_break_5",
+  "start",
+  "end",
+  "column_break_14",
+  "total_leave_in_days",
+  "nature_of_leave",
+  "for_office_use_section",
+  "reporting_date",
+  "column_break_20",
+  "late_joining_in_days",
+  "section_break_13",
+  "eid_holidays",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nRequested\nInitiated\nCompleted\nHold"
+  },
+  {
+   "fetch_from": "emp_no.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Read Only",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "emp_no.designation",
+   "fieldname": "designation",
+   "fieldtype": "Read Only",
+   "label": "Designation",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "emp_no.department",
+   "fieldname": "department",
+   "fieldtype": "Read Only",
+   "label": "Department",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "emp_no.date_of_joining",
+   "fieldname": "date_of_joining",
+   "fieldtype": "Read Only",
+   "label": "Date of Joining",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "emp_no.company",
+   "fieldname": "company",
+   "fieldtype": "Read Only",
+   "label": "Company / Division",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break",
+   "label": "Request Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "start",
+   "fieldtype": "Date",
+   "label": "Start of Leave Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "end",
+   "fieldtype": "Date",
+   "label": "End of Leave Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_leave_in_days",
+   "fieldtype": "Read Only",
+   "label": "Total Leave (Days)"
+  },
+  {
+   "fieldname": "nature_of_leave",
+   "fieldtype": "Data",
+   "label": "Nature of Leave",
+   "read_only": 1
+  },
+  {
+   "fieldname": "for_office_use_section",
+   "fieldtype": "Section Break",
+   "label": "For Office Use"
+  },
+  {
+   "fieldname": "reporting_date",
+   "fieldtype": "Date",
+   "label": "Reporting Date"
+  },
+  {
+   "bold": 1,
+   "fieldname": "re_join",
+   "fieldtype": "Date",
+   "label": "Re Joining Date"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "late_joining_in_days",
+   "fieldtype": "Read Only",
+   "label": "Late Joining (Days)"
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "eid_holidays",
+   "fieldtype": "HTML",
+   "hidden": 1,
+   "options": "<b>REMARKS :</b> EXCLUDING 3 DAYS EID HOLIDAYS"
+  },
+  {
+   "fieldname": "employee_details",
+   "fieldtype": "Section Break",
+   "label": "Employee Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "emp_no",
+   "fieldtype": "Link",
+   "label": "Employee ID",
+   "options": "Employee",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "emp_no.resident_id_number",
+   "fieldname": "resident_id_number",
+   "fieldtype": "Read Only",
+   "label": "Resident ID Number(QID)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Leave Rejoining Form",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "leave_application",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Leave Application",
+   "options": "Leave Application"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-08-30 12:59:06.638549",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Leave Rejoining Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

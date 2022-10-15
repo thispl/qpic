@@ -1,0 +1,644 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:job_offer",
+ "creation": "2022-08-30 12:00:37.993668",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "personal_details_section",
+  "job_applicant",
+  "user_id",
+  "job_offer",
+  "first_name",
+  "fathers_husbands_name",
+  "date_of_birth",
+  "age",
+  "place_of_birth",
+  "nationality",
+  "marital_status",
+  "column_break_14",
+  "date",
+  "physical_disability",
+  "heightcm",
+  "blood_group",
+  "weightkg",
+  "gender",
+  "section_break_21",
+  "language",
+  "section_break_23",
+  "driving_license_details",
+  "driving_license",
+  "place_of_issue",
+  "valid_upto",
+  "column_break_28",
+  "passport_details",
+  "passport_number",
+  "place_issue",
+  "valid_to",
+  "address_details_section",
+  "permanent_address",
+  "address_1",
+  "address_2",
+  "pin_code",
+  "column_break_38",
+  "email",
+  "telephone",
+  "mobile",
+  "educational_details_section",
+  "education_head",
+  "education",
+  "section_break_44",
+  "special_skills_acquired",
+  "column_break_46",
+  "awards_achievement",
+  "section_break_48",
+  "employment_details_section",
+  "html_49",
+  "experience",
+  "training_programs_attended",
+  "promotion",
+  "family_details_section",
+  "html_53",
+  "family_details",
+  "gratuity_policy_section",
+  "primary_nominee",
+  "contingent_nominee",
+  "nominated_date",
+  "section_break_59",
+  "html_60",
+  "select_61",
+  "name1",
+  "relationship",
+  "position",
+  "column_break_65",
+  "project",
+  "department",
+  "period_of_service",
+  "reason_for_relieving",
+  "section_break_70",
+  "declaration",
+  "i_agree",
+  "for_office_use_only_section",
+  "joining_details",
+  "present_designation",
+  "department1",
+  "date_of_appointment",
+  "gross_salary",
+  "column_break_79",
+  "date_of_confirmation",
+  "remarks",
+  "others",
+  "mandatory_attachments_section",
+  "offer_letter_download",
+  "offer_letter",
+  "column_break_86",
+  "reporting_form",
+  "attach_109",
+  "column_break_89",
+  "nomination_form",
+  "signed_nomination_form",
+  "column_break_91",
+  "undertaking_form",
+  "attach_106",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "personal_details_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Details"
+  },
+  {
+   "fieldname": "job_applicant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Job Applicant",
+   "options": "Job Applicant",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "user_id",
+   "fieldtype": "Link",
+   "label": "User ID",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "job_offer",
+   "fieldname": "job_offer",
+   "fieldtype": "Link",
+   "label": "Job Offer",
+   "options": "Job Offer",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Joining Form",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "job_applicant.applicant_name",
+   "fieldname": "first_name",
+   "fieldtype": "Read Only",
+   "label": "First Name"
+  },
+  {
+   "fieldname": "fathers_husbands_name",
+   "fieldtype": "Data",
+   "label": "Father's/ Husband's Name"
+  },
+  {
+   "fetch_from": "job_applicant.date_of_birth",
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fetch_from": "job_applicant.age",
+   "fieldname": "age",
+   "fieldtype": "Read Only",
+   "label": "Age",
+   "read_only": 1
+  },
+  {
+   "fieldname": "place_of_birth",
+   "fieldtype": "Data",
+   "label": "Place of Birth"
+  },
+  {
+   "fetch_from": "job_applicant.nationality",
+   "fieldname": "nationality",
+   "fieldtype": "Link",
+   "label": "Nationality",
+   "options": "Country"
+  },
+  {
+   "fetch_from": "job_applicant.marital_status",
+   "fieldname": "marital_status",
+   "fieldtype": "Read Only",
+   "label": "Marital Status"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "physical_disability",
+   "fieldtype": "Small Text",
+   "label": "Physical Disability(if any)"
+  },
+  {
+   "fieldname": "heightcm",
+   "fieldtype": "Data",
+   "label": "Height(cm)"
+  },
+  {
+   "fieldname": "blood_group",
+   "fieldtype": "Select",
+   "label": "Blood Group",
+   "options": "\nA+\nA-\nB+\nB-\nAB+\nAB-\nO+\nO-"
+  },
+  {
+   "fieldname": "weightkg",
+   "fieldtype": "Data",
+   "label": "Weight(kg)"
+  },
+  {
+   "fetch_from": "job_applicant.gender",
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "section_break_21",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "employee_name.language",
+   "fieldname": "language",
+   "fieldtype": "Table",
+   "label": "Language",
+   "options": "Languages Known"
+  },
+  {
+   "fieldname": "section_break_23",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "driving_license_details",
+   "fieldtype": "Heading",
+   "label": "Driving License Details"
+  },
+  {
+   "fieldname": "driving_license",
+   "fieldtype": "Data",
+   "label": "Driving License"
+  },
+  {
+   "fieldname": "place_of_issue",
+   "fieldtype": "Data",
+   "label": "Place of Issue"
+  },
+  {
+   "fieldname": "valid_upto",
+   "fieldtype": "Date",
+   "label": "Valid Upto"
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "passport_details",
+   "fieldtype": "Heading",
+   "label": "Passport Details"
+  },
+  {
+   "fieldname": "passport_number",
+   "fieldtype": "Data",
+   "label": "Passport Number"
+  },
+  {
+   "fieldname": "place_issue",
+   "fieldtype": "Data",
+   "label": "Place of Issue"
+  },
+  {
+   "fieldname": "valid_to",
+   "fieldtype": "Date",
+   "label": "Valid Upto"
+  },
+  {
+   "fieldname": "address_details_section",
+   "fieldtype": "Section Break",
+   "label": "Address Details"
+  },
+  {
+   "fetch_from": "job_applicant.present_address",
+   "fieldname": "permanent_address",
+   "fieldtype": "Read Only",
+   "label": "Permanent Address"
+  },
+  {
+   "fetch_from": "job_applicant.address_1",
+   "fieldname": "address_1",
+   "fieldtype": "Read Only",
+   "label": "Address"
+  },
+  {
+   "fetch_from": "job_applicant.address",
+   "fieldname": "address_2",
+   "fieldtype": "Read Only",
+   "label": "Address"
+  },
+  {
+   "fetch_from": "job_applicant.pin",
+   "fieldname": "pin_code",
+   "fieldtype": "Read Only",
+   "label": "Pin Code"
+  },
+  {
+   "fetch_from": "job_applicant.email_id",
+   "fetch_if_empty": 1,
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "telephone",
+   "fieldtype": "Data",
+   "label": "Telephone",
+   "options": "Phone"
+  },
+  {
+   "fetch_from": "job_applicant.phone_number",
+   "fetch_if_empty": 1,
+   "fieldname": "mobile",
+   "fieldtype": "Data",
+   "label": "Mobile",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "educational_details_section",
+   "fieldtype": "Section Break",
+   "label": "Educational Details"
+  },
+  {
+   "fieldname": "education_head",
+   "fieldtype": "HTML",
+   "label": "Education Head",
+   "options": "<b>Educational Qualifications</b>"
+  },
+  {
+   "fieldname": "education",
+   "fieldtype": "Table",
+   "options": "Employee Education"
+  },
+  {
+   "fieldname": "section_break_44",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "special_skills_acquired",
+   "fieldtype": "Small Text",
+   "label": "Special Skills Acquired"
+  },
+  {
+   "fieldname": "column_break_46",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "awards_achievement",
+   "fieldtype": "Small Text",
+   "label": "Awards & Achievement "
+  },
+  {
+   "fieldname": "section_break_48",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "training_programs_attended",
+   "fieldtype": "Small Text",
+   "label": "Training programs attended, if any"
+  },
+  {
+   "fieldname": "promotion",
+   "fieldtype": "Small Text",
+   "label": "Promotion , if any "
+  },
+  {
+   "fieldname": "family_details_section",
+   "fieldtype": "Section Break",
+   "label": "Family Details"
+  },
+  {
+   "fieldname": "html_53",
+   "fieldtype": "HTML",
+   "options": "<b> Please furnish your Family details</b>"
+  },
+  {
+   "fieldname": "family_details",
+   "fieldtype": "Table",
+   "options": "Family Details"
+  },
+  {
+   "fieldname": "gratuity_policy_section",
+   "fieldtype": "Section Break",
+   "label": "Gratuity Policy"
+  },
+  {
+   "fieldname": "primary_nominee",
+   "fieldtype": "Table",
+   "label": "Primary Nominee",
+   "options": "Primary Nominee"
+  },
+  {
+   "fieldname": "contingent_nominee",
+   "fieldtype": "Table",
+   "label": "Contingent Nominee",
+   "options": "Contingent Nominee"
+  },
+  {
+   "fieldname": "nominated_date",
+   "fieldtype": "Date",
+   "label": "Nominated Date"
+  },
+  {
+   "fieldname": "section_break_59",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "html_60",
+   "fieldtype": "HTML",
+   "options": "Are you related to any present or ex-employee of QPIC or were previously employed by QPIC"
+  },
+  {
+   "fieldname": "select_61",
+   "fieldtype": "Select",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "relationship",
+   "fieldtype": "Data",
+   "label": "Relationship"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Data",
+   "label": "Position"
+  },
+  {
+   "fieldname": "column_break_65",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Data",
+   "label": "Project & Location"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "period_of_service",
+   "fieldtype": "Data",
+   "label": "Period of Service"
+  },
+  {
+   "fieldname": "reason_for_relieving",
+   "fieldtype": "Small Text",
+   "label": "Reason for Relieving"
+  },
+  {
+   "fieldname": "section_break_70",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "declaration",
+   "fieldtype": "HTML",
+   "label": "Declaration",
+   "options": "<b>Declaration :</b> I certify that the statements made by me are true, complete and correct. I agree that in case the Company, at any time, finds that the information furnished by me as above is not true, the Company shall have the right to terminate my employment without any notice at any time"
+  },
+  {
+   "default": "0",
+   "fieldname": "i_agree",
+   "fieldtype": "Check",
+   "label": "I Agree"
+  },
+  {
+   "depends_on": "eval:frappe.user.has_role('HR User')",
+   "fieldname": "for_office_use_only_section",
+   "fieldtype": "Section Break",
+   "label": "For Office Use only"
+  },
+  {
+   "fieldname": "joining_details",
+   "fieldtype": "Heading",
+   "label": "Joining Details"
+  },
+  {
+   "fieldname": "present_designation",
+   "fieldtype": "Link",
+   "label": " Present Designation",
+   "options": "Designation"
+  },
+  {
+   "fieldname": "department1",
+   "fieldtype": "Link",
+   "label": "Department1",
+   "options": "Department"
+  },
+  {
+   "fieldname": "date_of_appointment",
+   "fieldtype": "Date",
+   "label": "Date of Appointment"
+  },
+  {
+   "fetch_from": "job_offer.gross_salary",
+   "fieldname": "gross_salary",
+   "fieldtype": "Currency",
+   "label": "Gross Salary"
+  },
+  {
+   "fieldname": "column_break_79",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_confirmation",
+   "fieldtype": "Date",
+   "label": "Date of Confirmation"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "others",
+   "fieldtype": "Small Text",
+   "label": "Others"
+  },
+  {
+   "fieldname": "mandatory_attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Mandatory Attachments"
+  },
+  {
+   "fieldname": "offer_letter_download",
+   "fieldtype": "Button",
+   "label": "Offer Letter "
+  },
+  {
+   "fieldname": "offer_letter",
+   "fieldtype": "Attach",
+   "label": "Offer Letter "
+  },
+  {
+   "fieldname": "column_break_86",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reporting_form",
+   "fieldtype": "Button",
+   "label": "Reporting Form "
+  },
+  {
+   "fieldname": "attach_109",
+   "fieldtype": "Attach",
+   "label": "Reporting Form"
+  },
+  {
+   "fieldname": "nomination_form",
+   "fieldtype": "Button",
+   "label": "Nomination Form "
+  },
+  {
+   "fieldname": "signed_nomination_form",
+   "fieldtype": "Attach",
+   "label": "Nomination Form "
+  },
+  {
+   "fieldname": "column_break_91",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_89",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "undertaking_form",
+   "fieldtype": "Button",
+   "label": "Undertaking Form "
+  },
+  {
+   "fieldname": "attach_106",
+   "fieldtype": "Attach",
+   "label": "Undertaking Form "
+  },
+  {
+   "fieldname": "column_break_38",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "employment_details_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "html_49",
+   "fieldtype": "HTML",
+   "options": "<b> Previous Employment Details</b>"
+  },
+  {
+   "fieldname": "experience",
+   "fieldtype": "Table",
+   "options": "Employee External Work History"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-09-05 10:26:30.342988",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Joining Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

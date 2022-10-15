@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:employee",
+ "creation": "2022-05-19 15:49:12.990877",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "date",
+  "overtime",
+  "column_break_6",
+  "weekend_ot",
+  "holiday_ot",
+  "lwp"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee",
+   "unique": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "overtime",
+   "fieldtype": "Float",
+   "label": "Overtime"
+  },
+  {
+   "fieldname": "weekend_ot",
+   "fieldtype": "Float",
+   "label": "Weekend OT"
+  },
+  {
+   "fieldname": "holiday_ot",
+   "fieldtype": "Float",
+   "label": "Holiday OT"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name"
+  },
+  {
+   "fieldname": "lwp",
+   "fieldtype": "Float",
+   "label": "Leave Without Pay"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-07-04 22:08:09.393351",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "OT Calculation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

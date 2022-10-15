@@ -1,0 +1,261 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "HR-REQ.####",
+ "creation": "2022-07-18 17:48:42.832149",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "status",
+  "column_break_2",
+  "requested_date",
+  "section_break_3",
+  "employee",
+  "employee_name",
+  "nationality",
+  "passport_number",
+  "designation",
+  "department",
+  "bank_name",
+  "account_number",
+  "column_break_5",
+  "resident_id_number",
+  "date_of_joining",
+  "company",
+  "salary",
+  "date_of_birth",
+  "hr_form_select",
+  "reviewer",
+  "request_details_section",
+  "hr_form",
+  "remarks",
+  "for_office_use_section",
+  "department_head",
+  "column_break_13",
+  "admin_manager",
+  "column_break_14",
+  "managing_director",
+  "section_break_16",
+  "html",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.resident_id_number",
+   "fieldname": "resident_id_number",
+   "fieldtype": "Data",
+   "label": "Resident ID Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.date_of_joining",
+   "fieldname": "date_of_joining",
+   "fieldtype": "Date",
+   "label": "Date of Joining",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.date_of_birth",
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "read_only": 1
+  },
+  {
+   "fieldname": "request_details_section",
+   "fieldtype": "Section Break",
+   "label": "Request Details"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "for_office_use_section",
+   "fieldtype": "Section Break",
+   "label": "For Office Use"
+  },
+  {
+   "fieldname": "department_head",
+   "fieldtype": "Small Text",
+   "label": "Department Head"
+  },
+  {
+   "fieldname": "admin_manager",
+   "fieldtype": "Small Text",
+   "label": "Admin Manager "
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "managing_director",
+   "fieldtype": "Small Text",
+   "label": "Managing Director"
+  },
+  {
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "html",
+   "fieldtype": "HTML",
+   "label": "HTML",
+   "options": "Note: Save and attach supporting documents, as per the requirements, along with this form. "
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hr_form",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "HR Form",
+   "options": "HR Request Table"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nRequested\nInitiated\nCompleted\nHold"
+  },
+  {
+   "fieldname": "requested_date",
+   "fieldtype": "Date",
+   "label": "Requested Date"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hr_form_select",
+   "fieldtype": "Select",
+   "label": "HR Form",
+   "options": "\nSalary Certificate\nLetter to Bank\nOthers"
+  },
+  {
+   "fetch_from": "employee.company",
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "label": "Company",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.gross_salary",
+   "fieldname": "salary",
+   "fieldtype": "Data",
+   "label": "Salary",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.bank_ac_no",
+   "fieldname": "account_number",
+   "fieldtype": "Data",
+   "label": "Account Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.bank_name",
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "label": "Bank Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.nationality",
+   "fieldname": "nationality",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Nationality"
+  },
+  {
+   "fetch_from": "employee.passport_number",
+   "fieldname": "passport_number",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Passport Number"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "HR Request",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.reviewer",
+   "fieldname": "reviewer",
+   "fieldtype": "Link",
+   "label": "Reviewer",
+   "options": "User"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-08-06 13:43:05.956126",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "HR Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

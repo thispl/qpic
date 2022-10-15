@@ -95,24 +95,68 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	'Salary Slip':{
+		'before_insert':'qpic.custom.get_ot_calculation_on_salary_slip'
+	},
+	'Employee Advance':{
+		'on_submit':'qpic.custom.salary_advance',
+		'on_update':'qpic.custom.skip_workflow_emp_add'
+		
+	},
+	'Update Employee Personal Info':{
+		'on_submit':'qpic.custom.update_employee'
+	},
+	# ,'Resignation Form':{
+	# 	'on_submit':'qpic.utils.update_employee_status'
+	# }
+	'Salary Increment':{
+		'on_submit':'qpic.qpic.doctype.salary_increment.salary_increment.update_mis_basic'
+	},
+
+	'Leave Application':{
+		# 'on_update':'qpic.custom.skip_workflow_state',
+		'on_submit':'qpic.custom.create_leave_application',
+	},
+	'Opportunity':{
+		'on_update':['qpic.custom.create_item',
+					'qpic.custom.create_technical_costing']
+	}
+
+	# 'Payroll Entry':{
+	# 	'on_submit':'qpic.utils.generate_custom_payroll',
+	# },
+	# 'Final Payroll Entry':{
+	# 	'on_update':'qpic.utils.submit_payroll',
+	# },
+	# 'Leave Rejoining Form':{
+	# 	'on_update':'qpic.utils.validate_leave_allocation',
+		
+	# },
+
+
+	
+	# "*": {
+	# 	"on_update": "method",
+	# 	"on_cancel": "method",
+	# 	"on_trash": "method"
+	# }
+}
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"qpic.tasks.all"
 # 	],
-# 	"daily": [
-# 		"qpic.tasks.daily"
-# 	],
+	"daily": [
+		"qpic.utils.mark_empl_suspend",
+		"qpic.utils.mark_empl_active",
+		"qpic.mark_attendance.mark_att",
+		'qpic.custom.update_employee_status'
+	
+	],
 # 	"hourly": [
 # 		"qpic.tasks.hourly"
 # 	],
@@ -122,7 +166,7 @@ app_license = "MIT"
 # 	"monthly": [
 # 		"qpic.tasks.monthly"
 # 	]
-# }
+}
 
 # Testing
 # -------
@@ -186,3 +230,4 @@ user_data_fields = [
 # Recommended only for DocTypes which have limited documents with untranslated names
 # For example: Role, Gender, etc.
 # translated_search_doctypes = []
+fixtures = ['Custom Field','Client Script','Customize Form']

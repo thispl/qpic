@@ -1,0 +1,196 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:employee",
+ "creation": "2022-09-20 09:28:02.737684",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "salutation",
+  "employment_type",
+  "designation",
+  "column_break_5",
+  "probation_end_date",
+  "date_of_joining",
+  "grade",
+  "work_location",
+  "assessment_period_section",
+  "from_date",
+  "column_break_13",
+  "to_date",
+  "section_break_15",
+  "evaluator",
+  "section_break_17",
+  "evaluation",
+  "total_score",
+  "section_break_20",
+  "additional_remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fetch_from": "employee.salutation",
+   "fieldname": "salutation",
+   "fieldtype": "Link",
+   "label": "Salutation",
+   "options": "Salutation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Probation Evaluation Form",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.employment_type",
+   "fetch_if_empty": 1,
+   "fieldname": "employment_type",
+   "fieldtype": "Link",
+   "label": "Employment Type",
+   "options": "Employment Type"
+  },
+  {
+   "fetch_from": "employee.probation_end_date",
+   "fieldname": "probation_end_date",
+   "fieldtype": "Date",
+   "label": "Probation End Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.date_of_joining",
+   "fieldname": "date_of_joining",
+   "fieldtype": "Date",
+   "label": "Date of Joining",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.grade",
+   "fieldname": "grade",
+   "fieldtype": "Link",
+   "label": "Grade",
+   "options": "Employee Grade",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.work_location",
+   "fieldname": "work_location",
+   "fieldtype": "Link",
+   "label": "Work Location",
+   "options": "Work Location",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "designation",
+   "fieldtype": "Read Only",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "assessment_period_section",
+   "fieldtype": "Section Break",
+   "label": "Assessment Period"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "section_break_15",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "evaluator",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Evaluator",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_17",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "evaluation",
+   "fieldtype": "Table",
+   "label": "Evaluation",
+   "options": "Probation Evaluation Child"
+  },
+  {
+   "fieldname": "total_score",
+   "fieldtype": "Data",
+   "label": "Total Score"
+  },
+  {
+   "fieldname": "section_break_20",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "additional_remarks",
+   "fieldtype": "Small Text",
+   "label": "Additional Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-10-12 16:54:36.086662",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Probation Evaluation Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

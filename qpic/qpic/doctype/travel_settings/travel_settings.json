@@ -1,0 +1,175 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-09-19 09:15:44.743453",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ceo_allowance_section",
+  "hotel_and_per_day_africa",
+  "hotel_and_per_day_asia",
+  "hotel_and_per_day_europe",
+  "column_break_5",
+  "qdb_africa",
+  "qdb_asia",
+  "qdb_europe",
+  "managers_allowance_section",
+  "hotel_and_per_day_m_africa",
+  "hotel_and_per_day_m_asia",
+  "hotel_and_per_day_m_europe",
+  "column_break_6",
+  "qdb_m_africa",
+  "qdb_m_asia",
+  "qdb_m_europe",
+  "others_section",
+  "hotel_and_per_day_o_africa",
+  "hotel_and_per_day_o_asia",
+  "hotel_and_per_day_o_europe",
+  "column_break_7",
+  "qdb_o_africa",
+  "qdb_o_asia",
+  "qdb_o_europe"
+ ],
+ "fields": [
+  {
+   "fieldname": "ceo_allowance_section",
+   "fieldtype": "Section Break",
+   "label": "CEO Allowance"
+  },
+  {
+   "fieldname": "hotel_and_per_day_africa",
+   "fieldtype": "Currency",
+   "label": "Hotel and Per day Africa"
+  },
+  {
+   "fieldname": "hotel_and_per_day_asia",
+   "fieldtype": "Currency",
+   "label": "Hotel and Per day Asia"
+  },
+  {
+   "fieldname": "hotel_and_per_day_europe",
+   "fieldtype": "Currency",
+   "label": "Hotel and Per day Europe"
+  },
+  {
+   "fieldname": "qdb_africa",
+   "fieldtype": "Currency",
+   "label": "QDB Africa"
+  },
+  {
+   "fieldname": "qdb_asia",
+   "fieldtype": "Currency",
+   "label": "QDB Asia"
+  },
+  {
+   "fieldname": "qdb_europe",
+   "fieldtype": "Currency",
+   "label": "QDB Europe"
+  },
+  {
+   "fieldname": "managers_allowance_section",
+   "fieldtype": "Section Break",
+   "label": "Managers Allowance"
+  },
+  {
+   "fieldname": "hotel_and_per_day_m_africa",
+   "fieldtype": "Currency",
+   "label": "Hotel and Per day Africa"
+  },
+  {
+   "fieldname": "hotel_and_per_day_m_asia",
+   "fieldtype": "Currency",
+   "label": "Hotel and Per day Asia"
+  },
+  {
+   "fieldname": "hotel_and_per_day_m_europe",
+   "fieldtype": "Currency",
+   "label": "Hotel and Per day Europe"
+  },
+  {
+   "fieldname": "qdb_m_africa",
+   "fieldtype": "Currency",
+   "label": "QDB  Africa"
+  },
+  {
+   "fieldname": "qdb_m_asia",
+   "fieldtype": "Currency",
+   "label": "QDB Asia"
+  },
+  {
+   "fieldname": "qdb_m_europe",
+   "fieldtype": "Currency",
+   "label": "QDB Europe"
+  },
+  {
+   "fieldname": "others_section",
+   "fieldtype": "Section Break",
+   "label": "Others "
+  },
+  {
+   "fieldname": "hotel_and_per_day_o_africa",
+   "fieldtype": "Currency",
+   "label": "Hotel and Per day Africa"
+  },
+  {
+   "fieldname": "hotel_and_per_day_o_asia",
+   "fieldtype": "Currency",
+   "label": "Hotel and Per day Asia"
+  },
+  {
+   "fieldname": "hotel_and_per_day_o_europe",
+   "fieldtype": "Currency",
+   "label": "Hotel and Per day Europe"
+  },
+  {
+   "fieldname": "qdb_o_africa",
+   "fieldtype": "Currency",
+   "label": "QDB Africa"
+  },
+  {
+   "fieldname": "qdb_o_asia",
+   "fieldtype": "Currency",
+   "label": "QDB Asia"
+  },
+  {
+   "fieldname": "qdb_o_europe",
+   "fieldtype": "Currency",
+   "label": "QDB Europe"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-09-19 09:48:22.918732",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Travel Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

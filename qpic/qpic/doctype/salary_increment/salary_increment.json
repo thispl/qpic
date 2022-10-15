@@ -1,0 +1,249 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "SI.####",
+ "creation": "2022-07-22 14:54:15.958295",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_details_section",
+  "employee_number",
+  "employee_name",
+  "company",
+  "date_of_joining",
+  "resident_id_number",
+  "column_break_5",
+  "designation",
+  "department",
+  "email_id",
+  "grade",
+  "date_of_increment",
+  "current_salary_section",
+  "basic",
+  "hra",
+  "column_break_14",
+  "transportation",
+  "total_monthly_salary",
+  "increment_section",
+  "incremented_by",
+  "basic_1",
+  "hra_1",
+  "column_break_22",
+  "percentage",
+  "transportation_1",
+  "total_monthly_salary_1",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_number",
+   "fieldtype": "Link",
+   "label": "Employee Number",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee_number.company",
+   "fetch_if_empty": 1,
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "label": "Company",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee_number.date_of_joining",
+   "fetch_if_empty": 1,
+   "fieldname": "date_of_joining",
+   "fieldtype": "Date",
+   "label": "Date of Joining",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee_number.designation",
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee_number.department",
+   "fetch_if_empty": 1,
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department",
+   "read_only": 1
+  },
+  {
+   "fetch_if_empty": 1,
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email ID",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee_number.grade",
+   "fetch_if_empty": 1,
+   "fieldname": "grade",
+   "fieldtype": "Data",
+   "label": "Grade",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "employee_details_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Details"
+  },
+  {
+   "fieldname": "current_salary_section",
+   "fieldtype": "Section Break",
+   "label": "Current Salary"
+  },
+  {
+   "fetch_from": "employee_number.basic",
+   "fetch_if_empty": 1,
+   "fieldname": "basic",
+   "fieldtype": "Currency",
+   "label": "Basic",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee_number.hra",
+   "fetch_if_empty": 1,
+   "fieldname": "hra",
+   "fieldtype": "Currency",
+   "label": "HRA",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee_number.transportation",
+   "fetch_if_empty": 1,
+   "fieldname": "transportation",
+   "fieldtype": "Currency",
+   "label": "Transportation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee_number.gross_salary",
+   "fetch_if_empty": 1,
+   "fieldname": "total_monthly_salary",
+   "fieldtype": "Currency",
+   "label": "Total Monthly Salary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "increment_section",
+   "fieldtype": "Section Break",
+   "label": "Increment"
+  },
+  {
+   "fieldname": "incremented_by",
+   "fieldtype": "Select",
+   "label": "Incremented By",
+   "options": "Value\nPercentage"
+  },
+  {
+   "fetch_from": "employee_number.resident_id_number",
+   "fieldname": "resident_id_number",
+   "fieldtype": "Data",
+   "label": "Resident ID Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee_number.hra",
+   "fetch_if_empty": 1,
+   "fieldname": "hra_1",
+   "fieldtype": "Currency",
+   "label": "HRA",
+   "read_only_depends_on": "eval:doc.incremented_by == 'Percentage'"
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee_number.transportation",
+   "fetch_if_empty": 1,
+   "fieldname": "transportation_1",
+   "fieldtype": "Currency",
+   "label": "Transportation",
+   "read_only_depends_on": "eval:doc.incremented_by == 'Percentage'"
+  },
+  {
+   "fetch_from": "employee_number.gross_salary",
+   "fetch_if_empty": 1,
+   "fieldname": "total_monthly_salary_1",
+   "fieldtype": "Currency",
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.incremented_by == 'Percentage'",
+   "fieldname": "percentage",
+   "fieldtype": "Percent",
+   "label": "Percentage"
+  },
+  {
+   "fetch_from": "employee_number.basic",
+   "fetch_if_empty": 1,
+   "fieldname": "basic_1",
+   "fieldtype": "Currency",
+   "label": "Basic",
+   "read_only_depends_on": "eval:doc.incremented_by == 'Percentage'"
+  },
+  {
+   "fetch_from": "employee_number.employee_name",
+   "fetch_if_empty": 1,
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_of_increment",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Date of Increment"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Salary Increment",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-07-31 10:01:03.626100",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Salary Increment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

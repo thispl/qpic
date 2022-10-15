@@ -1,0 +1,163 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:emp_name",
+ "creation": "2022-07-28 10:32:37.008752",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "status_section",
+  "employee_details_section",
+  "employee",
+  "emp_name",
+  "email",
+  "job_title",
+  "dept",
+  "column_break_5",
+  "resident_id_number",
+  "date_of_join",
+  "date_of_birth",
+  "section_break_13",
+  "date_of_issue",
+  "subject",
+  "created_by",
+  "warning_template_section",
+  "warning_template",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "status_section",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nRequested\nInitiated\nCompleted\nHold"
+  },
+  {
+   "fieldname": "employee_details_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Details"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "emp_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "job_title",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "dept",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.resident_id_number",
+   "fieldname": "resident_id_number",
+   "fieldtype": "Data",
+   "label": "Resident ID Number(QID)"
+  },
+  {
+   "fetch_from": "employee.date_of_joining",
+   "fieldname": "date_of_join",
+   "fieldtype": "Date",
+   "label": "Date of Joining"
+  },
+  {
+   "fetch_from": "employee.date_of_birth",
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "date_of_issue",
+   "fieldtype": "Date",
+   "label": "Date of Issue"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User"
+  },
+  {
+   "fieldname": "warning_template_section",
+   "fieldtype": "Section Break",
+   "label": "Warning Template"
+  },
+  {
+   "fieldname": "warning_template",
+   "fieldtype": "Text Editor",
+   "label": "Warning Template"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Warning Letter",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee ID",
+   "options": "Employee"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-07-28 10:55:51.225766",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Warning Letter",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

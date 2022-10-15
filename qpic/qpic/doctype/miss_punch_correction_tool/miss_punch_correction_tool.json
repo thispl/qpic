@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "MPC.####",
+ "creation": "2022-08-05 09:58:37.868955",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "attendance_date",
+  "column_break_2",
+  "download_template",
+  "attach",
+  "section_break_5",
+  "csv_preview",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "attendance_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Attendance Date"
+  },
+  {
+   "fieldname": "download_template",
+   "fieldtype": "Button",
+   "label": "Download Template"
+  },
+  {
+   "fieldname": "attach",
+   "fieldtype": "Attach",
+   "label": "Attach"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "csv_preview",
+   "fieldtype": "HTML",
+   "label": "CSV Preview"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Miss Punch Correction Tool",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-08-07 12:12:57.507866",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Miss Punch Correction Tool",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

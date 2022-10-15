@@ -1,0 +1,40 @@
+{
+ "attach_print": 1,
+ "channel": "Email",
+ "creation": "2022-09-05 17:03:12.654300",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Final Payroll Entry",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "TEst",
+ "modified": "2022-09-05 17:03:28.154127",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "FPE",
+ "owner": "Administrator",
+ "print_format": "",
+ "recipients": [
+  {
+   "cc": "hrm@qatarpac.net",
+   "condition": "doc.workflow_state == 'Pending for HR'",
+   "receiver_by_document_field": "",
+   "receiver_by_role": ""
+  },
+  {
+   "condition": "doc.workflow_state == 'Pending for CFO'",
+   "receiver_by_role": "CFO"
+  },
+  {
+   "condition": "doc.workflow_state == 'Pending for CEO'",
+   "receiver_by_role": "CEO"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Final Payroll Entry - Pending for Approval",
+ "value_changed": "workflow_state"
+}

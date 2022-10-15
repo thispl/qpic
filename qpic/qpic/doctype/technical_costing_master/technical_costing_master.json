@@ -1,0 +1,304 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-09-27 12:08:29.893722",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "top_section",
+  "heat_cut_extra",
+  "heat_cut_thread",
+  "heat_cut_wastage",
+  "column_break_5",
+  "hemmed_us_extra",
+  "hemmed_us_thread",
+  "hemmed_us_wastage",
+  "column_break_9",
+  "hemmed_thread_extra",
+  "hemmed_thread_thread",
+  "hemmed_thread_wastage",
+  "column_break_13",
+  "roll_to_roll_extra",
+  "roll_to_roll_thread",
+  "roll_to_roll_wastage",
+  "bottom_section",
+  "sfss_extra",
+  "sfss_thread",
+  "column_break_20",
+  "sfds_extra",
+  "sfds_thread",
+  "column_break_23",
+  "dfss_extra",
+  "dfss_thread",
+  "column_break_26",
+  "dfds_extra",
+  "dfds_thread",
+  "column_break_29",
+  "bottom_roll_to_roll_extra",
+  "bottom_roll_to_roll_thread",
+  "section_break_32",
+  "no",
+  "column_break_34",
+  "yes_one_side",
+  "column_break_36",
+  "yestwo_side",
+  "coating_side_section",
+  "one_side",
+  "column_break_40",
+  "two_side",
+  "bottom_liner_section",
+  "heat_sealed",
+  "column_break_44",
+  "roll_to_roll",
+  "column_break_46",
+  "open"
+ ],
+ "fields": [
+  {
+   "fieldname": "top_section",
+   "fieldtype": "Section Break",
+   "label": "Top"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hemmed_us_extra",
+   "fieldtype": "Int",
+   "label": "Hemmed (US) Extra to Cut length"
+  },
+  {
+   "fieldname": "hemmed_us_thread",
+   "fieldtype": "Int",
+   "label": "Hemmed (US) Thread"
+  },
+  {
+   "fieldname": "hemmed_us_wastage",
+   "fieldtype": "Percent",
+   "label": "Hemmed (US) Wastage"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hemmed_thread_extra",
+   "fieldtype": "Int",
+   "label": "Hemmed (Thread) Extra  to Cut length"
+  },
+  {
+   "fieldname": "hemmed_thread_thread",
+   "fieldtype": "Int",
+   "label": "Hemmed (Thread) Thread"
+  },
+  {
+   "fieldname": "hemmed_thread_wastage",
+   "fieldtype": "Percent",
+   "label": "Hemmed (Thread) Wastage"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "roll_to_roll_extra",
+   "fieldtype": "Int",
+   "label": "Roll to Roll Extra to Cut length"
+  },
+  {
+   "fieldname": "roll_to_roll_thread",
+   "fieldtype": "Int",
+   "label": "Roll to Roll Thread"
+  },
+  {
+   "fieldname": "roll_to_roll_wastage",
+   "fieldtype": "Percent",
+   "label": "Roll to Roll Wastage"
+  },
+  {
+   "fieldname": "bottom_section",
+   "fieldtype": "Section Break",
+   "label": "Bottom"
+  },
+  {
+   "fieldname": "sfss_extra",
+   "fieldtype": "Int",
+   "label": "SFSS Extra to Cut length"
+  },
+  {
+   "fieldname": "sfss_thread",
+   "fieldtype": "Int",
+   "label": "SFSS Thread"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sfds_extra",
+   "fieldtype": "Int",
+   "label": "SFDS Extra to Cut length"
+  },
+  {
+   "fieldname": "sfds_thread",
+   "fieldtype": "Int",
+   "label": "SFDS Thread"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dfss_extra",
+   "fieldtype": "Int",
+   "label": "DFSS Extra to Cut length"
+  },
+  {
+   "fieldname": "dfss_thread",
+   "fieldtype": "Int",
+   "label": "DFSS Thread"
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dfds_extra",
+   "fieldtype": "Int",
+   "label": "DFDS Extra to Cut length"
+  },
+  {
+   "fieldname": "dfds_thread",
+   "fieldtype": "Int",
+   "label": "DFDS Thread"
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bottom_roll_to_roll_extra",
+   "fieldtype": "Int",
+   "label": "Roll to Roll Extra to Cut length"
+  },
+  {
+   "fieldname": "bottom_roll_to_roll_thread",
+   "fieldtype": "Int",
+   "label": "Roll to Roll Thread"
+  },
+  {
+   "fieldname": "heat_cut_extra",
+   "fieldtype": "Int",
+   "label": "Heat Cut Extra to Cut length"
+  },
+  {
+   "fieldname": "heat_cut_thread",
+   "fieldtype": "Int",
+   "label": "Heat Cut Thread"
+  },
+  {
+   "fieldname": "heat_cut_wastage",
+   "fieldtype": "Percent",
+   "label": "Heat Cut Wastage"
+  },
+  {
+   "fieldname": "section_break_32",
+   "fieldtype": "Section Break",
+   "label": "Print"
+  },
+  {
+   "fieldname": "no",
+   "fieldtype": "Int",
+   "label": "No"
+  },
+  {
+   "fieldname": "yes_one_side",
+   "fieldtype": "Int",
+   "label": "Yes, One side"
+  },
+  {
+   "fieldname": "yestwo_side",
+   "fieldtype": "Int",
+   "label": "Yes,Two side"
+  },
+  {
+   "fieldname": "coating_side_section",
+   "fieldtype": "Section Break",
+   "label": "Coating side"
+  },
+  {
+   "fieldname": "one_side",
+   "fieldtype": "Int",
+   "label": "One Side"
+  },
+  {
+   "fieldname": "two_side",
+   "fieldtype": "Int",
+   "label": "Two Side"
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_36",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_40",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bottom_liner_section",
+   "fieldtype": "Section Break",
+   "label": "Bottom Liner"
+  },
+  {
+   "fieldname": "heat_sealed",
+   "fieldtype": "Float",
+   "label": "Heat Sealed"
+  },
+  {
+   "fieldname": "roll_to_roll",
+   "fieldtype": "Float",
+   "label": "Roll to Roll"
+  },
+  {
+   "fieldname": "open",
+   "fieldtype": "Float",
+   "label": "Open"
+  },
+  {
+   "fieldname": "column_break_44",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_46",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-09-28 17:50:05.668702",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Technical Costing Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

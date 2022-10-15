@@ -1,0 +1,131 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "FPE.####",
+ "creation": "2022-08-10 20:20:35.099787",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "from_date",
+  "to_date",
+  "grade",
+  "column_break_3",
+  "date",
+  "company",
+  "number_of_employee",
+  "download",
+  "download_wps",
+  "amended_from",
+  "download_payroll_sheet",
+  "section_break_14",
+  "preview"
+ ],
+ "fields": [
+  {
+   "fetch_from": "payroll_entry.number_of_employees",
+   "fieldname": "number_of_employee",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Number of Employee"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Final Payroll Entry",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "payroll_entry.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "download",
+   "fieldtype": "Button",
+   "label": "Download Salary Sheet"
+  },
+  {
+   "fetch_from": "payroll_entry.start_date",
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start date"
+  },
+  {
+   "fetch_from": "payroll_entry.end_date",
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fetch_from": "payroll_entry.grade",
+   "fieldname": "grade",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Grade",
+   "options": "Employee Grade"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "download_wps",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Download WPS "
+  },
+  {
+   "fieldname": "download_payroll_sheet",
+   "fieldtype": "Attach",
+   "hidden": 1,
+   "label": "Download Payroll Sheet"
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "preview",
+   "fieldtype": "HTML",
+   "label": "Preview"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-10-04 12:26:39.749706",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Final Payroll Entry",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "grade"
+}

@@ -234,4 +234,4 @@ user_data_fields = [
 # Recommended only for DocTypes which have limited documents with untranslated names
 # For example: Role, Gender, etc.
 # translated_search_doctypes = []
-fixtures = ['Custom Field','Client Script','Customize Form']
+fixtures = ['Custom Field','Client Script','Print Format']

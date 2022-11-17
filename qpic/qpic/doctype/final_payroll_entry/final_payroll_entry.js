@@ -116,8 +116,8 @@ frappe.ui.form.on('Final Payroll Entry', {
 			frappe.call({
 				method: "qpic.qpic.doctype.final_payroll_entry.final_payroll_entry.final_html_view",
 				args:{
-					'from_date':"2022-08-01",
-					'to_date':"2022-08-31",
+					'from_date':"2022-09-01",
+					'to_date':"2022-09-31",
 					'grade':grade_list[1]
 				},
 				callback: function(g) {
@@ -150,8 +150,8 @@ frappe.ui.form.on('Final Payroll Entry', {
 			frappe.call({
 				method: "qpic.qpic.doctype.final_payroll_entry.final_payroll_entry.final_html_view",
 				args:{
-					'from_date':"2022-08-01",
-					'to_date':"2022-08-31",
+					'from_date':"2022-09-01",
+					'to_date':"2022-09-31",
 					'grade':grade_list[0]
 				},
 				freeze:true,
@@ -187,8 +187,8 @@ frappe.ui.form.on('Final Payroll Entry', {
 						frappe.call({
 							method: "qpic.qpic.doctype.final_payroll_entry.final_payroll_entry.final_html_view",
 							args:{
-								'from_date':"2022-08-01",
-								'to_date':"2022-08-31",
+								'from_date':"2022-09-01",
+								'to_date':"2022-09-31",
 								'grade':grade_list[2]
 							},
 							callback: function(c) {

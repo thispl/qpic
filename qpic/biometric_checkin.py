@@ -15,8 +15,6 @@ def mark_checkin(**args):
                 return "Checkin Marked"
             except:
                 frappe.log_error(title="checkin error",message=frappe.get_traceback())
-        else:
-            frappe.log_error(title="checkin error",message=args)
     else:
         return "Checkin Marked"
 
@@ -44,5 +42,3 @@ def bulk_mark_checkin(attlog):
                     frappe.db.commit()
                 except:
                     frappe.log_error(title="checkin error",message=frappe.get_traceback())
-            else:
-                frappe.log_error(title="checkin error",message=att)

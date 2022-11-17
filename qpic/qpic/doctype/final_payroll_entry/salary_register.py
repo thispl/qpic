@@ -138,13 +138,13 @@ def make_xlsx(data, sheet_name=None, wb=None, column_widths=None):
     # vertical = Alignment(textRotation=180,vertical='center',horizontal='center')
         
     if ss.grade == "Factory Staff":
-        for cell in ws["15:15"]:
+        for cell in ws["13:13"]:
             cell.alignment = align_center
     elif ss.grade == "Office Staff":
         for cell in ws["21:21"]:
             cell.alignment = align_center
     else:
-        for cell in ws["290:290"]:
+        for cell in ws["276:276"]:
             cell.alignment = align_center
         
     # for cell in ws["2:2"]:
@@ -156,13 +156,13 @@ def make_xlsx(data, sheet_name=None, wb=None, column_widths=None):
         
     
     if ss.grade == "Factory Staff":
-        for cell in ws["15:15"]:
+        for cell in ws["13:13"]:
             cell.font = bold_font
     elif ss.grade == "Office Staff":
         for cell in ws["21:21"]:
             cell.font = bold_font
     else:
-        for cell in ws["290:290"]:
+        for cell in ws["276:276"]:
             cell.font = bold_font
         
     for rows in ws.iter_rows(min_row=1, max_row=3, min_col=1, max_col=30):

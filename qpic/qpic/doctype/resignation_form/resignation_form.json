@@ -95,12 +95,6 @@
    "options": "Resignation Form"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "options": "Resignation Form"
-  },
-  {
    "fieldname": "approved_relieving_date",
    "fieldtype": "Date",
    "label": "Approved Relieving Date"

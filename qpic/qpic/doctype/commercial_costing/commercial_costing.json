@@ -1,0 +1,1305 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "CC.####",
+ "creation": "2022-10-26 15:25:34.536574",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "opportunity",
+  "quotation",
+  "technical_costing",
+  "section_break_2",
+  "details_section",
+  "commercial_costing_item",
+  "item_code",
+  "item_name",
+  "item_group",
+  "uom",
+  "order_quantity",
+  "section_break_10",
+  "warp",
+  "top",
+  "top_length",
+  "top_thread",
+  "lamination_optional",
+  "column_break_16",
+  "weft",
+  "bottom",
+  "bottom_length",
+  "bottom_thread",
+  "liner_optional",
+  "column_break_22",
+  "width",
+  "print",
+  "extra",
+  "thread_and_others",
+  "column_break_27",
+  "length",
+  "unit_weight",
+  "one",
+  "production_size_cut_leng_x",
+  "production_size_cut_leng_y",
+  "lamination_section",
+  "coating_side",
+  "column_break_34",
+  "coating_gsm",
+  "column_break_36",
+  "lamination_wt_per_pcs_gms",
+  "liner_section",
+  "liner_weight_gms",
+  "unit_weight_biforcation_section",
+  "fabric_gms",
+  "column_break_42",
+  "lamination_gms",
+  "column_break_44",
+  "liner_gms",
+  "column_break_46",
+  "other_gms",
+  "column_break_48",
+  "total",
+  "column_break_50",
+  "no_of_units",
+  "section_break_52",
+  "weft_raw_material",
+  "weft_raw_material_",
+  "strip_raw_material",
+  "strip_raw_material_",
+  "warp_raw_material",
+  "warp_raw_material_",
+  "lamination_raw_material",
+  "lamination_raw_material_",
+  "liner_raw_material",
+  "liner_raw_material_",
+  "section_break_61",
+  "total_raw_material_cost",
+  "tab_break_58",
+  "loom_section",
+  "loom_machine_hours",
+  "column_break_61",
+  "loom_manhrmachhr",
+  "column_break_63",
+  "loom_total_man_hrs",
+  "column_break_65",
+  "loom_manhr_rate",
+  "column_break_67",
+  "loom_cost",
+  "tape_section",
+  "tape_machine_hours",
+  "column_break_71",
+  "tape_manhrmachhr",
+  "column_break_73",
+  "tape_total_man_hrs",
+  "column_break_75",
+  "tape_manhr_rate",
+  "column_break_77",
+  "tape_cost",
+  "laminations_section",
+  "lamination_machine_hours",
+  "column_break_81",
+  "lamination_manhrmachhr",
+  "column_break_83",
+  "lamination_total_man_hrs",
+  "column_break_85",
+  "lamination_manhr_rate",
+  "column_break_87",
+  "lamination_cost",
+  "blown_film_section",
+  "blown_film_machine_hours",
+  "column_break_102",
+  "blown_film_manhr_machhr",
+  "column_break_104",
+  "total_man_hrs",
+  "column_break_106",
+  "manhr_rate",
+  "column_break_108",
+  "cost",
+  "section_break_110",
+  "liner_cutting_machine_hours",
+  "column_break_112",
+  "liner_cutting_manhr_machhr",
+  "column_break_114",
+  "liner_cutting_total_man_hrs",
+  "column_break_116",
+  "liner_cutting_manhr_rate",
+  "column_break_118",
+  "liner_cutting_cost",
+  "printing_section",
+  "printing_machine_hours",
+  "column_break_92",
+  "printing_manhrmachhr",
+  "column_break_94",
+  "printing_total_man_hrs",
+  "column_break_96",
+  "printing_manhr_rate",
+  "column_break_98",
+  "printing_cost",
+  "section_break_111",
+  "cutting_machine_hours",
+  "column_break_123",
+  "cutting_manhr_machhr",
+  "column_break_125",
+  "cutting_total_man_hrs",
+  "column_break_127",
+  "cutting_manhr_rate",
+  "column_break_129",
+  "cutting_cost",
+  "section_break_112",
+  "stitching_machine_hours",
+  "column_break_132",
+  "stitching_manhr_machhr",
+  "column_break_134",
+  "stitching_total_man_hrs",
+  "column_break_136",
+  "stitching_manhr_rate",
+  "column_break_138",
+  "stitching_cost",
+  "bailing_section",
+  "bailing_machine_hours",
+  "column_break_142",
+  "bailing_manhr_machhr",
+  "column_break_144",
+  "bailing_total_man_hrs",
+  "column_break_146",
+  "bailing_manhr_rate",
+  "column_break_148",
+  "bailing_cost",
+  "section_break_150",
+  "total_manpower",
+  "overhead_tab",
+  "tapemachine_hours",
+  "cuttingmachine_hours",
+  "blownfilm_machine_hours",
+  "column_break_156",
+  "taperate",
+  "cuttingrate",
+  "blownfilm__rate",
+  "column_break_160",
+  "tapecost",
+  "cuttingcost",
+  "blownfilm_cost",
+  "total_overhead",
+  "freight_section",
+  "freight_machine_hours",
+  "column_break_167",
+  "freight_rate",
+  "column_break_169",
+  "freight_currency",
+  "column_break_171",
+  "quantity_per_cntrtruck",
+  "freight_amount",
+  "section_break_174",
+  "raw_material_cost",
+  "1",
+  "manpower_cost",
+  "12",
+  "overhead_cost",
+  "23",
+  "freight_cost",
+  "section_break_186",
+  "cost_per_order",
+  "section_break_176",
+  "cost_per_metric_ton",
+  "column_break_178",
+  "cost_per_metric_ton_usd",
+  "section_break_180",
+  "cost_per_unit",
+  "column_break_182",
+  "cost_per_unit_usd",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "opportunity",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Opportunity",
+   "options": "Opportunity"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "commercial_costing_item",
+   "fieldtype": "Table",
+   "label": "Commercial Costing Item",
+   "options": "Technical Costing Item"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Item Name"
+  },
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Item Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "order_quantity",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Order Quantity"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "warp",
+   "fieldtype": "Float",
+   "label": "Warp (|||)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "top",
+   "fieldtype": "Select",
+   "label": "Top",
+   "options": "Heat Cut\nHemmed (US)\nHemmed (Thread)\nRoll to Roll",
+   "read_only": 1
+  },
+  {
+   "fieldname": "top_thread",
+   "fieldtype": "Float",
+   "label": "Top Thread",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "lamination_optional",
+   "fieldtype": "Check",
+   "label": "Lamination Optional",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weft",
+   "fieldtype": "Float",
+   "label": "Weft(----)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bottom",
+   "fieldtype": "Select",
+   "label": "Bottom",
+   "options": "SFSS\nSFDS\nDFSS\nDFDS\nRoll to Roll",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bottom_thread",
+   "fieldtype": "Float",
+   "label": "Bottom Thread",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "liner_optional",
+   "fieldtype": "Check",
+   "label": "Liner Optional",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "print",
+   "fieldtype": "Select",
+   "label": "Print",
+   "options": "No\nYes, One side\nYes, Two side",
+   "read_only": 1
+  },
+  {
+   "fieldname": "extra",
+   "fieldtype": "Float",
+   "label": "Extra",
+   "read_only": 1
+  },
+  {
+   "fieldname": "thread_and_others",
+   "fieldtype": "Float",
+   "label": "Thread & Others",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "unit_weight",
+   "fieldtype": "Float",
+   "label": "Unit Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "production_size_cut_leng_x",
+   "fieldtype": "Float",
+   "label": "Production Size",
+   "read_only": 1
+  },
+  {
+   "fieldname": "production_size_cut_leng_y",
+   "fieldtype": "Float",
+   "label": "Production Size",
+   "read_only": 1
+  },
+  {
+   "depends_on": "lamination_optional",
+   "fieldname": "lamination_section",
+   "fieldtype": "Section Break",
+   "label": "Lamination"
+  },
+  {
+   "fieldname": "coating_side",
+   "fieldtype": "Select",
+   "label": "Coating Side",
+   "options": "One Side\nTwo Side",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "coating_gsm",
+   "fieldtype": "Float",
+   "label": "Coating GSM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_36",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lamination_wt_per_pcs_gms",
+   "fieldtype": "Float",
+   "label": "Lamination wt. per pcs (gms)",
+   "read_only": 1
+  },
+  {
+   "depends_on": "liner_optional",
+   "fieldname": "liner_section",
+   "fieldtype": "Section Break",
+   "label": "Liner"
+  },
+  {
+   "fieldname": "liner_weight_gms",
+   "fieldtype": "Float",
+   "label": "Liner Weight (gms)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "unit_weight_biforcation_section",
+   "fieldtype": "Section Break",
+   "label": "Unit Weight Biforcation"
+  },
+  {
+   "fieldname": "fabric_gms",
+   "fieldtype": "Float",
+   "label": "Fabric",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_42",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lamination_gms",
+   "fieldtype": "Float",
+   "label": "Lamination",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_44",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "liner_gms",
+   "fieldtype": "Float",
+   "label": "Liner",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_46",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "other_gms",
+   "fieldtype": "Float",
+   "label": "Other",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_48",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Float",
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_50",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "no_of_units",
+   "fieldtype": "Float",
+   "label": "No of units",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_52",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "warp_raw_material",
+   "fieldtype": "Table",
+   "label": "Warp Raw Material",
+   "options": "Tape Raw Material"
+  },
+  {
+   "fieldname": "strip_raw_material",
+   "fieldtype": "Table",
+   "label": "Strip Raw Material",
+   "options": "Tape Raw Material"
+  },
+  {
+   "fieldname": "weft_raw_material",
+   "fieldtype": "Table",
+   "label": "Weft Raw Material",
+   "options": "Tape Raw Material"
+  },
+  {
+   "fieldname": "liner_raw_material",
+   "fieldtype": "Table",
+   "label": "Liner Raw Material",
+   "options": "Tape Raw Material"
+  },
+  {
+   "fieldname": "lamination_raw_material",
+   "fieldtype": "Table",
+   "label": "Lamination Raw Material",
+   "options": "Tape Raw Material"
+  },
+  {
+   "fieldname": "tab_break_58",
+   "fieldtype": "Tab Break",
+   "label": "Manpower"
+  },
+  {
+   "fieldname": "loom_section",
+   "fieldtype": "Section Break",
+   "label": "Loom"
+  },
+  {
+   "fieldname": "loom_machine_hours",
+   "fieldtype": "Float",
+   "label": "Loom Machine Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loom_manhrmachhr",
+   "fieldtype": "Float",
+   "label": "Loom ManHr/Mach.Hr"
+  },
+  {
+   "fieldname": "loom_total_man_hrs",
+   "fieldtype": "Float",
+   "label": "Loom Total Man Hrs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loom_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Loom ManHr rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loom_cost",
+   "fieldtype": "Float",
+   "label": "Loom Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "width",
+   "fieldtype": "Float",
+   "label": "Width(cm)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "length",
+   "fieldtype": "Float",
+   "label": "Length(cm)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "top_length",
+   "fieldtype": "Float",
+   "label": "Top Extra to Cut",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bottom_length",
+   "fieldtype": "Float",
+   "label": "Bottom Extra to Cut",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tape_section",
+   "fieldtype": "Section Break",
+   "label": "Tape"
+  },
+  {
+   "fieldname": "tape_machine_hours",
+   "fieldtype": "Float",
+   "label": "Tape Machine Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tape_manhrmachhr",
+   "fieldtype": "Float",
+   "label": "Tape ManHr/Mach.Hr"
+  },
+  {
+   "fieldname": "tape_total_man_hrs",
+   "fieldtype": "Float",
+   "label": "Tape Total Man Hrs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tape_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Tape ManHr rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tape_cost",
+   "fieldtype": "Float",
+   "label": "Tape Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_61",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_63",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_65",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_67",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_71",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_73",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_75",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_77",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "laminations_section",
+   "fieldtype": "Section Break",
+   "label": "Lamination"
+  },
+  {
+   "fieldname": "lamination_machine_hours",
+   "fieldtype": "Float",
+   "label": "Lamination Machine Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_81",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lamination_manhrmachhr",
+   "fieldtype": "Float",
+   "label": "Lamination ManHr/Mach.Hr"
+  },
+  {
+   "fieldname": "column_break_83",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lamination_total_man_hrs",
+   "fieldtype": "Float",
+   "label": "Lamination Total Man Hrs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_85",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lamination_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Lamination ManHr rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_87",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lamination_cost",
+   "fieldtype": "Float",
+   "label": "Lamination Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "printing_section",
+   "fieldtype": "Section Break",
+   "label": "Printing"
+  },
+  {
+   "fieldname": "printing_machine_hours",
+   "fieldtype": "Float",
+   "label": "Printing Machine Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_92",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "printing_manhrmachhr",
+   "fieldtype": "Float",
+   "label": "Printing ManHr/Mach.Hr"
+  },
+  {
+   "fieldname": "column_break_94",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "printing_total_man_hrs",
+   "fieldtype": "Float",
+   "label": "Printing Total Man Hrs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_96",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "printing_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Printing ManHr rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_98",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "printing_cost",
+   "fieldtype": "Float",
+   "label": "Printing Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "blown_film_section",
+   "fieldtype": "Section Break",
+   "label": "Blown Film"
+  },
+  {
+   "fieldname": "blown_film_machine_hours",
+   "fieldtype": "Float",
+   "label": "Blown Film Machine Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_102",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_104",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_106",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_108",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "blown_film_manhr_machhr",
+   "fieldtype": "Float",
+   "label": "Blown Film ManHr Mach.Hr"
+  },
+  {
+   "fieldname": "section_break_110",
+   "fieldtype": "Section Break",
+   "label": "Liner Cutting"
+  },
+  {
+   "fieldname": "section_break_111",
+   "fieldtype": "Section Break",
+   "label": "Cutting"
+  },
+  {
+   "fieldname": "section_break_112",
+   "fieldtype": "Section Break",
+   "label": "Stitching"
+  },
+  {
+   "fieldname": "total_man_hrs",
+   "fieldtype": "Float",
+   "label": "Blown Film Total Man Hrs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "manhr_rate",
+   "fieldtype": "Float",
+   "label": "Blown Film ManHr rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Float",
+   "label": "Blown Film Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "liner_cutting_machine_hours",
+   "fieldtype": "Float",
+   "label": "Liner Cutting Machine Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "liner_cutting_manhr_machhr",
+   "fieldtype": "Float",
+   "label": "Liner Cutting ManHr Mach.Hr"
+  },
+  {
+   "fieldname": "liner_cutting_total_man_hrs",
+   "fieldtype": "Float",
+   "label": "Liner Cutting Total Man Hrs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "liner_cutting_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Liner Cutting ManHr rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "liner_cutting_cost",
+   "fieldtype": "Float",
+   "label": "Liner Cutting Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_112",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_114",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_116",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_118",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cutting_machine_hours",
+   "fieldtype": "Float",
+   "label": "Cutting Machine Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cutting_manhr_machhr",
+   "fieldtype": "Float",
+   "label": "Cutting ManHr Mach.Hr"
+  },
+  {
+   "fieldname": "cutting_total_man_hrs",
+   "fieldtype": "Float",
+   "label": "Cutting Total Man Hrs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cutting_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Cutting ManHr rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cutting_cost",
+   "fieldtype": "Float",
+   "label": "Cutting Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_123",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_125",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_127",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_129",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stitching_machine_hours",
+   "fieldtype": "Float",
+   "label": "Stitching Machine Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_132",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stitching_manhr_machhr",
+   "fieldtype": "Float",
+   "label": "Stitching ManHr Mach.Hr"
+  },
+  {
+   "fieldname": "column_break_134",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stitching_total_man_hrs",
+   "fieldtype": "Float",
+   "label": "Stitching Total Man Hrs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_136",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stitching_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Stitching ManHr rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_138",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stitching_cost",
+   "fieldtype": "Float",
+   "label": "Stitching Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bailing_section",
+   "fieldtype": "Section Break",
+   "label": "Bailing"
+  },
+  {
+   "fieldname": "bailing_machine_hours",
+   "fieldtype": "Float",
+   "label": "Bailing Machine Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_142",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bailing_manhr_machhr",
+   "fieldtype": "Float",
+   "label": "Bailing ManHr Mach.Hr"
+  },
+  {
+   "fieldname": "column_break_144",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bailing_total_man_hrs",
+   "fieldtype": "Float",
+   "label": "Bailing Total Man Hrs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_146",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bailing_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Bailing ManHr rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_148",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bailing_cost",
+   "fieldtype": "Float",
+   "label": "Bailing Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "overhead_tab",
+   "fieldtype": "Tab Break",
+   "label": "Overhead"
+  },
+  {
+   "fieldname": "taperate",
+   "fieldtype": "Float",
+   "label": "Tape Rate"
+  },
+  {
+   "fieldname": "tapecost",
+   "fieldtype": "Float",
+   "label": "Tape Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cuttingmachine_hours",
+   "fieldtype": "Float",
+   "label": "Cutting Machine Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cuttingrate",
+   "fieldtype": "Float",
+   "label": "Cutting Rate"
+  },
+  {
+   "fieldname": "cuttingcost",
+   "fieldtype": "Float",
+   "label": "Cutting Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "blownfilm_machine_hours",
+   "fieldtype": "Float",
+   "label": "Blown Film Machine Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "blownfilm__rate",
+   "fieldtype": "Float",
+   "label": "Blown Film  Rate"
+  },
+  {
+   "fieldname": "blownfilm_cost",
+   "fieldtype": "Float",
+   "label": "Blown Film Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_overhead",
+   "fieldtype": "Float",
+   "label": "Total Overhead",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tapemachine_hours",
+   "fieldtype": "Float",
+   "label": "Tape Machine Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_manpower",
+   "fieldtype": "Float",
+   "label": "Total Manpower",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_150",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_156",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_160",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "freight_section",
+   "fieldtype": "Tab Break",
+   "label": "Freight"
+  },
+  {
+   "fieldname": "freight_machine_hours",
+   "fieldtype": "Float",
+   "label": "Freight Machine Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "freight_rate",
+   "fieldtype": "Float",
+   "label": "Freight Rate"
+  },
+  {
+   "fieldname": "freight_currency",
+   "fieldtype": "Link",
+   "label": "Freight Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "freight_amount",
+   "fieldtype": "Float",
+   "label": "Freight Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quantity_per_cntrtruck",
+   "fieldtype": "Float",
+   "label": "Quantity per Cntr/Truck",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_167",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_169",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_171",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_174",
+   "fieldtype": "Tab Break",
+   "label": "Total"
+  },
+  {
+   "fieldname": "cost_per_order",
+   "fieldtype": "Float",
+   "label": "Cost per order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost_per_metric_ton",
+   "fieldtype": "Float",
+   "label": "Cost per Metric Ton",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost_per_metric_ton_usd",
+   "fieldtype": "Float",
+   "label": "Cost per Metric Ton (USD)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost_per_unit",
+   "fieldtype": "Float",
+   "label": "Cost per unit"
+  },
+  {
+   "fieldname": "cost_per_unit_usd",
+   "fieldtype": "Float",
+   "label": "Cost per unit (USD)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_176",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_178",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_180",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_182",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "technical_costing",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Technical Costing",
+   "options": "Technical Costing"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Commercial Costing",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "quotation",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Quotation",
+   "options": "Quotation"
+  },
+  {
+   "fieldname": "one",
+   "fieldtype": "Float",
+   "label": "One",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_61",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_raw_material_cost",
+   "fieldtype": "Float",
+   "label": "Total Raw Material Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "raw_material_cost",
+   "fieldtype": "Float",
+   "label": "Raw Material Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manpower_cost",
+   "fieldtype": "Float",
+   "label": "Manpower Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "overhead_cost",
+   "fieldtype": "Float",
+   "label": "Overhead Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "freight_cost",
+   "fieldtype": "Float",
+   "label": "Freight Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_186",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "weft_raw_material_",
+   "fieldtype": "Float",
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "strip_raw_material_",
+   "fieldtype": "Float",
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "warp_raw_material_",
+   "fieldtype": "Float",
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lamination_raw_material_",
+   "fieldtype": "Float",
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "liner_raw_material_",
+   "fieldtype": "Float",
+   "label": "Total",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-11-05 12:54:50.930355",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Commercial Costing",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

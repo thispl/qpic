@@ -1,0 +1,188 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-10-28 09:11:51.162556",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "manpower_section",
+  "loom_manhr",
+  "tape_manhr",
+  "lamination_manhr",
+  "blown_film_manhr",
+  "liner_cutting_manhr",
+  "printing_manhr",
+  "cutting_manhr",
+  "stitching_manhr",
+  "bailing_manhr",
+  "column_break_11",
+  "loom_manhr_rate",
+  "tape_manhr_rate",
+  "lamination_manhr_rate",
+  "blown_film_manhr_rate",
+  "liner_cutting_manhr_rate",
+  "printing_manhr_rate",
+  "cutting_manhr_rate",
+  "stitching_manhr_rate",
+  "bailing_manhr_rate",
+  "section_break_21",
+  "tape_overhead_rate",
+  "column_break_23",
+  "cutting_overhead_rate",
+  "column_break_25",
+  "blown_film_overhead_rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "manpower_section",
+   "fieldtype": "Section Break",
+   "label": "Manpower"
+  },
+  {
+   "fieldname": "loom_manhr",
+   "fieldtype": "Float",
+   "label": "Loom ManHr"
+  },
+  {
+   "fieldname": "tape_manhr",
+   "fieldtype": "Float",
+   "label": "Tape ManHr"
+  },
+  {
+   "fieldname": "lamination_manhr",
+   "fieldtype": "Float",
+   "label": "Lamination ManHr"
+  },
+  {
+   "fieldname": "blown_film_manhr",
+   "fieldtype": "Float",
+   "label": "Blown Film ManHr"
+  },
+  {
+   "fieldname": "liner_cutting_manhr",
+   "fieldtype": "Float",
+   "label": "Liner Cutting ManHr"
+  },
+  {
+   "fieldname": "printing_manhr",
+   "fieldtype": "Float",
+   "label": "Printing ManHr"
+  },
+  {
+   "fieldname": "cutting_manhr",
+   "fieldtype": "Float",
+   "label": "Cutting ManHr"
+  },
+  {
+   "fieldname": "stitching_manhr",
+   "fieldtype": "Float",
+   "label": "Stitching ManHr"
+  },
+  {
+   "fieldname": "bailing_manhr",
+   "fieldtype": "Float",
+   "label": "Bailing ManHr"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "loom_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Loom ManHr Rate"
+  },
+  {
+   "fieldname": "tape_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Tape ManHr Rate"
+  },
+  {
+   "fieldname": "lamination_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Lamination ManHr Rate"
+  },
+  {
+   "fieldname": "blown_film_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Blown Film ManHr Rate"
+  },
+  {
+   "fieldname": "liner_cutting_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Liner Cutting ManHr Rate"
+  },
+  {
+   "fieldname": "printing_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Printing ManHr Rate"
+  },
+  {
+   "fieldname": "cutting_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Cutting ManHr Rate"
+  },
+  {
+   "fieldname": "stitching_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Stitching ManHr Rate"
+  },
+  {
+   "fieldname": "bailing_manhr_rate",
+   "fieldtype": "Float",
+   "label": "Bailing ManHr Rate"
+  },
+  {
+   "fieldname": "section_break_21",
+   "fieldtype": "Section Break",
+   "label": "Overhead"
+  },
+  {
+   "fieldname": "tape_overhead_rate",
+   "fieldtype": "Float",
+   "label": "Tape Overhead Rate"
+  },
+  {
+   "fieldname": "cutting_overhead_rate",
+   "fieldtype": "Float",
+   "label": "Cutting Overhead Rate"
+  },
+  {
+   "fieldname": "blown_film_overhead_rate",
+   "fieldtype": "Float",
+   "label": "Blown Film Overhead Rate"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-10-28 09:20:25.876315",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Commercial Costing Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

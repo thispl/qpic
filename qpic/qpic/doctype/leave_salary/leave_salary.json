@@ -22,27 +22,29 @@
   "no_of_days_worked",
   "total_working_days",
   "absent_days",
-  "hra_salary",
   "ot_hours",
   "wot_hours",
   "hot_hours",
   "column_break_12",
   "basic",
+  "hra_salary",
   "food",
-  "month_allowance",
-  "salary_amount_pay",
-  "arrears",
+  "mobile_allowance",
+  "overall_ot_amount",
+  "ot_incentive",
   "ot_amount",
   "wot_amount",
   "hot_amount",
   "column_break_20",
-  "prodallowance",
+  "salary_amount_pay",
+  "earned_hra",
   "food_allowance",
+  "earned_mobile_allowance",
+  "prodallowance",
+  "month_allowance",
+  "arrears",
   "monthly_deduction",
-  "ot_incentive",
   "total_amount",
-  "column_break_24",
-  "column_break_27",
   "leave_salary_section",
   "leave_start_date",
   "leave_end_date",
@@ -50,12 +52,14 @@
   "accrued_leaves",
   "leaves_availed",
   "leaves_encashed",
-  "air_fair",
+  "leave_balance",
   "hra",
-  "column_break_46",
-  "deduction",
-  "transport_expense",
+  "column_break_48",
   "no_of_days",
+  "addition",
+  "deduction",
+  "air_fair",
+  "transport_expense",
   "salary_amount",
   "total_salary",
   "total_released_amount"
@@ -79,7 +83,8 @@
    "fetch_from": "employee.date_of_joining",
    "fieldname": "date_of_joining",
    "fieldtype": "Data",
-   "label": "Date of Joining"
+   "label": "Date of Joining",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_4",
@@ -170,19 +175,16 @@
    "read_only": 1
   },
   {
-   "default": "0",
    "fieldname": "month_allowance",
    "fieldtype": "Currency",
    "label": "Month Allowance"
   },
   {
-   "default": "0",
    "fieldname": "prodallowance",
    "fieldtype": "Currency",
    "label": "Prod.Allowance"
   },
   {
-   "default": "0",
    "fieldname": "ot_incentive",
    "fieldtype": "Currency",
    "label": "OT Incentive"
@@ -194,10 +196,11 @@
    "label": "Leaves Encashed"
   },
   {
+   "default": "0",
    "fetch_from": "employee.basic",
    "fieldname": "basic",
    "fieldtype": "Currency",
-   "label": "Fixed Basic",
+   "label": "Basic",
    "read_only": 1
   },
   {
@@ -216,13 +219,11 @@
    "label": "Leave End Date"
   },
   {
-   "default": "0",
    "fieldname": "transport_expense",
    "fieldtype": "Currency",
    "label": "Transport Expense"
   },
   {
-   "default": "0",
    "fieldname": "air_fair",
    "fieldtype": "Currency",
    "label": "Air Fair Allowance"
@@ -245,6 +246,7 @@
    "default": "0",
    "fieldname": "salary_amount",
    "fieldtype": "Currency",
+   "hidden": 1,
    "label": "Salary amount"
   },
   {
@@ -264,7 +266,7 @@
    "default": "0",
    "fieldname": "salary_amount_pay",
    "fieldtype": "Currency",
-   "label": "Earned Salary",
+   "label": "Earned Basic",
    "read_only": 1
   },
   {
@@ -274,19 +276,11 @@
    "label": "Total Earned Salary"
   },
   {
-   "default": "0",
+   "default": "30",
    "fieldname": "total_working_days",
    "fieldtype": "Int",
-   "label": "Total Working Days"
-  },
-  {
-   "fieldname": "column_break_24",
-   "fieldtype": "Section Break",
-   "label": "Salary Details "
-  },
-  {
-   "fieldname": "column_break_27",
-   "fieldtype": "Column Break"
+   "label": "Total Working Days",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_20",
@@ -306,6 +300,7 @@
    "fetch_from": "employee.hra",
    "fieldname": "hra",
    "fieldtype": "Currency",
+   "hidden": 1,
    "label": "HRA",
    "read_only": 1
   },
@@ -321,10 +316,10 @@
    "default": "0",
    "fieldname": "food_allowance",
    "fieldtype": "Currency",
-   "label": "Food Allowance"
+   "label": "Earned Food Allowance",
+   "read_only": 1
   },
   {
-   "default": "0",
    "fieldname": "absent_days",
    "fieldtype": "Float",
    "label": "Absent Days"
@@ -342,25 +337,24 @@
    "label": "LOP Days"
   },
   {
+   "default": "0",
    "fetch_from": "employee.food_all",
    "fieldname": "food",
    "fieldtype": "Currency",
-   "label": "Fixed Food Allowance"
+   "label": "Food Allowance",
+   "read_only": 1
   },
   {
-   "default": "0",
    "fieldname": "monthly_deduction",
    "fieldtype": "Currency",
    "label": "Monthly Deduction"
   },
   {
-   "default": "0",
    "fieldname": "arrears",
    "fieldtype": "Currency",
    "label": "Arrears"
   },
   {
-   "default": "0",
    "fieldname": "deduction",
    "fieldtype": "Currency",
    "label": "Deduction"
@@ -372,16 +366,57 @@
    "label": "Leaves Availed"
   },
   {
-   "fieldname": "column_break_46",
+   "default": "0",
+   "fetch_from": "employee.mobile_allowance",
+   "fieldname": "mobile_allowance",
+   "fieldtype": "Currency",
+   "label": "Mobile Allowance",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "earned_mobile_allowance",
+   "fieldtype": "Currency",
+   "label": "Earned Mobile Allowance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "leave_balance",
+   "fieldtype": "Float",
+   "label": "Leave Balance"
+  },
+  {
+   "fieldname": "addition",
+   "fieldtype": "Currency",
+   "label": "Addition"
+  },
+  {
+   "default": "0",
+   "fieldname": "overall_ot_amount",
+   "fieldtype": "Currency",
+   "label": "Overall OT Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.grade==\"Office Staff\"",
+   "fieldname": "earned_hra",
+   "fieldtype": "Currency",
+   "label": "Earned HRA",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_48",
    "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-10-11 08:45:17.839035",
+ "modified": "2022-11-15 16:22:50.833938",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Leave Salary",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -398,5 +433,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

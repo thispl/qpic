@@ -119,9 +119,13 @@ doc_events = {
 		'on_submit':'qpic.custom.create_leave_application',
 	},
 	'Opportunity':{
-		'on_update':['qpic.custom.create_item',
-					'qpic.custom.create_technical_costing']
+		'on_submit':'qpic.custom.create_technical_costing'
+	},
+	'Quotation':{
+		'on_update':'qpic.custom.get_quotation_name',
+		# 'on_cancel':'qpic.custom.simple'
 	}
+	
 
 	# 'Payroll Entry':{
 	# 	'on_submit':'qpic.utils.generate_custom_payroll',

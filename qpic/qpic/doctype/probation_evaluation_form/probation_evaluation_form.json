@@ -12,7 +12,9 @@
   "salutation",
   "employment_type",
   "designation",
+  "only_first_approver",
   "column_break_5",
+  "department",
   "probation_end_date",
   "date_of_joining",
   "grade",
@@ -23,6 +25,8 @@
   "to_date",
   "section_break_15",
   "evaluator",
+  "column_break_19",
+  "reviewer",
   "section_break_17",
   "evaluation",
   "total_score",
@@ -118,6 +122,7 @@
    "label": "Assessment Period"
   },
   {
+   "fetch_from": "employee.date_of_joining",
    "fieldname": "from_date",
    "fieldtype": "Date",
    "label": "From Date"
@@ -127,6 +132,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "employee.probation_end_date",
    "fieldname": "to_date",
    "fieldtype": "Date",
    "label": "To Date"
@@ -136,11 +142,12 @@
    "fieldtype": "Section Break"
   },
   {
+   "fetch_from": "employee.leave_approver",
    "fieldname": "evaluator",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Evaluator",
-   "options": "Employee",
+   "options": "User",
    "reqd": 1
   },
   {
@@ -156,7 +163,8 @@
   {
    "fieldname": "total_score",
    "fieldtype": "Data",
-   "label": "Total Score"
+   "label": "Total Score",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_20",
@@ -166,15 +174,40 @@
    "fieldname": "additional_remarks",
    "fieldtype": "Small Text",
    "label": "Additional Remarks"
+  },
+  {
+   "default": "0",
+   "fetch_from": "employee.only_first_approver",
+   "fieldname": "only_first_approver",
+   "fieldtype": "Check",
+   "label": "Only First Approver"
+  },
+  {
+   "fetch_from": "employee.reviewer",
+   "fieldname": "reviewer",
+   "fieldtype": "Link",
+   "label": "Reviewer",
+   "options": "User"
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Read Only",
+   "label": "Department"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-10-12 16:54:36.086662",
+ "modified": "2022-10-27 11:23:26.482775",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Probation Evaluation Form",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -192,5 +225,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

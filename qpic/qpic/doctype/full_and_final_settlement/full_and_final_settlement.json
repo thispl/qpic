@@ -27,19 +27,24 @@
   "pay_start_date",
   "pay_end_date",
   "no_of_days_worked",
-  "total_salary",
+  "absent_days",
+  "earned_basic",
+  "earned_food_allowance",
   "normal_over_time",
   "amount",
   "friday_over_time",
   "wot_amount",
   "holiday_over_time",
   "hot_amount",
-  "hra_pay",
+  "total_ot",
   "column_break_24",
+  "hra_pay",
   "month_allowance",
   "prodallowance",
+  "arrears",
   "ot_incentive",
   "transportation",
+  "total_salary",
   "section_break_13",
   "leaves_encashed",
   "employment_duration",
@@ -51,13 +56,14 @@
   "gratuity_amount",
   "additions",
   "air_ticket_fare",
+  "monthly_deduction",
   "air_ticket_deduction",
   "loan_other_deduction",
   "leave_gratuity_total",
   "section_break_26",
   "net_pay",
-  "check_14",
-  "confirmation",
+  "column_break_56",
+  "remark",
   "amended_from"
  ],
  "fields": [
@@ -99,9 +105,9 @@
    "label": "Last Day of Work"
   },
   {
+   "fetch_from": "employee.food_all",
    "fieldname": "food_allowance",
    "fieldtype": "Currency",
-   "hidden": 1,
    "label": "Food Allowance"
   },
   {
@@ -123,16 +129,6 @@
   {
    "fieldname": "section_break_13",
    "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "confirmation",
-   "fieldtype": "HTML",
-   "options": "<b>Confirmation: </b>I confirm that I have gone through the above calculations and found correct and received the above full and final\nsettlement for my services with Qatar Polymer Industries Co. I also confirm that I do not have any financial or\nnon-financial claim pending with the company.\n\n\n"
-  },
-  {
-   "default": "0",
-   "fieldname": "check_14",
-   "fieldtype": "Check"
   },
   {
    "fieldname": "leaves_encashed",
@@ -207,7 +203,7 @@
   {
    "fieldname": "pay_roll_details_section",
    "fieldtype": "Section Break",
-   "label": "Pay Roll Details"
+   "label": "Payroll Details"
   },
   {
    "fieldname": "pay_start_date",
@@ -231,17 +227,17 @@
   },
   {
    "fieldname": "normal_over_time",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "Normal Over Time"
   },
   {
    "fieldname": "friday_over_time",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "Friday Over Time"
   },
   {
    "fieldname": "holiday_over_time",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "Holiday Over Time"
   },
   {
@@ -289,11 +285,6 @@
    "label": "Total Working Days"
   },
   {
-   "fieldname": "total_salary",
-   "fieldtype": "Currency",
-   "label": "Total Salary "
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -305,8 +296,7 @@
   {
    "fieldname": "net_pay",
    "fieldtype": "Currency",
-   "label": "Net Pay",
-   "read_only": 1
+   "label": "Net Pay"
   },
   {
    "fetch_from": "employee.hra",
@@ -335,16 +325,62 @@
    "fieldname": "transportation_pay",
    "fieldtype": "Currency",
    "label": "Transportation "
+  },
+  {
+   "fieldname": "earned_basic",
+   "fieldtype": "Currency",
+   "label": "Earned Basic"
+  },
+  {
+   "fieldname": "earned_food_allowance",
+   "fieldtype": "Currency",
+   "label": "Earned Food Allowance"
+  },
+  {
+   "default": "0",
+   "fieldname": "absent_days",
+   "fieldtype": "Float",
+   "label": "Absent Days"
+  },
+  {
+   "fieldname": "arrears",
+   "fieldtype": "Currency",
+   "label": "Arrears"
+  },
+  {
+   "fieldname": "total_salary",
+   "fieldtype": "Currency",
+   "label": "Total Salary"
+  },
+  {
+   "fieldname": "total_ot",
+   "fieldtype": "Currency",
+   "label": "Total OT"
+  },
+  {
+   "fieldname": "monthly_deduction",
+   "fieldtype": "Currency",
+   "label": "Monthly Deduction"
+  },
+  {
+   "fieldname": "column_break_56",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-09-28 14:59:40.806652",
+ "modified": "2022-10-27 07:59:22.464520",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Full and Final Settlement",
  "name_case": "Title Case",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -362,5 +398,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

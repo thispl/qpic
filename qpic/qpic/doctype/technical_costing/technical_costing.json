@@ -1,13 +1,15 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:item_name",
+ "autoname": "TC.####",
  "creation": "2022-09-26 12:16:22.790876",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "opportunity",
+  "commercial_costing",
+  "quotation",
   "de_section",
   "details_section",
   "technical_costing_item",
@@ -17,25 +19,26 @@
   "uom",
   "qty",
   "section_break_1",
-  "weft",
+  "warp",
   "top",
   "top_length",
   "top_thread",
   "lamination_optional",
   "column_break_12",
-  "warp",
+  "weft",
   "bottom",
   "bottom_length",
   "bottom_thread",
   "liner_optional",
   "column_break_15",
-  "length",
+  "width",
   "print",
   "extra",
   "thread_and_others",
   "s_column",
-  "width",
+  "length",
   "unit_weight",
+  "one",
   "production_size_cut_leng_x",
   "production_size_cut_leng_y",
   "section_break_32",
@@ -85,7 +88,7 @@
   "loom_machine_hours",
   "loom_efficiency",
   "tape_section",
-  "weft_html",
+  "weft_section",
   "weft_tape_width",
   "weft_denier",
   "column_break_18",
@@ -95,6 +98,7 @@
   "column_break_22",
   "weft_machine_hours",
   "weft_tape_wastage",
+  "total_weft",
   "weft_material_combination",
   "section_break_90",
   "weftmaterial_combination",
@@ -108,6 +112,7 @@
   "column_break_33",
   "warp_machine_hours",
   "warp_tape_wastage",
+  "total_warp",
   "warp_material_combination",
   "section_break_103",
   "warpmaterial_combination",
@@ -123,6 +128,7 @@
   "strip_output_kghour",
   "strip_machine_hours",
   "strip_tape_wastage",
+  "total_strip",
   "strip_material_combination",
   "section_break_118",
   "stripmaterial_combination",
@@ -150,6 +156,7 @@
   "post_coating_width",
   "post_coating_order_requirement_mtr",
   "lam_material_wastage",
+  "total_lam",
   "lamination_material_combination",
   "section_break_145",
   "laminationmaterial_combination",
@@ -158,27 +165,35 @@
   "extra_width",
   "liner_size_width",
   "liner_top",
-  "cut_length_liner",
+  "order_requirement_mtr",
   "liner_cutting",
   "column_break_141",
   "bag_size_cut_length",
   "extra_cut_length",
   "liner_size_cut_length",
   "liner_bottom",
-  "output_bagsmin_liner",
   "column_break_142",
   "liner_weight_pcs",
+  "liner_mcron",
   "liner_color",
   "liner_wastage_provision",
-  "liner_order_requirement",
-  "order_requirement_liner",
   "column_break_153",
+  "liner_order_requirement",
   "liner_output_kghour",
   "liner_machine_hours",
   "liner_blown_film_wastage_",
-  "efficiency_liner",
-  "machine_hours_liner",
+  "total_liner",
   "liner_material_combination",
+  "section_break_176",
+  "cut_length_liner",
+  "column_break_178",
+  "machine_hours_liner",
+  "column_break_180",
+  "output_bagsmin_liner",
+  "column_break_182",
+  "order_requirement_liner",
+  "column_break_184",
+  "efficiency_liner",
   "section_break_173",
   "linermaterial_combination",
   "printing_section",
@@ -226,20 +241,21 @@
   "section_break_217",
   "bailingmaterial_combination",
   "freight_for_export_only_section",
-  "delivey_term",
+  "delivery_term",
   "mode_of_shipment",
   "column_break_101",
   "freight_quantity_per_cntrtruck",
   "freight_no_of_cntrtruck_required",
   "column_break_104",
-  "freight_notes"
+  "freight_notes",
+  "amended_from"
  ],
  "fields": [
   {
    "collapsible": 1,
    "depends_on": "loom",
    "fieldname": "loom_section",
-   "fieldtype": "Section Break",
+   "fieldtype": "Tab Break",
    "label": "Loom"
   },
   {
@@ -289,6 +305,7 @@
    "read_only": 1
   },
   {
+   "default": "85",
    "fieldname": "loom_efficiency",
    "fieldtype": "Percent",
    "label": "Efficiency"
@@ -311,7 +328,7 @@
    "collapsible": 1,
    "depends_on": "tape",
    "fieldname": "tape_section",
-   "fieldtype": "Section Break",
+   "fieldtype": "Tab Break",
    "label": "Tape"
   },
   {
@@ -322,14 +339,17 @@
   {
    "fieldname": "weft_tape_width",
    "fieldtype": "Float",
-   "label": "Tape Width"
+   "label": "Tape Width",
+   "read_only": 1
   },
   {
    "fieldname": "weft_denier",
    "fieldtype": "Float",
-   "label": "Denier"
+   "label": "Denier",
+   "read_only": 1
   },
   {
+   "default": "1.5",
    "fieldname": "weft_wastage_provision_loom",
    "fieldtype": "Percent",
    "label": "Wastage Provision Loom"
@@ -337,7 +357,8 @@
   {
    "fieldname": "weft_order_requirement",
    "fieldtype": "Float",
-   "label": "Order Requirement"
+   "label": "Order Requirement",
+   "read_only": 1
   },
   {
    "fieldname": "weft_output_kghour",
@@ -347,9 +368,11 @@
   {
    "fieldname": "weft_machine_hours",
    "fieldtype": "Float",
-   "label": "Machine Hours"
+   "label": "Machine Hours",
+   "read_only": 1
   },
   {
+   "default": "1",
    "fieldname": "weft_tape_wastage",
    "fieldtype": "Percent",
    "label": "Tape  Wastage %"
@@ -363,7 +386,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "collapsible": 1,
    "depends_on": "tape",
    "fieldname": "section_break_25",
    "fieldtype": "Section Break",
@@ -372,18 +394,21 @@
   {
    "fieldname": "warp_tape_width",
    "fieldtype": "Float",
-   "label": "Tape Width"
+   "label": "Tape Width",
+   "read_only": 1
   },
   {
    "fieldname": "warp_denier",
    "fieldtype": "Float",
-   "label": "Denier"
+   "label": "Denier",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_29",
    "fieldtype": "Column Break"
   },
   {
+   "default": "1.5",
    "fieldname": "warp_wastage_provision_loom",
    "fieldtype": "Percent",
    "label": "Wastage Provision Loom"
@@ -391,7 +416,8 @@
   {
    "fieldname": "warp_order_requirement",
    "fieldtype": "Float",
-   "label": "Order Requirement"
+   "label": "Order Requirement",
+   "read_only": 1
   },
   {
    "fieldname": "warp_output_kghour",
@@ -405,15 +431,16 @@
   {
    "fieldname": "warp_machine_hours",
    "fieldtype": "Float",
-   "label": "Machine Hours "
+   "label": "Machine Hours ",
+   "read_only": 1
   },
   {
+   "default": "1",
    "fieldname": "warp_tape_wastage",
    "fieldtype": "Percent",
    "label": "Tape Wastage %"
   },
   {
-   "collapsible": 1,
    "depends_on": "tape",
    "fieldname": "section_break_36",
    "fieldtype": "Section Break",
@@ -432,14 +459,17 @@
   {
    "fieldname": "strip_tape_width",
    "fieldtype": "Float",
-   "label": "Tape Width"
+   "label": "Tape Width",
+   "read_only": 1
   },
   {
    "fieldname": "strip_denier",
    "fieldtype": "Float",
-   "label": "Denier"
+   "label": "Denier",
+   "read_only": 1
   },
   {
+   "default": "1.5",
    "fieldname": "strip_wastage_provision_loom",
    "fieldtype": "Percent",
    "label": "Wastage Provision Loom"
@@ -447,7 +477,8 @@
   {
    "fieldname": "strip_order_requirement",
    "fieldtype": "Float",
-   "label": "Order Requirement"
+   "label": "Order Requirement",
+   "read_only": 1
   },
   {
    "fieldname": "strip_output_kghour",
@@ -457,9 +488,11 @@
   {
    "fieldname": "strip_machine_hours",
    "fieldtype": "Float",
-   "label": "Machine Hours"
+   "label": "Machine Hours",
+   "read_only": 1
   },
   {
+   "default": "1",
    "fieldname": "strip_tape_wastage",
    "fieldtype": "Percent",
    "label": "Tape Wastage %"
@@ -476,13 +509,14 @@
    "collapsible": 1,
    "depends_on": "lamination",
    "fieldname": "lamination_section",
-   "fieldtype": "Section Break",
+   "fieldtype": "Tab Break",
    "label": "Lamination"
   },
   {
    "fieldname": "lamination_coating_side",
    "fieldtype": "Data",
-   "label": "Coating side"
+   "label": "Coating side",
+   "read_only": 1
   },
   {
    "fieldname": "lamination_machine_speed",
@@ -490,6 +524,7 @@
    "label": "Machine Speed (Mtr/Min)"
   },
   {
+   "default": "85",
    "fieldname": "lamination_efficiency",
    "fieldtype": "Percent",
    "label": "Efficiency"
@@ -498,28 +533,32 @@
    "collapsible": 1,
    "depends_on": "printing",
    "fieldname": "printing_section",
-   "fieldtype": "Section Break",
+   "fieldtype": "Tab Break",
    "label": "Printing"
   },
   {
    "fieldname": "printing_width",
    "fieldtype": "Float",
-   "label": "Width (cm)"
+   "label": "Width (cm)",
+   "read_only": 1
   },
   {
    "fieldname": "printing_length",
    "fieldtype": "Float",
-   "label": "Length (cm)"
+   "label": "Length (cm)",
+   "read_only": 1
   },
   {
    "fieldname": "printing_cut_length",
    "fieldtype": "Float",
-   "label": "Cut Length (cm)"
+   "label": "Cut Length (cm)",
+   "read_only": 1
   },
   {
    "fieldname": "printing_order_requirement",
    "fieldtype": "Float",
-   "label": "Order Requirement"
+   "label": "Order Requirement",
+   "read_only": 1
   },
   {
    "fieldname": "printing_output_mtrmin",
@@ -527,6 +566,7 @@
    "label": "Output Mtr/Min"
   },
   {
+   "default": "85",
    "fieldname": "printing_efficiency",
    "fieldtype": "Percent",
    "label": "Efficiency"
@@ -534,56 +574,65 @@
   {
    "fieldname": "printing_machine_hours",
    "fieldtype": "Float",
-   "label": "Machine Hours "
+   "label": "Machine Hours ",
+   "read_only": 1
   },
   {
    "collapsible": 1,
    "depends_on": "cutting",
    "fieldname": "cutting_section",
-   "fieldtype": "Section Break",
+   "fieldtype": "Tab Break",
    "label": "Cutting "
   },
   {
    "fieldname": "cutting_width",
    "fieldtype": "Float",
-   "label": "Width (cm)"
+   "label": "Width (cm)",
+   "read_only": 1
   },
   {
    "fieldname": "cutting_length",
    "fieldtype": "Float",
-   "label": " Length (cm)"
+   "label": " Length (cm)",
+   "read_only": 1
   },
   {
    "fieldname": "cutting_cut_length",
    "fieldtype": "Float",
-   "label": "Cut Length (cm)"
+   "label": "Cut Length (cm)",
+   "read_only": 1
   },
   {
    "fieldname": "cutting_fabric_thread_wt",
    "fieldtype": "Float",
-   "label": "Fabric + Thread wt. (gm)"
+   "label": "Fabric + Thread wt. (gm)",
+   "read_only": 1
   },
   {
    "fieldname": "cutting_liner_weight_gm",
    "fieldtype": "Float",
-   "label": "Liner weight (gm)"
+   "label": "Liner weight (gm)",
+   "read_only": 1
   },
   {
    "fieldname": "cutting_bag_weight_gm",
    "fieldtype": "Float",
-   "label": "Bag Weight (gm)"
+   "label": "Bag Weight (gm)",
+   "read_only": 1
   },
   {
    "fieldname": "cutting_top",
    "fieldtype": "Select",
    "label": "Top",
-   "options": "Heat Cut\nHemmed (US)\nHemmed (Thread)\nRoll to Roll"
+   "options": "Heat Cut\nHemmed (US)\nHemmed (Thread)\nRoll to Roll",
+   "read_only": 1
   },
   {
    "fieldname": "cutting_bottom",
    "fieldtype": "Select",
    "label": "Bottom",
-   "options": "SFSS\nSFDS\nDFSS\nDFDS\nRoll to Roll"
+   "options": "SFSS\nSFDS\nDFSS\nDFDS\nRoll to Roll",
+   "read_only": 1
   },
   {
    "fieldname": "cutting_thread_wtbag_gm",
@@ -593,7 +642,8 @@
   {
    "fieldname": "cutting_order_requirement",
    "fieldtype": "Float",
-   "label": "Order Requirement"
+   "label": "Order Requirement",
+   "read_only": 1
   },
   {
    "fieldname": "cutting_machine_speed_bagsmin",
@@ -601,6 +651,7 @@
    "label": "Machine Speed (Bags/Min)"
   },
   {
+   "default": "85",
    "fieldname": "cutting_efficiency",
    "fieldtype": "Percent",
    "label": "Efficiency"
@@ -608,7 +659,8 @@
   {
    "fieldname": "cutting_machine_hours",
    "fieldtype": "Float",
-   "label": "Machine Hours"
+   "label": "Machine Hours",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_61",
@@ -631,13 +683,14 @@
    "collapsible": 1,
    "depends_on": "stitching",
    "fieldname": "stitching_section",
-   "fieldtype": "Section Break",
+   "fieldtype": "Tab Break",
    "label": "Stitching"
   },
   {
    "fieldname": "stitching_order_requirement",
    "fieldtype": "Float",
-   "label": "Order Requirement"
+   "label": "Order Requirement",
+   "read_only": 1
   },
   {
    "fieldname": "stitching_bags_manhour",
@@ -647,13 +700,14 @@
   {
    "fieldname": "stitching_manhour",
    "fieldtype": "Float",
-   "label": "Manhour"
+   "label": "Manhour",
+   "read_only": 1
   },
   {
    "collapsible": 1,
    "depends_on": "bailing",
    "fieldname": "bailing_section",
-   "fieldtype": "Section Break",
+   "fieldtype": "Tab Break",
    "label": "Bailing "
   },
   {
@@ -706,14 +760,8 @@
    "collapsible": 1,
    "depends_on": "freight",
    "fieldname": "freight_for_export_only_section",
-   "fieldtype": "Section Break",
+   "fieldtype": "Tab Break",
    "label": "Freight (for export only)"
-  },
-  {
-   "fieldname": "delivey_term",
-   "fieldtype": "Link",
-   "label": "Delivey Term",
-   "options": "Delivery Terms"
   },
   {
    "fieldname": "mode_of_shipment",
@@ -748,7 +796,7 @@
    "collapsible": 1,
    "depends_on": "liner",
    "fieldname": "liner_section",
-   "fieldtype": "Section Break",
+   "fieldtype": "Tab Break",
    "label": "Liner"
   },
   {
@@ -764,10 +812,12 @@
   },
   {
    "fieldname": "liner_color",
-   "fieldtype": "Data",
-   "label": "Color"
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Color"
   },
   {
+   "default": "1.5",
    "fieldname": "liner_wastage_provision",
    "fieldtype": "Percent",
    "label": "Wastage Provision"
@@ -775,7 +825,8 @@
   {
    "fieldname": "liner_order_requirement",
    "fieldtype": "Float",
-   "label": "Order Requirement"
+   "label": "Order Requirement",
+   "read_only": 1
   },
   {
    "fieldname": "liner_output_kghour",
@@ -785,9 +836,11 @@
   {
    "fieldname": "liner_machine_hours",
    "fieldtype": "Float",
-   "label": "Machine Hours"
+   "label": "Machine Hours",
+   "read_only": 1
   },
   {
+   "default": "1",
    "fieldname": "liner_blown_film_wastage_",
    "fieldtype": "Percent",
    "label": "Blown Film Wastage %"
@@ -927,8 +980,7 @@
    "fieldname": "item_name",
    "fieldtype": "Data",
    "hidden": 1,
-   "label": "Item Name",
-   "unique": 1
+   "label": "Item Name"
   },
   {
    "fieldname": "warp",
@@ -961,12 +1013,6 @@
    "fieldtype": "Select",
    "label": "Bottom",
    "options": "SFSS\nSFDS\nDFSS\nDFDS\nRoll to Roll"
-  },
-  {
-   "fieldname": "weft_html",
-   "fieldtype": "HTML",
-   "label": "Weft",
-   "options": "<h3>Weft(----)\n</h3>"
   },
   {
    "fieldname": "print",
@@ -1006,12 +1052,14 @@
   {
    "fieldname": "top_thread",
    "fieldtype": "Float",
-   "label": "Top Thread"
+   "label": "Top Thread",
+   "read_only": 1
   },
   {
    "fieldname": "bottom_thread",
    "fieldtype": "Float",
-   "label": "Bottom Thread"
+   "label": "Bottom Thread",
+   "read_only": 1
   },
   {
    "fieldname": "thread_and_others",
@@ -1021,14 +1069,17 @@
   {
    "fieldname": "production_size_cut_leng_x",
    "fieldtype": "Float",
-   "label": "Production Size"
+   "label": "Production Size",
+   "read_only": 1
   },
   {
    "fieldname": "production_size_cut_leng_y",
    "fieldtype": "Float",
-   "label": "Production Size"
+   "label": "Production Size",
+   "read_only": 1
   },
   {
+   "default": "0.5",
    "fieldname": "extra",
    "fieldtype": "Float",
    "label": "Extra"
@@ -1057,7 +1108,8 @@
   {
    "fieldname": "lamination_wt_per_pcs_gms",
    "fieldtype": "Float",
-   "label": "Lamination wt. per pcs (gms)"
+   "label": "Lamination wt. per pcs (gms)",
+   "read_only": 1
   },
   {
    "fieldname": "liner_weight_gms",
@@ -1102,7 +1154,8 @@
   {
    "fieldname": "total",
    "fieldtype": "Float",
-   "label": "Total"
+   "label": "Total",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_46",
@@ -1115,22 +1168,26 @@
   {
    "fieldname": "fabric_gms",
    "fieldtype": "Float",
-   "label": "Fabric"
+   "label": "Fabric",
+   "read_only": 1
   },
   {
    "fieldname": "lamination_gms",
    "fieldtype": "Float",
-   "label": "Lamination"
+   "label": "Lamination",
+   "read_only": 1
   },
   {
    "fieldname": "liner_gms",
    "fieldtype": "Float",
-   "label": "Liner"
+   "label": "Liner",
+   "read_only": 1
   },
   {
    "fieldname": "other_gms",
    "fieldtype": "Float",
-   "label": "Other"
+   "label": "Other",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_49",
@@ -1139,57 +1196,68 @@
   {
    "fieldname": "no_of_units",
    "fieldtype": "Float",
-   "label": "No of units"
+   "label": "No of units",
+   "read_only": 1
   },
   {
    "fieldname": "pre_coat_gsm",
    "fieldtype": "Float",
-   "label": "Pre Coat GSM"
+   "label": "Pre Coat GSM",
+   "read_only": 1
   },
   {
    "fieldname": "lamination_coating_gsm",
    "fieldtype": "Float",
-   "label": "Coating GSM"
+   "label": "Coating GSM",
+   "read_only": 1
   },
   {
    "fieldname": "post_coating_gsm",
    "fieldtype": "Float",
-   "label": "Post Coating GSM"
+   "label": "Post Coating GSM",
+   "read_only": 1
   },
   {
    "fieldname": "pre_coat_weight",
    "fieldtype": "Float",
-   "label": "Pre Coat Weight /pcs"
+   "label": "Pre Coat Weight /pcs",
+   "read_only": 1
   },
   {
    "fieldname": "coating_weight",
    "fieldtype": "Float",
-   "label": "Coating Weight /pcs"
+   "label": "Coating Weight /pcs",
+   "read_only": 1
   },
   {
    "fieldname": "post_coating_weight",
    "fieldtype": "Float",
-   "label": "Post Coating Weight /pcs"
+   "label": "Post Coating Weight /pcs",
+   "read_only": 1
   },
   {
    "fieldname": "pre_coat_linear",
    "fieldtype": "Float",
-   "label": "Pre Coat Linear Meter wt."
+   "label": "Pre Coat Linear Meter wt.",
+   "read_only": 1
   },
   {
    "fieldname": "coating_linear",
    "fieldtype": "Float",
-   "label": "Coating Linear Meter wt."
+   "label": "Coating Linear Meter wt.",
+   "read_only": 1
   },
   {
    "fieldname": "post_coating_linear",
    "fieldtype": "Float",
-   "label": "Post Coating Linear Meter wt."
+   "label": "Post Coating Linear Meter wt.",
+   "read_only": 1
   },
   {
    "fieldname": "pre_coat_width",
    "fieldtype": "Float",
-   "label": "Pre Coat Fabric Width"
+   "label": "Pre Coat Fabric Width",
+   "read_only": 1
   },
   {
    "fieldname": "coating_width",
@@ -1199,22 +1267,26 @@
   {
    "fieldname": "post_coating_width",
    "fieldtype": "Float",
-   "label": "Post Coating Fabric Width"
+   "label": "Post Coating Fabric Width",
+   "read_only": 1
   },
   {
    "fieldname": "coating_order_requirement_mtr",
    "fieldtype": "Float",
-   "label": "Coating Order Requirement (Mtr)"
+   "label": "Coating Order Requirement (Mtr)",
+   "read_only": 1
   },
   {
    "fieldname": "post_coating_order_requirement_mtr",
    "fieldtype": "Float",
-   "label": "Post Coating Order Requirement (Mtr)"
+   "label": "Post Coating Order Requirement (Mtr)",
+   "read_only": 1
   },
   {
    "fieldname": "pre_coat_lamination_order_requirement",
    "fieldtype": "Float",
-   "label": "Pre Coat Order Requirement (Mtr)"
+   "label": "Pre Coat Order Requirement (Mtr)",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_121",
@@ -1231,14 +1303,17 @@
   {
    "fieldname": "bag_size_width",
    "fieldtype": "Float",
-   "label": "Bag Size Width"
+   "label": "Bag Size Width",
+   "read_only": 1
   },
   {
    "fieldname": "lam_machine_hours",
    "fieldtype": "Float",
-   "label": "Machine Hours"
+   "label": "Machine Hours",
+   "read_only": 1
   },
   {
+   "default": "2",
    "fieldname": "lam_material_wastage",
    "fieldtype": "Percent",
    "label": "Lam Material Wastage"
@@ -1246,9 +1321,11 @@
   {
    "fieldname": "bag_size_cut_length",
    "fieldtype": "Float",
-   "label": "Bag Size Cut Length"
+   "label": "Bag Size Cut Length",
+   "read_only": 1
   },
   {
+   "default": "3",
    "fieldname": "extra_width",
    "fieldtype": "Float",
    "label": "Extra Width"
@@ -1273,29 +1350,34 @@
   {
    "fieldname": "liner_weight_pcs",
    "fieldtype": "Float",
-   "label": "Weight / Pcs"
+   "label": "Weight / Pcs",
+   "read_only": 1
   },
   {
    "fieldname": "liner_size_width",
    "fieldtype": "Float",
-   "label": "Liner Size Width"
+   "label": "Liner Size Width",
+   "read_only": 1
   },
   {
    "fieldname": "liner_size_cut_length",
    "fieldtype": "Float",
-   "label": "Liner Size Cut Length"
+   "label": "Liner Size Cut Length",
+   "read_only": 1
   },
   {
    "depends_on": "liner_cutting",
    "fieldname": "cut_length_liner",
    "fieldtype": "Float",
-   "label": "Cut Length liner"
+   "label": "Cut Length liner",
+   "read_only": 1
   },
   {
    "depends_on": "liner_cutting",
    "fieldname": "order_requirement_liner",
    "fieldtype": "Float",
-   "label": "Order Requirement Liner"
+   "label": "Order Requirement Liner",
+   "read_only": 1
   },
   {
    "depends_on": "liner_cutting",
@@ -1304,6 +1386,7 @@
    "label": "Output Bags/Min liner"
   },
   {
+   "default": "85",
    "depends_on": "liner_cutting",
    "fieldname": "efficiency_liner",
    "fieldtype": "Percent",
@@ -1313,7 +1396,8 @@
    "depends_on": "liner_cutting",
    "fieldname": "machine_hours_liner",
    "fieldtype": "Float",
-   "label": "Machine Hours liner"
+   "label": "Machine Hours liner",
+   "read_only": 1
   },
   {
    "default": "0",
@@ -1334,7 +1418,7 @@
    "fieldname": "weftmaterial_combination",
    "fieldtype": "Table",
    "label": "Weft Material Combination",
-   "options": "Material Combination"
+   "options": "Weft Material Combination"
   },
   {
    "fieldname": "section_break_103",
@@ -1345,7 +1429,7 @@
    "fieldname": "warpmaterial_combination",
    "fieldtype": "Table",
    "label": "Warp Material Combination",
-   "options": "Material Combination"
+   "options": "Warp Material Combination"
   },
   {
    "fieldname": "section_break_118",
@@ -1356,7 +1440,7 @@
    "fieldname": "stripmaterial_combination",
    "fieldtype": "Table",
    "label": "Strip Material Combination",
-   "options": "Material Combination"
+   "options": "Strip Material Combination"
   },
   {
    "fieldname": "section_break_145",
@@ -1367,7 +1451,7 @@
    "fieldname": "laminationmaterial_combination",
    "fieldtype": "Table",
    "label": "Lamination Material Combination",
-   "options": "Material Combination"
+   "options": "Lamination Material Combination"
   },
   {
    "fieldname": "section_break_173",
@@ -1378,7 +1462,7 @@
    "fieldname": "linermaterial_combination",
    "fieldtype": "Table",
    "label": "Liner Material Combination",
-   "options": "Material Combination"
+   "options": "Liner Material Combination"
   },
   {
    "fieldname": "section_break_217",
@@ -1389,7 +1473,7 @@
    "fieldname": "bailingmaterial_combination",
    "fieldtype": "Table",
    "label": "Bailing Material Combination",
-   "options": "Material Combination"
+   "options": "Lamination Material Combination"
   },
   {
    "fieldname": "de_section",
@@ -1406,16 +1490,124 @@
    "fieldtype": "Link",
    "hidden": 1,
    "label": "Item Code",
-   "options": "Item",
-   "unique": 1
+   "options": "Item"
+  },
+  {
+   "fieldname": "liner_mcron",
+   "fieldtype": "Float",
+   "label": "Mcron",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_weft",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "total weft"
+  },
+  {
+   "fieldname": "total_warp",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "total warp"
+  },
+  {
+   "fieldname": "total_strip",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "total strip"
+  },
+  {
+   "fieldname": "total_lam",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "total lam"
+  },
+  {
+   "fieldname": "total_liner",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "total liner"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Technical Costing",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "quotation",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Quotation",
+   "options": "Quotation"
+  },
+  {
+   "default": "1",
+   "fieldname": "one",
+   "fieldtype": "Float",
+   "label": "One"
+  },
+  {
+   "fieldname": "weft_section",
+   "fieldtype": "Section Break",
+   "label": "Weft"
+  },
+  {
+   "fieldname": "section_break_176",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_178",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_180",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_182",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_184",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "delivery_term",
+   "fieldtype": "Link",
+   "label": "Delivery Term",
+   "options": "Delivery Terms"
+  },
+  {
+   "fieldname": "order_requirement_mtr",
+   "fieldtype": "Float",
+   "label": "Order Requirement Mtr"
+  },
+  {
+   "fieldname": "commercial_costing",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Commercial Costing",
+   "options": "Commercial Costing"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2022-09-29 13:14:43.315356",
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Commercial Costing",
+   "link_fieldname": "technical_costing"
+  }
+ ],
+ "modified": "2022-11-05 17:22:52.133973",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Technical Costing",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -1432,5 +1624,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

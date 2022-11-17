@@ -84,15 +84,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Activity Form",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
    "fieldname": "travel_request",
    "fieldtype": "Link",
    "label": "Travel Request",
@@ -136,10 +127,11 @@
    "link_fieldname": "employee"
   }
  ],
- "modified": "2022-09-27 16:31:40.942746",
+ "modified": "2022-10-15 13:10:01.766438",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Activity Form",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -157,5 +149,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

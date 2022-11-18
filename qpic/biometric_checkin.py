@@ -42,3 +42,6 @@ def bulk_mark_checkin(attlog):
                     frappe.db.commit()
                 except:
                     frappe.log_error(title="checkin error",message=frappe.get_traceback())
+
+def ping():
+    return "Pong"

@@ -422,13 +422,13 @@ def mark_ot():
                         frappe.db.set_value("Attendance",att.name,'ot_hours',wh)
 
 def create_hooks():
-    job = frappe.db.exists('Scheduled Job Type', 'missed_punch_alert')
+    job = frappe.db.exists('Scheduled Job Type', 'mark_att')
     if not job:
         sjt = frappe.new_doc("Scheduled Job Type")
         sjt.update({
-            "method": 'qpic.email_alerts.missed_punch_alert',
+            "method": 'qpic.mark_attendance.mark_att',
             "frequency": 'Cron',
-            "cron_format": '00 11 * * *'
+            "cron_format": '00 10 * * *'
         })
         sjt.save(ignore_permissions=True)
 

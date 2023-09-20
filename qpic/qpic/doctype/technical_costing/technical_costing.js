@@ -73,12 +73,7 @@ frappe.ui.form.on('Technical Costing', {
 					console.log(dosage)
 					frm.set_value("total_weft",dosage)
 				})
-				if(frm.doc.total_weft ==100){
-					frappe.validated = true;
-				}
-				else{
-					frappe.throw("Weft material combination dosage should be 100")
-				}
+				c
 			}
 		}
 		if(frm.doc.warp_material_combination == 1){

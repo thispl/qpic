@@ -7,7 +7,10 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "incoterms"
+  "incoterms",
+  "sea",
+  "air",
+  "road"
  ],
  "fields": [
   {
@@ -15,14 +18,33 @@
    "fieldtype": "Data",
    "label": "Incoterms",
    "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "sea",
+   "fieldtype": "Check",
+   "label": "Sea"
+  },
+  {
+   "default": "0",
+   "fieldname": "air",
+   "fieldtype": "Check",
+   "label": "Air"
+  },
+  {
+   "default": "0",
+   "fieldname": "road",
+   "fieldtype": "Check",
+   "label": "Road"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-08-16 09:05:06.492456",
+ "modified": "2023-02-20 13:23:56.451618",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Incoterms",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -39,5 +61,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

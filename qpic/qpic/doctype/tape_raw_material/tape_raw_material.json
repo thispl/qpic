@@ -12,7 +12,6 @@
   "qty",
   "unit",
   "rate",
-  "currency",
   "amount"
  ],
  "fields": [
@@ -60,27 +59,23 @@
    "fieldname": "rate",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Rate"
-  },
-  {
-   "fieldname": "currency",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Currency",
-   "options": "Currency"
+   "label": "Rate",
+   "options": "costing_currency"
   },
   {
    "fieldname": "amount",
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Amount",
+   "options": "costing_currency",
+   "precision": "4",
    "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-11-05 12:29:31.510660",
+ "modified": "2023-02-07 07:58:00.867399",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Tape Raw Material",

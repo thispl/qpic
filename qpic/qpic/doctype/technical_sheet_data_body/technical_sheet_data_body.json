@@ -1,0 +1,141 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2022-12-05 09:17:23.865787",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "column_break_2",
+  "type",
+  "section_break_6",
+  "width",
+  "length",
+  "column_break_9",
+  "fabric_gsm",
+  "coating_gsm",
+  "column_break_12",
+  "final_gsm",
+  "qtyunit",
+  "column_break_15",
+  "wtunit",
+  "req_qty",
+  "ts"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "Flat\nCircular"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "width",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Width"
+  },
+  {
+   "columns": 1,
+   "fieldname": "length",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Length"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "fabric_gsm",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Fabric GSM"
+  },
+  {
+   "columns": 1,
+   "fieldname": "coating_gsm",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Coating GSM"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "final_gsm",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Final GSM",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "qtyunit",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty/Unit"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "wtunit",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Wt/Unit",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "req_qty",
+   "fieldtype": "Float",
+   "label": "Req. Qty",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "ts",
+   "fieldtype": "Button",
+   "in_list_view": 1,
+   "label": "TS"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-12-05 09:17:23.865787",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Technical Sheet Data Body",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

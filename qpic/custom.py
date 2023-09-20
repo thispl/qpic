@@ -268,7 +268,7 @@ def get_leave_application(employee):
             attendance = frappe.db.sql("""select count(*) as count, sum(ot_hours) as ot ,sum(week_end_ot) as wot,sum(holiday_ot) as hot from `tabAttendance` where docstatus != 2 and employee = '%s' and  attendance_date between '%s' and '%s' """ % (employee, first_of_month, before_day), as_dict=1)[0]
             abs1 = frappe.db.sql("""select count(*) as count from `tabAttendance` where docstatus != 2 and employee = '%s' and  attendance_date between '%s' and '%s' and status = 'Absent' """ % (employee, first_of_month, before_day), as_dict=1)[0]
             abs2 = frappe.db.sql("""select count(*) as count from `tabAttendance` where docstatus != 2 and employee = '%s' and  attendance_date between '%s' and '%s' and status = 'On Leave' and leave_type = 'Leave Without Pay' """ % (employee, first_of_month, before_day), as_dict=1)[0]
-            return first_of_month, before_day,lap.custom_from_date, lap.custom_to_date,attendance.count, attendance.ot or 0, attendance.wot or 0, attendance.hot or 0, lap.lop_days, lap.custom_total_leave_days, lap.leave_balance, lap.leave_type, abs1.count or 0, abs2.count or 0
+            return first_of_month, before_day,lap.custom_from_date, lap.custom_to_date,attendance.count, attendance.ot or 0, attendance.wot or 0, attendance.hot or 0, lap.lop_days, lap.custom_total_leave_days, lap.leave_balance, lap.leave_type, abs1.count, abs2.count
 
 @frappe.whitelist()
 def update_employee_status(doc, method):
@@ -350,30 +350,145 @@ def create_leave_application(doc, method):
 @frappe.whitelist()
 def create_technical_costing(doc, method):
     for opp_item in doc.items:
-        # tc_id = frappe.db.exists('Technical Costing',{'item_code': opp_item.name,'opportunity':doc.name}, ['*'])
-        # if not tc_id:
-        tc = frappe.new_doc("Technical Costing")
-        tc.opportunity = doc.name
-        tc.item_code = opp_item.item_code
-        tc.item_name = opp_item.item_name
-        tc.item_group = opp_item.item_group
-        tc.uom = opp_item.uom
-        tc.delivery_term = doc.delivery_term
-        tc.qty = opp_item.qty
-        tc.append("technical_costing_item",{
-            "item_code": opp_item.item_code,
-            "item_name": opp_item.item_name,
-            "item_group": opp_item.item_group,
-            "sub_group": opp_item.sub_group,
-            "uom": opp_item.uom,
-            "qty": opp_item.qty,
-            "qty_as_per_stock_uom":opp_item.qty_as_per_stock_uom,
-            "stock_uom":opp_item.stock_uom,
-            "conversion_factor":opp_item.conversion_factor,
-            "country":opp_item.country,
-            "sales_person":opp_item.sales_person,
-        })
-        tc.save(ignore_permissions=True)
+        if opp_item.item_group == "Small Bag":
+            # tc_id = frappe.db.exists('Technical Sheet SB',{'item_code': opp_item.name,'opportunity':doc.name}, ['*'])
+            # if not tc_id:
+            tc = frappe.new_doc("Technical Sheet SB")
+            tc.opportunity = doc.name
+            tc.company = doc.company
+            tc.payment_terms_template = doc.payment_terms_template
+            tc.delivery_schedule = doc.delivery_term
+            tc.port = doc.port
+            tc.port_type = doc.port_type
+            tc.inco_terms = doc.inco_terms
+            tc.country = doc.country_port
+            tc.city = doc.city_port
+            if doc.opportunity_from == "Lead":
+                tc.lead = doc.party_name
+            else:
+                tc.customer = doc.party_name
+            tc.opportunity_owner = doc.opportunity_owner
+            tc.item_code = opp_item.item_code
+            tc.item_name = opp_item.item_name
+            tc.item_group = opp_item.item_group
+            tc.uom = opp_item.uom
+            tc.delivery_term = doc.delivery_term
+            tc.qty = opp_item.qty
+            tc.notes = doc.note
+            for ps in doc.payment_schedule:
+                tc.append("payment_schedule",{
+                    "payment_term":ps.payment_term,
+                    "description":ps.description,
+                    "due_date":ps.due_date,
+                    "invoice_portion":ps.invoice_portion,
+                    "mode_of_payment":ps.mode_of_payment,
+                    "discount":ps.discount,
+                    "discount_type":ps.discount_type,
+                    "payment_amount":ps.payment_amount,
+                    "base_payment_amount":ps.base_payment_amount,
+                })
+            tc.append("technical_costing_item",{
+                "item_code": opp_item.item_code,
+                "item_name": opp_item.item_name,
+                "item_group": opp_item.item_group,
+                "sub_group": opp_item.sub_group,
+                "uom": opp_item.uom,
+                "qty": opp_item.qty,
+                "qty_as_per_stock_uom":opp_item.qty_as_per_stock_uom,
+                "stock_uom":opp_item.stock_uom,
+                "conversion_factor":opp_item.conversion_factor,
+                "country":opp_item.country,
+                "sales_person":opp_item.sales_person,
+            })
+            tc.save(ignore_permissions=True)
+
+        if opp_item.item_group == "Fabric":
+            tc = frappe.new_doc("Technical Sheet Fabric")
+            tc.opportunity = doc.name
+            tc.company = doc.company
+            tc.payment_terms_template = doc.payment_terms_template
+            tc.delivery_schedule = doc.delivery_term
+            tc.port = doc.port
+            tc.port_type = doc.port_type
+            tc.inco_terms = doc.inco_terms
+            tc.country = doc.country_port
+            tc.city = doc.city_port
+            if doc.opportunity_from == "Lead":
+                tc.lead = doc.party_name
+            else:
+                tc.customer = doc.party_name
+            tc.opportunity_owner = doc.opportunity_owner
+            tc.item_code = opp_item.item_code
+            tc.item_name = opp_item.item_name
+            tc.item_group = opp_item.item_group
+            tc.uom = opp_item.uom
+            tc.delivery_term = doc.delivery_term
+            tc.qty = opp_item.qty
+            tc.notes = doc.note
+            for ps in doc.payment_schedule:
+                tc.append("payment_schedule",{
+                    "payment_term":ps.payment_term,
+                    "description":ps.description,
+                    "due_date":ps.due_date,
+                    "invoice_portion":ps.invoice_portion,
+                    "mode_of_payment":ps.mode_of_payment,
+                    "discount":ps.discount,
+                    "discount_type":ps.discount_type,
+                    "payment_amount":ps.payment_amount,
+                    "base_payment_amount":ps.base_payment_amount,
+                })
+            tc.append("technical_costing_item",{
+                "item_code": opp_item.item_code,
+                "item_name": opp_item.item_name,
+                "item_group": opp_item.item_group,
+                "sub_group": opp_item.sub_group,
+                "uom": opp_item.uom,
+                "qty": opp_item.qty,
+                "qty_as_per_stock_uom":opp_item.qty_as_per_stock_uom,
+                "stock_uom":opp_item.stock_uom,
+                "conversion_factor":opp_item.conversion_factor,
+                "country":opp_item.country,
+                "sales_person":opp_item.sales_person,
+            })
+            tc.save(ignore_permissions=True)
+
+
+        if opp_item.item_group == "FIBC":
+            tc = frappe.new_doc("Technical Sheet FIBC")
+            tc.opportunity = doc.name
+            tc.company = doc.company
+            if doc.opportunity_from == "Lead":
+                tc.lead = doc.party_name
+            else:
+                tc.customer = doc.party_name
+            tc.opportunity_owner = doc.opportunity_owner
+            tc.item_code = opp_item.item_code
+            tc.item_name = opp_item.item_name
+            tc.item_group = opp_item.item_group
+            tc.notes = doc.note
+            tc.uom = opp_item.uom
+            tc.delivery_term = doc.delivery_term
+            tc.payment_terms_template = doc.payment_terms_template
+            tc.delivery_schedule = doc.delivery_term
+            tc.port = doc.port
+            tc.port_type = doc.port_type
+            tc.inco_terms = doc.inco_terms
+            tc.country = doc.country_port
+            tc.city = doc.city_port
+            for ps in doc.payment_schedule:
+                tc.append("payment_schedule",{
+                    "payment_term":ps.payment_term,
+                    "description":ps.description,
+                    "due_date":ps.due_date,
+                    "invoice_portion":ps.invoice_portion,
+                    "mode_of_payment":ps.mode_of_payment,
+                    "discount":ps.discount,
+                    "discount_type":ps.discount_type,
+                    "payment_amount":ps.payment_amount,
+                    "base_payment_amount":ps.base_payment_amount,
+                })
+
+            tc.save(ignore_permissions=True)
 
 @frappe.whitelist()
 def getleaveapplication(employee):
@@ -386,14 +501,16 @@ def get_quotation_name(doc,method):
     if not opp.quotation:
         opp.quotation =doc.name
         opp.save(ignore_permissions=True)
-    opp = frappe.get_doc('Commercial Costing',{'opportunity':doc.opportunity})
-    if not opp.quotation:
-        opp.quotation =doc.name
-        opp.save(ignore_permissions=True)
-    opp = frappe.get_doc('Technical Costing',{'opportunity':doc.opportunity})
-    if not opp.quotation:
-        opp.quotation =doc.name
-        opp.save(ignore_permissions=True)
+    if doc.commercial_costing:
+        opp = frappe.get_doc('Commercial Costing',{'opportunity':doc.opportunity})
+        if not opp.quotation:
+            opp.quotation =doc.name
+            opp.save(ignore_permissions=True)
+    if doc.technical_sheet_sb:
+        opp = frappe.get_doc('Technical Sheet SB',{'opportunity':doc.opportunity})
+        if not opp.quotation:
+            opp.quotation =doc.name
+            opp.save(ignore_permissions=True)
 
 # @frappe.whitelist()
 # def cancel_att():
@@ -401,9 +518,10 @@ def get_quotation_name(doc,method):
 #     print(att)
 
 # @frappe.whitelist()
-# def canceltc():
-#     att = frappe.db.sql(""" delete from `tabTechnical Costing`""")
+# def cancel_tech_sheet():
+#     att = frappe.db.sql(""" update `tabTechnical Sheet FIBC` set docstatus = 0 where name = "TS-FIBC-0004" """)
 #     print(att)
+
 
 @frappe.whitelist()
 def update_status(doc,method):
@@ -417,3 +535,427 @@ def update_status(doc,method):
                 employee.status = "Active"
                 employee.save(ignore_permissions=True)
             
+
+@frappe.whitelist()
+def create_tech_sheet(opportunity,item_code,type_of_ts,loop,top,body,bottom):
+    dts = frappe.db.exists('Detailed Technical Sheet',{'opportunity': opportunity,'type_of_ts':type_of_ts,'loop_ts':loop,'top_ts':top,'bottom_ts':bottom,'body_ts':body})
+    if dts:
+        frappe.throw(
+            ("Already Exists")
+        )
+    if not dts:
+        tc = frappe.new_doc("Detailed Technical Sheet")
+        opp = frappe.get_doc("Opportunity",opportunity)
+        for op in opp.items:
+            frappe.errprint(type_of_ts)
+            tc.type_of_ts = type_of_ts
+            tc.opportunity = opportunity
+            tc.item_code = item_code
+            tc.item_name = op.item_name
+            tc.item_group = op.item_group
+            tc.qty = op.qty
+            tc.loop_ts = loop
+            tc.top_ts = top
+            tc.body_ts = body
+            tc.bottom_ts = bottom
+            tc.append("technical_costing_item",{
+                    "item_code": op.item_code,
+                    "item_name": op.item_name,
+                    "item_group": op.item_group,
+                    "sub_group": op.sub_group,
+                    "uom": op.uom,
+                    "qty": op.qty,
+                    "qty_as_per_stock_uom":op.qty_as_per_stock_uom,
+                    "stock_uom":op.stock_uom,
+                    "conversion_factor":op.conversion_factor,
+                    "country":op.country,
+                    "sales_person":opp.sales_person,
+                })
+        tc.save(ignore_permissions=True)
+
+
+@frappe.whitelist()
+def get_opp_values(opportunity):
+    opp = frappe.get_doc('Opportunity',opportunity)
+    return opp.items,opp.sales_person
+
+
+
+# def get_duplicate(tape):
+#     tape = json.loads(tape)
+#     l1 = []
+#     l2 = []
+#     for i in tape:
+#         if  i['item_code']:
+#             if i['item_code'] not in l1:
+#                 l1.append(i["item_code"] or "")
+#             else:
+#                 l2.append(i["item_code"] or "")
+#     return l1
+
+# @frappe.whitelist()
+# def checkin_delete():
+#     # checkin = frappe.db.sql(""" update `tabEmployee Checkin` set skip_auto_attendance = 0 where date(time)  between '2022-12-01' and '2022-12-31'  """)
+#     # print(checkin)
+#     # checkin = frappe.db.sql(""" update `tabEmployee Checkin` set attendance = 0 where date(time)  between '2022-12-01' and '2022-12-31' """)
+#     # print(checkin)
+#     checkin = frappe.db.sql(""" delete from `tabAttendance` where attendance_date between '2022-12-01' and '2022-12-31' """)
+#     print(checkin)
+
+
+@frappe.whitelist()
+def return_tab(technical_sheet_fibc):
+    tec = frappe.get_doc("Technical Sheet FIBC",technical_sheet_fibc)
+    return tec.payment_schedule
+
+@frappe.whitelist()
+def create_product_budget(doc,method):
+    for item in doc.items:
+        if item.commercial_costing_sb:
+            cc = frappe.get_doc("Commercial Costing",item.commercial_costing_sb)
+            pb = frappe.new_doc("Production Budget")
+            pb.loom_fabric_width = cc.loom_fabric_width
+            pb.loom_mesh = cc.loom_mesh
+            pb.loom_fabric_weight_pcs = cc.loom_fabric_weight_pcs
+            pb.loom_gsm = cc.loom_gsm
+            pb.loom_linear_meter_wt = cc.loom_linear_meter_wt
+            pb.loom_wastage_provision_finishing = cc.loom_wastage_provision_finishing
+            pb.loom_order_requirement = cc.loom_order_requirement
+            pb.loom_picks_per_min = cc.loom_picks_per_min
+            pb.loom_machine_hour = cc.loom_machine_hours
+            pb.loom_efficiency = cc.loom_efficiency
+            pb.cutting_width = cc.cutting_width
+            pb.cutting_length = cc.cutting_length
+            pb.cutting_cut_length = cc.cutting_cut_length
+            pb.cutting_fabric_thread_wt = cc.cutting_fabric_thread_wt
+            pb.cutting_liner_weight_gm = cc.cutting_liner_weight_gm
+            pb.cutting_bag_weight_gm = cc.cutting_bag_weight_gm
+            pb.cutting_top = cc.cutting_top
+            pb.cutting_bottom = cc.cutting_bottom
+            pb.cutting_thread_wtbag_gm = cc.cutting_thread_wtbag_gm
+            pb.cutting_order_requirement = cc.cutting_order_requirement
+            pb.cutting_machine_speed_bagsmin = cc.cutting_machine_speed_bagsmin
+            pb.cutting_efficiency = cc.cutting_efficiency
+            pb.cutting_machine_hour = cc.cutting_machine_hours
+            pb.stitching_order_requirement = cc.stitching_order_requirement
+            pb.stitching_bags_manhour = cc.stitching_bags_manhour
+            pb.stitching_manhour = cc.stitching_manhour
+            pb.customer = cc.customer
+            pb.warp = cc.warp
+            pb.sales_order = doc.name
+            pb.order_quantity = cc.order_quantity
+            pb.weft = cc.weft
+            pb.width = cc.width
+            pb.length = cc.length
+            pb.top = cc.top
+            pb.bottom = cc.bottom
+            pb.print = cc.print
+            pb.unit_weight = cc.unit_weight
+            pb.one = cc.one
+            pb.production_size_cut_leng_x = cc.production_size_cut_leng_x
+            pb.production_size_cut_leng_y = cc.production_size_cut_leng_y
+            pb.extra = cc.extra
+            pb.thread_and_others = cc.thread_and_others
+            pb.top_length = cc.top_length
+            pb.bottom_length = cc.bottom_length
+            pb.top_thread = cc.top_thread
+            pb.lamination_optional = cc.lamination_optional
+            pb.liner_optional = cc.liner_optional
+            pb.bottom_thread = cc.bottom_thread
+            pb.coating_side = cc.coating_side
+            pb.coating_gsm = cc.coating_gsm
+            pb.fabric_gms = cc.fabric_gms
+            pb.lamination_gms = cc.lamination_gms
+            pb.liner_gms = cc.liner_gms
+            pb.other_gms = cc.other_gms
+            pb.total = cc.total
+            pb.no_of_units = cc.no_of_units
+            pb.costing_currency = cc.costing_currency
+            pb.lamination_wt_per_pcs_gms = cc.lamination_wt_per_pcs_gms
+            pb.liner_weight_gms = cc.liner_weight_gms
+            pb.opportunity_owner = cc.opportunity_owner
+
+            pb.total_raw_material_cost = cc.total_raw_material_cost
+            pb.cost_pu_raw = cc.cost_pu_raw
+            pb.cost_pmt_raw = cc.cost_pmt_raw
+
+            pb.total_quantity_weft = cc.total_quantity_weft
+            pb.total_dosage_weft = cc.total_dosage_weft
+            pb.weft_raw_material_ = cc.weft_raw_material_
+            pb.weft_cost_pu = cc.weft_cost_pu
+            pb.weft_cost_pmt = cc.weft_cost_pmt
+
+            pb.total_quantity_warp = cc.total_quantity_warp
+            pb.total_dosage_warp = cc.total_dosage_warp
+            pb.warp_raw_material_ = cc.warp_raw_material_
+            pb.warp_cost_pu = cc.warp_cost_pu
+            pb.warp_cost_pmt = cc.warp_cost_pmt
+
+            pb.total_quantity_strip = cc.total_quantity_strip
+            pb.total_dosage_strip = cc.total_dosage_strip
+            pb.strip_raw_material_ = cc.strip_raw_material_
+            pb.strip_cost_pu = cc.strip_cost_pu
+            pb.strip_cost_pmt = cc.strip_cost_pmt
+
+            pb.total_quantity_lamination = cc.total_quantity_lamination
+            pb.total_dosage_lamination = cc.total_dosage_lamination
+            pb.lamination_raw_material_ = cc.lamination_raw_material_
+            pb.lam_cost_pu = cc.lam_cost_pu
+            pb.lam_cost_pmt = cc.lam_cost_pmt
+
+            pb.total_quantity_liner = cc.total_quantity_liner
+            pb.total_dosage_liner = cc.total_dosage_liner
+            pb.liner_raw_material_ = cc.liner_raw_material_
+            pb.liner_cost_pu = cc.liner_cost_pu
+            pb.liner_cost_pmt = cc.liner_cost_pmt
+
+            pb.loom_machine_hours = cc.loom_machine_hours
+            pb.loom_manhrmachhr = cc.loom_manhrmachhr
+            pb.loom_total_man_hrs = cc.loom_total_man_hrs
+            pb.loom_manhr_rate = cc.loom_manhr_rate
+            pb.loom_cost = cc.loom_cost
+
+            pb.tape_machine_hours = cc.tape_machine_hours
+            pb.tape_manhrmachhr = cc.tape_manhrmachhr
+            pb.tape_total_man_hrs = cc.tape_total_man_hrs
+            pb.tape_manhr_rate = cc.tape_manhr_rate
+            pb.tape_cost = cc.tape_cost
+
+            pb.lamination_machine_hours = cc.lamination_machine_hours
+            pb.lamination_manhrmachhr = cc.lamination_manhrmachhr
+            pb.lamination_total_man_hrs = cc.lamination_total_man_hrs
+            pb.lamination_manhr_rate = cc.lamination_manhr_rate
+            pb.lamination_cost = cc.lamination_cost
+
+            pb.blown_film_machine_hours = cc.blown_film_machine_hours
+            pb.blown_film_manhr_machhr = cc.blown_film_manhr_machhr
+            pb.total_man_hrs = cc.total_man_hrs
+            pb.manhr_rate = cc.manhr_rate
+            pb.cost = cc.cost
+
+            pb.liner_cutting_machine_hours = cc.liner_cutting_machine_hours
+            pb.liner_cutting_manhr_machhr = cc.liner_cutting_manhr_machhr
+            pb.liner_cutting_total_man_hrs = cc.liner_cutting_total_man_hrs
+            pb.liner_cutting_manhr_rate = cc.liner_cutting_manhr_rate
+            pb.liner_cutting_cost = cc.liner_cutting_cost
+
+            pb.printing_machine_hours = cc.printing_machine_hours
+            pb.printing_manhrmachhr = cc.printing_manhrmachhr
+            pb.printing_total_man_hrs = cc.printing_total_man_hrs
+            pb.printing_manhr_rate = cc.printing_manhr_rate
+            pb.printing_cost = cc.printing_cost
+
+            pb.cutting_machine_hours = cc.cutting_machine_hours
+            pb.cutting_manhr_machhr = cc.cutting_manhr_machhr
+            pb.cutting_total_man_hrs = cc.cutting_total_man_hrs
+            pb.cutting_manhr_rate = cc.cutting_manhr_rate
+            pb.cutting_cost = cc.cutting_cost
+
+            pb.stitching_machine_hours = cc.stitching_machine_hours
+            pb.stitching_manhr_machhr = cc.stitching_manhr_machhr
+            pb.stitching_total_man_hrs = cc.stitching_total_man_hrs
+            pb.stitching_manhr_rate = cc.stitching_manhr_rate
+            pb.stitching_cost = cc.stitching_cost
+
+
+            pb.bailing_machine_hours = cc.bailing_machine_hours
+            pb.bailing_manhr_machhr = cc.bailing_manhr_machhr
+            pb.bailing_total_man_hrs = cc.bailing_total_man_hrs
+            pb.bailing_manhr_rate = cc.bailing_manhr_rate
+            pb.bailing_cost = cc.bailing_cost
+
+            pb.total_manpower = cc.total_manpower
+            pb.cost_pu_man = cc.cost_pu_man
+            pb.cost_pmt_man = cc.cost_pmt_man
+
+            pb.loommachine_hours = cc.loommachine_hours
+            pb.loomrate = cc.loomrate
+            pb.loomcost = cc.loomcost
+            pb.cuttingmachine_hours = cc.cuttingmachine_hours
+            pb.cuttingrate = cc.cuttingrate
+            pb.cuttingcost = cc.cuttingcost
+            pb.blownfilm_machine_hours = cc.blownfilm_machine_hours
+            pb.blownfilm__rate = cc.blownfilm__rate
+            pb.blownfilm_cost = cc.blownfilm_cost
+            pb.total_overhead = cc.total_overhead
+            pb.cost_pu_over = cc.cost_pu_over
+            pb.cost_pmt_over = cc.cost_pmt_over
+            pb.freight_machine_hours = cc.freight_machine_hours
+            pb.freight_amount = cc.freight_amount
+
+            pb.freight_rate = cc.freight_rate
+            pb.cost_pu_freight = cc.cost_pu_freight
+            pb.freight_currency = cc.freight_currency
+            pb.cost_pmt_freight = cc.cost_pmt_freight
+            pb.quantity_per_cntrtruck = cc.quantity_per_cntrtruck
+            pb.incoterms = cc.incoterms
+            pb.raw_material_cost = cc.raw_material_cost
+            pb.raw_material_cost_pu = cc.raw_material_cost_pu
+            pb.raw_material_cost_pmt = cc.raw_material_cost_pmt
+            pb.manpower_cost = cc.manpower_cost
+            pb.manpower_cost_pu = cc.manpower_cost_pu
+            pb.manpower_cost_pmt = cc.manpower_cost_pmt
+            pb.overhead_cost = cc.overhead_cost
+            pb.overhead_cost_pu = cc.overhead_cost_pu
+            pb.overhead_cost_pmt = cc.overhead_cost_pmt
+            pb.freight_cost = cc.freight_cost
+            pb.freight_cost_pu = cc.freight_cost_pu
+            pb.freight_cost_pmt = cc.freight_cost_pmt
+            pb.cost_per_order = cc.cost_per_order
+            pb.discount_tolerance = cc.discount_tolerance
+            pb.cost_per_metric_ton = cc.cost_per_metric_ton
+            pb.cost_per_unit = cc.cost_per_unit
+            pb.cost_per_metric_ton_usd = cc.cost_per_metric_ton_usd
+            pb.cost_per_unit_usd = cc.cost_per_unit_usd
+            pb.dis_comp_cost_pmt = cc.dis_comp_cost_pmt
+            pb.dis_comp_cost_pu = cc.dis_comp_cost_pu
+
+            pb.dis_cost_pmt = cc.dis_cost_pmt
+            pb.dis_cost_pu = cc.dis_cost_pu
+            pb.notes = cc.notes
+            pb.payment_terms_template = cc.payment_terms_template
+            pb.delivery_schedule = cc.delivery_schedule
+            pb.port_type = cc.port_type
+            pb.port = cc.port
+            pb.country = cc.country
+            pb.city = cc.city
+            pb.inco_terms = cc.inco_terms
+
+            arr = ["Weft","Warp","Strip","Loom","Lamination","Cutting","Liner","Stitching"]
+            for route in arr:
+                pb.append("routing_sequence",{
+                    "operation": route
+                })
+
+            for weft in cc.weft_raw_material:
+                pb.append('weft_raw_material',{
+                    "item_code": weft.item_code,
+                    "item_description": weft.item_description,
+                    "dosage": weft.dosage,
+                    "qty": weft.qty,
+                    "rate": weft.rate,
+                    "unit": weft.unit,
+                    "final_amount": weft.amount,
+                    "final_dosage": weft.dosage,
+                    "final_qty": weft.qty,
+                    "amount": weft.amount,
+                    "currency": weft.currency,
+                })  
+            for warp in cc.warp_raw_material:
+                pb.append('warp_raw_material',{
+                    "item_code": warp.item_code,
+                    "item_description": warp.item_description,
+                    "dosage": warp.dosage,
+                    "qty": warp.qty,
+                    "rate": warp.rate,
+                    "unit": warp.unit,
+                    "final_amount": warp.amount,
+                    "final_dosage": warp.dosage,
+                    "final_qty": warp.qty,
+                    "amount": warp.amount,
+                    "currency": warp.currency,
+                })  
+            for strip in cc.strip_raw_material:
+                pb.append('strip_raw_material',{
+                    "item_code": strip.item_code,
+                    "item_description": strip.item_description,
+                    "dosage": strip.dosage,
+                    "qty": strip.qty,
+                    "rate": strip.rate,
+                    "final_amount": strip.amount,
+                    "final_dosage": strip.dosage,
+                    "final_qty": strip.qty,
+                    "unit": strip.unit,
+                    "amount": strip.amount,
+                    "currency": strip.currency,
+                })  
+            for lamination in cc.lamination_raw_material:
+                pb.append('lamination_raw_material',{
+                    "item_code": lamination.item_code,
+                    "item_description": lamination.item_description,
+                    "dosage": lamination.dosage,
+                    "qty": lamination.qty,
+                    "rate": lamination.rate,
+                    "unit": lamination.unit,
+                    "final_amount": lamination.amount,
+                    "final_dosage": lamination.dosage,
+                    "final_qty": lamination.qty,
+                    "amount": lamination.amount,
+                    "currency": lamination.currency,
+                })  
+            for liner in cc.liner_raw_material:
+                pb.append('liner_raw_material',{
+                    "item_code": liner.item_code,
+                    "item_description": liner.item_description,
+                    "dosage": liner.dosage,
+                    "qty": liner.qty,
+                    "final_amount": liner.amount,
+                    "final_dosage": liner.dosage,
+                    "final_qty": liner.qty,
+                    "rate": liner.rate,
+                    "unit": liner.unit,
+                    "amount": liner.amount,
+                    "currency": liner.currency,
+                })  
+            for comm in cc.commercial_costing_item:
+                pb.append("commercial_costing_item",{
+						"item_code": comm.item_code,
+						"item_name": comm.item_name,
+						"item_group": comm.item_group,
+						"sub_group": comm.sub_group,
+						"uom": comm.uom,
+						"qty": comm.qty,
+						"qty_as_per_stock_uom":comm.qty_as_per_stock_uom,
+						"stock_uom":comm.stock_uom,
+						"conversion_factor":comm.conversion_factor,
+						"country":comm.country,
+						"sales_person":comm.sales_person,
+					})   
+            for ps in doc.payment_schedule:
+                pb.append("payment_schedule",{
+                    "payment_term":ps.payment_term,
+                    "description":ps.description,
+                    "due_date":ps.due_date,
+                    "invoice_portion":ps.invoice_portion,
+                    "mode_of_payment":ps.mode_of_payment,
+                    "discount":ps.discount,
+                    "discount_type":ps.discount_type,
+                    "payment_amount":ps.payment_amount,
+                    "base_payment_amount":ps.base_payment_amount,
+                })
+            pb.save(ignore_permissions=True)
+
+
+@frappe.whitelist()
+def get_item_conv_factor(item_code):
+    item = frappe.get_doc("Item",item_code)
+    return item.uoms
+
+# @frappe.whitelist()
+# def get_order_route(item_details_list,name):
+#     item_details = json.loads(item_details_list)
+#     # frappe.errprint(item_details)
+#     # seq = frappe.new_doc("Routing")
+#     # seq.routing_name = name + "Route"
+#     idx = 1
+#     for i in item_details:
+#         if int(i["order"]) == idx:
+#             frappe.errprint(i["name"])
+#             # mnth = seq.append("operations")
+#             # mnth.operation = i["name"]
+#             # mnth.sequence_id = idx
+#             # mnth.workstation = i["work"]
+        
+#     # seq.save(ignore_permissions=True)
+
+@frappe.whitelist()
+def get_tech_sheet_name(sales_order):
+    sale = frappe.get_doc("Sales Order Item",{'parent':sales_order})
+    return sale
+
+@frappe.whitelist()
+def get_parent_workstation(bom_no):
+    operation = frappe.get_doc("BOM Operation",{'parent':bom_no})
+    return operation
+        
+        

@@ -151,7 +151,7 @@ def make_xlsx(data, sheet_name=None, wb=None, column_widths=None):
     #     cell.alignment = vertical
 
     bold_font = Font(bold=True)
-    for cell in ws["4:4"]:
+    for cell in ws["1:4"]:
         cell.font = bold_font
         
     

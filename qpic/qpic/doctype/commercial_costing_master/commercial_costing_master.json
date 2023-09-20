@@ -27,7 +27,7 @@
   "stitching_manhr_rate",
   "bailing_manhr_rate",
   "section_break_21",
-  "tape_overhead_rate",
+  "loom_overhead_rate",
   "column_break_23",
   "cutting_overhead_rate",
   "column_break_25",
@@ -139,11 +139,6 @@
    "label": "Overhead"
   },
   {
-   "fieldname": "tape_overhead_rate",
-   "fieldtype": "Float",
-   "label": "Tape Overhead Rate"
-  },
-  {
    "fieldname": "cutting_overhead_rate",
    "fieldtype": "Float",
    "label": "Cutting Overhead Rate"
@@ -160,12 +155,17 @@
   {
    "fieldname": "column_break_25",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "loom_overhead_rate",
+   "fieldtype": "Float",
+   "label": "Loom Overhead Rate"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-10-28 09:20:25.876315",
+ "modified": "2023-01-14 09:24:29.069225",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Commercial Costing Master",

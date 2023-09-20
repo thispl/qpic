@@ -124,7 +124,11 @@ doc_events = {
 	'Quotation':{
 		'on_update':'qpic.custom.get_quotation_name',
 		# 'on_cancel':'qpic.custom.simple'
-	}
+	},
+	'Sales Order':{
+		'on_submit':'qpic.custom.create_product_budget'
+	},
+	
 	
 
 	# 'Payroll Entry':{

@@ -39,11 +39,11 @@ def submit_att_datewise():
             frappe.db.commit()
 
 @frappe.whitelist()
-def mark_att_datewise():
+def mark_att_datewise(): 
     # cur_date = today()
     # to_date = add_days(cur_date,-1)
-    from_date= '2022-10-31'
-    to_date = '2022-11-01'
+    from_date= '2022-11-01'
+    to_date = '2022-12-01'
     
     admin_office_checkins = frappe.db.sql(""" select * from `tabEmployee Checkin` where date(time) between '%s' and '%s' and device_id in ('ADMIN OFFICE','Admin Office out') order by time"""%(from_date,to_date),as_dict = 1)
     checkins = frappe.db.sql("""select * from `tabEmployee Checkin` where date(time) between '%s' and '%s' order by time """%(from_date,to_date),as_dict=True) 
@@ -62,8 +62,8 @@ def mark_att_datewise():
 
 @frappe.whitelist()
 def mark_auto_attendance():
-    from_date= '2022-10-01'
-    to_date = '2022-10-31'
+    from_date= '2022-11-01'
+    to_date = '2022-12-01'
     employee = frappe.db.sql("""select * from `tabEmployee` where name in ('2065','2099')""",as_dict =1)
     for emp in employee:
         dates = get_dates(from_date,to_date)
@@ -86,8 +86,8 @@ def mark_auto_attendance():
                         frappe.db.commit()
 
 def mark_absent_datewise():
-    from_date= '2022-10-01'
-    to_date = '2022-10-31'
+    from_date= '2022-11-01'
+    to_date = '2022-11-30'
     employee = frappe.db.sql("""select * from `tabEmployee` where status = 'Active'""",as_dict =1)
     for emp in employee:
         dates = get_dates(from_date,to_date)
@@ -109,7 +109,6 @@ def mark_absent_datewise():
                         att_doc.save(ignore_permissions=True)
                         att_doc.submit()
                         frappe.db.commit()
-
 
 def mark_ot_datewise():
     from_date= '2022-10-01'
@@ -158,17 +157,19 @@ def mark_ot_datewise():
 def mark_att():
     to_date = today()
     from_date = add_days(to_date,-1)
-    # to_date = today()
-    # from_date= get_first_day(today())
+    # to_date = '2023-01-04'
+    # from_date= '2023-01-04'
     admin_office_checkins = frappe.db.sql(""" select * from `tabEmployee Checkin` where date(time) between '%s' and '%s' and device_id in ('ADMIN OFFICE','Admin Office out') order by time"""%(from_date,to_date),as_dict = 1)
     checkins = frappe.db.sql("""select * from `tabEmployee Checkin` where date(time) between '%s' and '%s' order by time """%(from_date,to_date),as_dict=True) 
     attendance = frappe.db.sql("""select name,employee,shift,in_time,out_time,attendance_date,ot_hours from `tabAttendance` where docstatus != 2  and attendance_date between '%s' and '%s' """ % (from_date,to_date),as_dict=1)
 
     if checkins:
+        print('Hi')
         date = checkins[0].time
         from_date = datetime.strftime(date,'%Y-%m-%d')
         
         for c in checkins:
+            print('Hi')
             mark_attendance_from_checkin(c.name,c.employee,c.time,c.device_id)
       
     if admin_office_checkins:

@@ -1,0 +1,31 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2023-02-17 17:31:36.860047",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "operation"
+ ],
+ "fields": [
+  {
+   "fieldname": "operation",
+   "fieldtype": "Read Only",
+   "label": "Operation"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-02-17 18:00:55.839327",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Production Budget Routing",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

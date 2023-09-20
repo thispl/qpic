@@ -22,6 +22,10 @@
   "roll_to_roll_extra",
   "roll_to_roll_thread",
   "roll_to_roll_wastage",
+  "column_break_17",
+  "fibc_extra_to_cut_length",
+  "fibc_thread",
+  "fibc_wastage",
   "bottom_section",
   "sfss_extra",
   "sfss_thread",
@@ -37,6 +41,9 @@
   "column_break_29",
   "bottom_roll_to_roll_extra",
   "bottom_roll_to_roll_thread",
+  "111",
+  "bottom_fibc_extra_to_cut",
+  "bottom_fibc_thread",
   "section_break_32",
   "no",
   "column_break_34",
@@ -277,12 +284,45 @@
   {
    "fieldname": "column_break_46",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fibc_extra_to_cut_length",
+   "fieldtype": "Int",
+   "label": "FIBC Extra to Cut length"
+  },
+  {
+   "fieldname": "fibc_thread",
+   "fieldtype": "Int",
+   "label": "FIBC Thread"
+  },
+  {
+   "fieldname": "fibc_wastage",
+   "fieldtype": "Percent",
+   "label": "FIBC Wastage"
+  },
+  {
+   "fieldname": "111",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bottom_fibc_extra_to_cut",
+   "fieldtype": "Int",
+   "label": "FIBC Extra to Cut length"
+  },
+  {
+   "fieldname": "bottom_fibc_thread",
+   "fieldtype": "Int",
+   "label": "FIBC Thread"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-09-28 17:50:05.668702",
+ "modified": "2022-12-12 07:53:48.288301",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Technical Costing Master",
@@ -300,5 +340,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

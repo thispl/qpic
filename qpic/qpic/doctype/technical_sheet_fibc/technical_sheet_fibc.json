@@ -1,0 +1,694 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "TS-FIBC-.####",
+ "creation": "2022-11-30 07:35:56.864441",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "opportunity",
+  "company",
+  "customer",
+  "lead",
+  "opportunity_owner",
+  "delivery_term",
+  "column_break_4",
+  "posting_date",
+  "item_code",
+  "item_name",
+  "item_group",
+  "uom",
+  "size_section",
+  "external_width",
+  "internal_width",
+  "column_break_11",
+  "external_length",
+  "internal_length",
+  "column_break_15",
+  "external_height",
+  "internal_height",
+  "column_break_21",
+  "order_quantity",
+  "section_break_17",
+  "top",
+  "top_total",
+  "liner_pe",
+  "liner_total",
+  "column_break_25",
+  "body",
+  "body_total",
+  "type",
+  "column_break_27",
+  "bottom",
+  "bottom_total",
+  "application",
+  "column_break_29",
+  "loop",
+  "loop_total",
+  "top_section_section",
+  "top__bottom",
+  "html_35",
+  "skirt_section",
+  "skirt",
+  "spout_section",
+  "spout",
+  "spout__petel_closure_section",
+  "spout__petel_closure",
+  "spout_irish_section",
+  "spout_irish",
+  "section_break_33",
+  "closed_section",
+  "closed",
+  "spout_section_bottom",
+  "spout_bottom",
+  "spout_petel_closure_section_section",
+  "spout_petel_closure_bottom",
+  "spout_irish_section_section",
+  "spout_irish_bottom",
+  "section_break_48",
+  "circular_section",
+  "circular",
+  "u2_panel_section",
+  "u2_panel",
+  "two_panel_section",
+  "two_panel",
+  "qbaffle_bag_section",
+  "qbaffle_bag",
+  "loop_section",
+  "loop_select",
+  "loop_size",
+  "liner_pe_section",
+  "liner_select",
+  "liner_table",
+  "other_items_section",
+  "item",
+  "item_total",
+  "total_weight_per_bag_unit_section",
+  "total_weight_per_bag_unit",
+  "assembling_process_section",
+  "assembling_process",
+  "notes_section",
+  "notes",
+  "payment_terms_section",
+  "payment_terms_template",
+  "payment_schedule",
+  "delivery_schedule_section",
+  "delivery_schedule",
+  "board_of_port_section",
+  "port_type",
+  "column_break_91",
+  "port",
+  "country",
+  "city",
+  "column_break_95",
+  "inco_terms"
+ ],
+ "fields": [
+  {
+   "fieldname": "opportunity",
+   "fieldtype": "Link",
+   "label": "Opportunity",
+   "options": "Opportunity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Data",
+   "label": "Item Group",
+   "read_only": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "delivery_term",
+   "fieldtype": "Link",
+   "label": "Delivery Term",
+   "options": "Delivery Terms",
+   "read_only": 1
+  },
+  {
+   "fieldname": "size_section",
+   "fieldtype": "Section Break",
+   "label": "Size"
+  },
+  {
+   "fieldname": "external_width",
+   "fieldtype": "Int",
+   "label": "External Width"
+  },
+  {
+   "fieldname": "external_length",
+   "fieldtype": "Int",
+   "label": "External Length"
+  },
+  {
+   "fieldname": "external_height",
+   "fieldtype": "Int",
+   "label": "External Height"
+  },
+  {
+   "fieldname": "internal_width",
+   "fieldtype": "Int",
+   "label": "Internal Width"
+  },
+  {
+   "fieldname": "internal_length",
+   "fieldtype": "Int",
+   "label": "Internal Length"
+  },
+  {
+   "fieldname": "internal_height",
+   "fieldtype": "Int",
+   "label": "Internal Height"
+  },
+  {
+   "fieldname": "order_quantity",
+   "fieldtype": "Float",
+   "label": "Order Quantity"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_17",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "top",
+   "fieldtype": "Select",
+   "label": "Top",
+   "options": "\nOpen\nSkirt\nSpout\nSpout + Petel Closure\nSpout + Irish"
+  },
+  {
+   "fieldname": "body",
+   "fieldtype": "Select",
+   "label": "Body",
+   "options": "\nCircular\nU+2 Panel\nTwo Panel\nQ/Baffle Bag\n4 Panel"
+  },
+  {
+   "fieldname": "bottom",
+   "fieldtype": "Select",
+   "label": "Bottom",
+   "options": "\nClosed\nSpout\nSpout + Petel Closure\nSpout + Irish"
+  },
+  {
+   "fieldname": "loop",
+   "fieldtype": "Select",
+   "label": "Loop",
+   "options": "\nFull Loop\nCross Corner - Omega\nCross Corner - Juki\nCorner Loop\nSingle Loop\nNone"
+  },
+  {
+   "fieldname": "liner_pe",
+   "fieldtype": "Select",
+   "label": "Liner (PE)",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "\nFlat\nCircular"
+  },
+  {
+   "fieldname": "application",
+   "fieldtype": "Select",
+   "label": "Application",
+   "options": "\n1\n2"
+  },
+  {
+   "depends_on": "bottom",
+   "fieldname": "section_break_33",
+   "fieldtype": "Tab Break",
+   "label": "Bottom"
+  },
+  {
+   "depends_on": "eval:doc.bottom == \"Closed\"",
+   "fieldname": "closed_section",
+   "fieldtype": "Section Break",
+   "label": "Closed"
+  },
+  {
+   "fieldname": "closed",
+   "fieldtype": "Table",
+   "label": "Closed",
+   "options": "Technical Sheet Data Top"
+  },
+  {
+   "depends_on": "eval:doc.top == \"Skirt\"",
+   "fieldname": "skirt_section",
+   "fieldtype": "Section Break",
+   "label": "Skirt"
+  },
+  {
+   "fieldname": "skirt",
+   "fieldtype": "Table",
+   "label": "Skirt",
+   "options": "Technical Sheet Data Top"
+  },
+  {
+   "depends_on": "eval:doc.top == \"Spout\"",
+   "fieldname": "spout_section",
+   "fieldtype": "Section Break",
+   "label": "Spout"
+  },
+  {
+   "fieldname": "spout",
+   "fieldtype": "Table",
+   "label": "Spout",
+   "options": "Technical Sheet Data Top"
+  },
+  {
+   "depends_on": "eval:doc.top == \"Spout + Petel Closure\"",
+   "fieldname": "spout__petel_closure_section",
+   "fieldtype": "Section Break",
+   "label": "Spout + Petel Closure"
+  },
+  {
+   "fieldname": "spout__petel_closure",
+   "fieldtype": "Table",
+   "label": "Spout + Petel Closure",
+   "options": "Technical Sheet Data Top"
+  },
+  {
+   "depends_on": "eval:doc.top == \"Spout + Irish\"",
+   "fieldname": "spout_irish_section",
+   "fieldtype": "Section Break",
+   "label": "Spout + Irish"
+  },
+  {
+   "fieldname": "spout_irish",
+   "fieldtype": "Table",
+   "label": "Spout + Irish",
+   "options": "Technical Sheet Data Top"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.top == \"Open\"",
+   "fieldname": "html_35",
+   "fieldtype": "HTML",
+   "options": "<h4>Open</h4>"
+  },
+  {
+   "fieldname": "top__bottom",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "body",
+   "fieldname": "section_break_48",
+   "fieldtype": "Tab Break",
+   "label": "Body"
+  },
+  {
+   "depends_on": "eval:doc.body == \"Circular\"",
+   "fieldname": "circular_section",
+   "fieldtype": "Section Break",
+   "label": "Circular"
+  },
+  {
+   "fieldname": "circular",
+   "fieldtype": "Table",
+   "label": "Circular",
+   "options": "Technical Sheet Data Body"
+  },
+  {
+   "depends_on": "eval:doc.body == \"U+2 Panel\"",
+   "fieldname": "u2_panel_section",
+   "fieldtype": "Section Break",
+   "label": "U+2 Panel"
+  },
+  {
+   "fieldname": "u2_panel",
+   "fieldtype": "Table",
+   "label": "U2 Panel",
+   "options": "Technical Sheet Data Body"
+  },
+  {
+   "depends_on": "eval:doc.body == \"Two Panel\"",
+   "fieldname": "two_panel_section",
+   "fieldtype": "Section Break",
+   "label": "Two Panel"
+  },
+  {
+   "fieldname": "two_panel",
+   "fieldtype": "Table",
+   "label": "Two Panel",
+   "options": "Technical Sheet Data Body"
+  },
+  {
+   "depends_on": "eval:doc.body == \"Q/Baffle Bag\"",
+   "fieldname": "qbaffle_bag_section",
+   "fieldtype": "Section Break",
+   "label": "Q/Baffle Bag"
+  },
+  {
+   "fieldname": "qbaffle_bag",
+   "fieldtype": "Table",
+   "label": "Q/Baffle Bag",
+   "options": "Technical Sheet Data Body"
+  },
+  {
+   "depends_on": "loop",
+   "fieldname": "loop_section",
+   "fieldtype": "Tab Break",
+   "label": "Loop"
+  },
+  {
+   "fieldname": "loop_select",
+   "fieldtype": "Select",
+   "label": "Loop",
+   "options": "\nFull Loop\nCross Corner - Omega\nCross Corner - Juki\nCorner Loop\nSingle Loop\nNone"
+  },
+  {
+   "fieldname": "loop_size",
+   "fieldtype": "Table",
+   "label": "Loop size",
+   "options": "Technical Sheet Data Loop"
+  },
+  {
+   "depends_on": "eval:doc.liner_select == \"Yes\"",
+   "fieldname": "liner_pe_section",
+   "fieldtype": "Tab Break",
+   "label": "Liner (PE)"
+  },
+  {
+   "fieldname": "liner_select",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Liner Select",
+   "options": "\nYes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.liner_select == \"Yes\"",
+   "fieldname": "liner_table",
+   "fieldtype": "Table",
+   "label": "Liner",
+   "options": "Technical Sheet FIBC Liner"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Technical Sheet FIBC Item"
+  },
+  {
+   "fieldname": "other_items_section",
+   "fieldtype": "Tab Break",
+   "label": "Other Items"
+  },
+  {
+   "depends_on": "eval:doc.bottom == \"Spout\"",
+   "fieldname": "spout_section_bottom",
+   "fieldtype": "Section Break",
+   "label": "Spout"
+  },
+  {
+   "fieldname": "spout_bottom",
+   "fieldtype": "Table",
+   "label": "Spout",
+   "options": "Technical Sheet Data"
+  },
+  {
+   "depends_on": "eval:doc.bottom == \"Spout + Petel Closure\"",
+   "fieldname": "spout_petel_closure_section_section",
+   "fieldtype": "Section Break",
+   "label": "Spout + Petel Closure"
+  },
+  {
+   "fieldname": "spout_petel_closure_bottom",
+   "fieldtype": "Table",
+   "label": "Spout +  Petel Closure",
+   "options": "Technical Sheet Data"
+  },
+  {
+   "depends_on": "eval:doc.bottom == \"Spout + Irish\"",
+   "fieldname": "spout_irish_section_section",
+   "fieldtype": "Section Break",
+   "label": "Spout + Irish"
+  },
+  {
+   "fieldname": "spout_irish_bottom",
+   "fieldtype": "Table",
+   "label": "Spout + Irish",
+   "options": "Technical Sheet Data"
+  },
+  {
+   "fieldname": "total_weight_per_bag_unit_section",
+   "fieldtype": "Section Break",
+   "label": "Total weight per bag /unit"
+  },
+  {
+   "fieldname": "total_weight_per_bag_unit",
+   "fieldtype": "Float",
+   "label": "Total weight per bag /unit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "top_total",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Top Total"
+  },
+  {
+   "fieldname": "bottom_total",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Bottom Total"
+  },
+  {
+   "fieldname": "body_total",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Body Total"
+  },
+  {
+   "fieldname": "loop_total",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Loop Total"
+  },
+  {
+   "fieldname": "liner_total",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Liner Total"
+  },
+  {
+   "fieldname": "assembling_process_section",
+   "fieldtype": "Section Break",
+   "label": "Assembling Process"
+  },
+  {
+   "fieldname": "assembling_process",
+   "fieldtype": "Table",
+   "label": "Assembling Process",
+   "options": "Technical Sheet Data Others"
+  },
+  {
+   "fieldname": "item_total",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Item Total"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Tab Break",
+   "label": "Terms"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "depends_on": "customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "opportunity_owner",
+   "fieldtype": "Link",
+   "label": "Opportunity Owner",
+   "options": "User"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date"
+  },
+  {
+   "depends_on": "top",
+   "fieldname": "top_section_section",
+   "fieldtype": "Tab Break",
+   "label": "Top"
+  },
+  {
+   "depends_on": "lead",
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "label": "Lead",
+   "options": "Lead"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "payment_terms_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Terms"
+  },
+  {
+   "fieldname": "payment_terms_template",
+   "fieldtype": "Link",
+   "label": "Payment Terms Template",
+   "options": "Payment Terms Template"
+  },
+  {
+   "fieldname": "payment_schedule",
+   "fieldtype": "Table",
+   "label": "Payment Schedule",
+   "options": "Payment Schedule"
+  },
+  {
+   "fieldname": "delivery_schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Delivery Schedule"
+  },
+  {
+   "fieldname": "delivery_schedule",
+   "fieldtype": "Link",
+   "label": "Delivery Schedule",
+   "options": "Delivery Terms"
+  },
+  {
+   "fieldname": "board_of_port_section",
+   "fieldtype": "Section Break",
+   "label": "Board of Port"
+  },
+  {
+   "fieldname": "port_type",
+   "fieldtype": "Select",
+   "label": "Port Type",
+   "options": "Air\nSea\nRoad"
+  },
+  {
+   "fieldname": "column_break_91",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.port_type != \"Road\"",
+   "fieldname": "port",
+   "fieldtype": "Link",
+   "label": "Port",
+   "options": "Port"
+  },
+  {
+   "depends_on": "eval:doc.port_type == \"Road\"",
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "depends_on": "eval:doc.port_type == \"Road\"",
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "column_break_95",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inco_terms",
+   "fieldtype": "Link",
+   "label": "INCO Terms",
+   "options": "Incoterms"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Detailed Technical Sheet",
+   "link_fieldname": "technical_sheet_fibc"
+  },
+  {
+   "link_doctype": "Commercial Costing FIBC",
+   "link_fieldname": "technical_sheet_fibc"
+  }
+ ],
+ "modified": "2023-01-21 17:18:49.005577",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Technical Sheet FIBC",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

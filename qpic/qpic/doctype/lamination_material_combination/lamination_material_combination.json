@@ -42,6 +42,7 @@
    "label": "Qty"
   },
   {
+   "columns": 1,
    "fetch_from": "item_code.stock_uom",
    "fieldname": "unit",
    "fieldtype": "Link",
@@ -53,7 +54,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-11-04 18:08:21.365576",
+ "modified": "2022-12-21 09:30:17.972519",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Lamination Material Combination",

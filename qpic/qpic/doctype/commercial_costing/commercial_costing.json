@@ -64,7 +64,6 @@
   "liner_gms",
   "column_break_46",
   "other_gms",
-  "column_break_48",
   "total",
   "column_break_50",
   "no_of_units",
@@ -605,10 +604,6 @@
    "fieldtype": "Float",
    "label": "Other",
    "read_only": 1
-  },
-  {
-   "fieldname": "column_break_48",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "total",
@@ -2280,7 +2275,8 @@
   },
   {
    "fieldname": "data_151",
-   "fieldtype": "Column Break"
+   "fieldtype": "Column Break",
+   "label": "Bag Weight (gm)"
   },
   {
    "fieldname": "cutting_bag_weight_gm",
@@ -2360,7 +2356,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-02-15 09:19:40.943249",
+ "modified": "2023-12-07 11:15:14.698039",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Commercial Costing",

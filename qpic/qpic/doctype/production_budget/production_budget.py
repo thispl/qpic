@@ -668,7 +668,15 @@ class ProductionBudget(Document):
 		bom8.submit()
 
 
+@frappe.whitelist()
+def get_tech_sheet_name(sales_order):
+    sale = frappe.get_doc("Sales Order Item",{'parent':sales_order})
+    return sale
 
+@frappe.whitelist()
+def get_item_conv_factor(item_code):
+    item = frappe.get_doc("Item",item_code)
+    return item.uoms
 
 
 

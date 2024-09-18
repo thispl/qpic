@@ -198,7 +198,7 @@ frappe.ui.form.on('Production Budget', {
         // })
         // frm.refresh_field("routing_sequence")
 		frappe.call({
-			method: "qpic.custom.get_tech_sheet_name",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_tech_sheet_name",
 			args: {
 				'sales_order': frm.doc.sales_order
 			},
@@ -229,7 +229,7 @@ frappe.ui.form.on('Production Budget', {
 			d.uom = "Gram"
 			d.quantity_per_unit = d.final_qty / frm.doc.order_quantity
 			frappe.call({
-				method: "qpic.custom.get_item_conv_factor",
+				method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 				args: {
 					item_code: d.item_code
 				},
@@ -251,7 +251,7 @@ frappe.ui.form.on('Production Budget', {
 			if(d.final_dosage > 0){
 				d.quantity_per_unit = (frm.doc.total_quantity_lamination / frm.doc.order_quantity)*(d.final_dosage/100)
 				frappe.call({
-					method: "qpic.custom.get_item_conv_factor",
+					method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 					args: {
 						item_code: d.item_code
 					},
@@ -273,7 +273,7 @@ frappe.ui.form.on('Production Budget', {
 			d.uom = "Gram"
 			d.quantity_per_unit = d.final_qty / frm.doc.order_quantity
 			frappe.call({
-				method: "qpic.custom.get_item_conv_factor",
+				method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 				args: {
 					item_code: d.item_code
 				},
@@ -293,7 +293,7 @@ frappe.ui.form.on('Production Budget', {
 			d.uom = "Gram"
 			d.quantity_per_unit = d.final_qty / frm.doc.order_quantity
 			frappe.call({
-				method: "qpic.custom.get_item_conv_factor",
+				method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 				args: {
 					item_code: d.item_code
 				},
@@ -313,7 +313,7 @@ frappe.ui.form.on('Production Budget', {
 			d.uom = "Gram"
 			d.quantity_per_unit = d.final_qty / frm.doc.order_quantity
 			frappe.call({
-				method: "qpic.custom.get_item_conv_factor",
+				method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 				args: {
 					item_code: d.item_code
 				},
@@ -583,7 +583,7 @@ frappe.ui.form.on('PB Cutting Raw Material', {
 	quantity_per_unit(frm,cdt,cdn){
 		var child = locals[cdt][cdn]
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -625,7 +625,7 @@ frappe.ui.form.on('PB Weft Raw Material', {
         child.final_amount = child.final_qty * child.rate
 		child.quantity_per_unit = child.final_qty / frm.doc.order_quantity
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -652,7 +652,7 @@ frappe.ui.form.on('PB Weft Raw Material', {
 	uom(frm,cdt,cdn){
 		var child = locals[cdt][cdn]
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -684,7 +684,7 @@ frappe.ui.form.on('PB Warp Raw Material', {
         child.final_amount = child.final_qty * child.rate
 		child.quantity_per_unit = child.final_qty / frm.doc.order_quantity
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -711,7 +711,7 @@ frappe.ui.form.on('PB Warp Raw Material', {
 	uom(frm,cdt,cdn){
 		var child = locals[cdt][cdn]
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -742,7 +742,7 @@ frappe.ui.form.on('PB Strip Raw Material', {
         child.final_amount = child.final_qty * child.rate
 		child.quantity_per_unit = child.final_qty / frm.doc.order_quantity
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -769,7 +769,7 @@ frappe.ui.form.on('PB Strip Raw Material', {
 	uom(frm,cdt,cdn){
 		var child = locals[cdt][cdn]
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -858,7 +858,7 @@ frappe.ui.form.on('PB Liner Raw Material', {
         child.final_qty = (child.final_dosage/100) * frm.doc.total_quantity_liner
         child.final_amount = child.final_qty * child.rate
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -889,7 +889,7 @@ frappe.ui.form.on('PB Liner Raw Material', {
 	uom(frm,cdt,cdn){
 		var child = locals[cdt][cdn]
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -913,7 +913,7 @@ frappe.ui.form.on('PB Loom Raw Material', {
 		var child = locals[cdt][cdn]
 		child.uom = "Gram"	
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -934,7 +934,7 @@ frappe.ui.form.on('PB Loom Raw Material', {
 	uom(frm,cdt,cdn){
 		var child = locals[cdt][cdn]
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -966,7 +966,7 @@ frappe.ui.form.on('PB Liner Output', {
 		child.uom = "Gram"
         child.quantity_per_unit = (child.dosage/100) * frm.doc.liner_wt_per_unit
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -997,7 +997,7 @@ frappe.ui.form.on('PB Loom Output', {
 		var child = locals[cdt][cdn]
 		if(child.type == "Output"){
 			frappe.call({
-				method: "qpic.custom.get_tech_sheet_name",
+				method: "qpic.qpic.doctype.production_budget.production_budget.get_tech_sheet_name",
 				args: {
 					'sales_order': frm.doc.sales_order
 				},
@@ -1037,7 +1037,7 @@ frappe.ui.form.on('PB Loom Output', {
 		
 		child.uom = "Gram"	
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -1092,7 +1092,7 @@ frappe.ui.form.on('PB Loom Output', {
 	uom(frm,cdt,cdn){
 		var child = locals[cdt][cdn]
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -1125,7 +1125,7 @@ frappe.ui.form.on('PB Cutting Output', {
 	quantity_per_unit(frm,cdt,cdn){
 		var child = locals[cdt][cdn]
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -1146,7 +1146,7 @@ frappe.ui.form.on('PB Cutting Output', {
 	uom(frm,cdt,cdn){
 		var child = locals[cdt][cdn]
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -1184,7 +1184,7 @@ frappe.ui.form.on('PB Lamination Output', {
 		if(child.type == "Scrap"){
 			child.quantity_per_unit=frm.doc.lam_total
 			frappe.call({
-				method: "qpic.custom.get_item_conv_factor",
+				method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 				args: {
 					item_code: child.item_code
 				},
@@ -1215,7 +1215,7 @@ frappe.ui.form.on('PB Lamination Output', {
 	uom(frm,cdt,cdn){
 		var child = locals[cdt][cdn]
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -1245,7 +1245,7 @@ frappe.ui.form.on('PB Strip Output', {
         child.qty = (child.dosage/100) * frm.doc.total_quantity_strip
 		child.quantity_per_unit = child.qty / frm.doc.order_quantity
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -1266,7 +1266,7 @@ frappe.ui.form.on('PB Strip Output', {
 	uom(frm,cdt,cdn){
 		var child = locals[cdt][cdn]
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -1296,7 +1296,7 @@ frappe.ui.form.on('PB Warp Output', {
         child.qty = (child.dosage/100) * frm.doc.total_quantity_warp
 		child.quantity_per_unit = child.qty / frm.doc.order_quantity
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -1317,7 +1317,7 @@ frappe.ui.form.on('PB Warp Output', {
 	uom(frm,cdt,cdn){
 		var child = locals[cdt][cdn]
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -1347,7 +1347,7 @@ frappe.ui.form.on('PB Weft Output', {
         child.qty = (child.dosage/100) * frm.doc.total_quantity_weft
 		child.quantity_per_unit = child.qty / frm.doc.order_quantity
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},
@@ -1368,7 +1368,7 @@ frappe.ui.form.on('PB Weft Output', {
 	uom(frm,cdt,cdn){
 		var child = locals[cdt][cdn]
 		frappe.call({
-			method: "qpic.custom.get_item_conv_factor",
+			method: "qpic.qpic.doctype.production_budget.production_budget.get_item_conv_factor",
 			args: {
 				item_code: child.item_code
 			},

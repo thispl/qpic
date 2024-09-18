@@ -149,4 +149,12 @@ class DetailedTechnicalSheet(Document):
 				tc.save(ignore_permissions=True)
 
 
+@frappe.whitelist()
+def get_opp_values(opportunity):
+    opp = frappe.get_doc('Opportunity',opportunity)
+    return opp.items,opp.sales_person
 
+@frappe.whitelist()
+def return_tab(technical_sheet_fibc):
+    tec = frappe.get_doc("Technical Sheet FIBC",technical_sheet_fibc)
+    return tec.payment_schedule

@@ -116,17 +116,17 @@ class CommercialCostingFabric(Document):
                     tc.incoterms = self.inco_terms
                     tc.country = self.country
                     tc.city = self.city
-                    for ps in self.payment_schedule:
-                        tc.append("payment_schedule",{
-                            "payment_term":ps.payment_term,
-                            "description":ps.description,
-                            "due_date":ps.due_date,
-                            "invoice_portion":ps.invoice_portion,
-                            "mode_of_payment":ps.mode_of_payment,
-                            "discount":ps.discount,
-                            "discount_type":ps.discount_type,
-                            "payment_amount":ps.payment_amount,
-                            "base_payment_amount":ps.base_payment_amount,
-                        })
+                    # for ps in self.payment_schedule:
+                    #     tc.append("payment_schedule",{
+                    #         "payment_term":ps.payment_term,
+                    #         "description":ps.description,
+                    #         "due_date":ps.due_date,
+                    #         "invoice_portion":ps.invoice_portion,
+                    #         "mode_of_payment":ps.mode_of_payment,
+                    #         "discount":ps.discount,
+                    #         "discount_type":ps.discount_type,
+                    #         "payment_amount":ps.payment_amount,
+                    #         "base_payment_amount":ps.base_payment_amount,
+                    #     })
                     tc.save(ignore_permissions=True)
 

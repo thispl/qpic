@@ -77,41 +77,7 @@ def salary_advance(doc, method):
         aas.save()
         aas.submit()
 
-@frappe.whitelist()
-def update_employee(doc, method):
-    employee_update = frappe.db.exists('Update Employee Personal Info', {'employee': doc.employee_number})
-    frappe.errprint(employee_update)
-    if employee_update:
-        frappe.errprint(employee_update)
-        emp = frappe.get_doc('Employee')
-        emp.update({
-            'employee_number': doc.employee_number,
-            'first_name': doc.first_name,
-            'middle_name': doc.middle_name,
-            'last_name': doc.last_name,
-            'sponsor_company': doc.sponsor_company,
-            'passport_number': doc.passport_number,
-            'date_of_issue': doc.date_of_issue,
-            'valid_upto': doc.valid_upto,
-            'place_of_issue': doc.place_of_issue,
-            'marital_status': doc.marital_status,
-            'blood_group': doc.blood_group,
-            'date_of_birth': doc.date_of_birth,
-            'religion': doc.religion,
-            'family_background': doc.family_background,
-            'health_details': doc.health_details,
-            'bio': doc.bio,
-            'person_to_be_contacted': doc.person_to_be_contacted,
-            'relation': doc.relation,
-            'emergency_phone_number': doc.emergency_phone_number,
-            'cell_number': doc.cell_number,
-            'prefered_email': doc.prefered_email,
-            'personal_email': doc.personal_email,
-            'permanent_address': doc.permanent_address,
-            'prefered_contact_email': doc.prefered_contact_email,
-            'company_email': doc.company_email,
-            'current_address': doc.current_address
-        })
+
 
 @frappe.whitelist()
 def probation_emp(employee):
@@ -205,22 +171,6 @@ def get_gratuity(employee):
     total_gratuity = earned_gpy + earned_gpm + earned_gpd
     return total_gratuity
 
-@frappe.whitelist()
-def calculate_attendance(employee):
-    name_reg = frappe.db.sql(
-        """select name,hods_relieving_date,actual_relieving_date from `tabResignation Form` where employee = %s """ % (employee), as_dict=True)[0]
-    current_date = name_reg.actual_relieving_date
-    first_day_of_month = current_date.replace(day=1)
-    hod_date = str(first_day_of_month)
-    app_date = str(name_reg.actual_relieving_date)
-    frappe.errprint(hod_date)
-    frappe.errprint(app_date)
-    frappe.errprint(type(app_date))
-    if name_reg:
-        att = frappe.db.sql("""select count(*) as count from `tabAttendance` where attendance_date between '%s' and '%s' and status = 'Present'  and employee = %s""" %
-                            (hod_date, app_date, employee), as_dict=True)[0]
-        cal = att
-        return cal, name_reg
 
 @frappe.whitelist()
 def get_current_month(employee):
@@ -231,44 +181,13 @@ def get_current_month(employee):
     days = calendar.monthrange(now.year, now.month)[1]
     return(days)
 
-@frappe.whitelist()
-def get_current_month_date(employee):
-    ff = frappe.get_value('Resignation Form', {'employee': employee}, [
-                          'actual_relieving_date'])
-    frappe.errprint(ff)
-    now = ff
-    days = calendar.monthrange(now.year, now.month)[1]
-    return(days)
 
-@frappe.whitelist()
-def get_reg_form(employee):
-    frappe.errprint(employee)
-    name_reg = frappe.db.sql(
-        """select name,hods_relieving_date,actual_relieving_date from `tabResignation Form` where employee = %s """ % (employee), as_dict=True)[0]
-    current_date = name_reg.actual_relieving_date
-    first_day_of_month = current_date.replace(day=1)
-    return name_reg.name, first_day_of_month, name_reg.actual_relieving_date
 
 # @frappe.whitelist()
 # def get_leave_application(employee):
 #     leave_application = frappe.get_all('Leave Application', {'employee': employee, 'docstatus': 1}, ['custom_from_date''custom_to_date','lop_days','leave_balance','custom_total_leave_days'],limit = 0)
 #     return leave_application
 
-@frappe.whitelist()
-def get_leave_application(employee):
-    # employee = frappe.db.sql("""select * from `tabEmployee` where status ='Active' """,as_dict =1)
-    # for emp in employee:
-    leave_application = frappe.get_all('Leave Application', {'employee': employee, 'docstatus': 1}, ['*'])
-    if leave_application:
-        for lap in leave_application:
-            from_date = lap.custom_from_date
-            first_of_month = from_date.replace(day=1)
-            to_date = lap.from_date
-            before_day = to_date - timedelta(days=1)
-            attendance = frappe.db.sql("""select count(*) as count, sum(ot_hours) as ot ,sum(week_end_ot) as wot,sum(holiday_ot) as hot from `tabAttendance` where docstatus != 2 and employee = '%s' and  attendance_date between '%s' and '%s' """ % (employee, first_of_month, before_day), as_dict=1)[0]
-            abs1 = frappe.db.sql("""select count(*) as count from `tabAttendance` where docstatus != 2 and employee = '%s' and  attendance_date between '%s' and '%s' and status = 'Absent' """ % (employee, first_of_month, before_day), as_dict=1)[0]
-            abs2 = frappe.db.sql("""select count(*) as count from `tabAttendance` where docstatus != 2 and employee = '%s' and  attendance_date between '%s' and '%s' and status = 'On Leave' and leave_type = 'Leave Without Pay' """ % (employee, first_of_month, before_day), as_dict=1)[0]
-            return first_of_month, before_day,lap.custom_from_date, lap.custom_to_date,attendance.count, attendance.ot or 0, attendance.wot or 0, attendance.hot or 0, lap.lop_days, lap.custom_total_leave_days, lap.leave_balance, lap.leave_type, abs1.count, abs2.count
 
 @frappe.whitelist()
 def update_employee_status(doc, method):
@@ -401,7 +320,6 @@ def create_technical_costing(doc, method):
                 "sales_person":opp_item.sales_person,
             })
             tc.save(ignore_permissions=True)
-
         if opp_item.item_group == "Fabric":
             tc = frappe.new_doc("Technical Sheet Fabric")
             tc.opportunity = doc.name
@@ -451,8 +369,6 @@ def create_technical_costing(doc, method):
                 "sales_person":opp_item.sales_person,
             })
             tc.save(ignore_permissions=True)
-
-
         if opp_item.item_group == "FIBC":
             tc = frappe.new_doc("Technical Sheet FIBC")
             tc.opportunity = doc.name
@@ -487,7 +403,6 @@ def create_technical_costing(doc, method):
                     "payment_amount":ps.payment_amount,
                     "base_payment_amount":ps.base_payment_amount,
                 })
-
             tc.save(ignore_permissions=True)
 
 @frappe.whitelist()
@@ -574,10 +489,6 @@ def create_tech_sheet(opportunity,item_code,type_of_ts,loop,top,body,bottom):
         tc.save(ignore_permissions=True)
 
 
-@frappe.whitelist()
-def get_opp_values(opportunity):
-    opp = frappe.get_doc('Opportunity',opportunity)
-    return opp.items,opp.sales_person
 
 
 
@@ -603,10 +514,7 @@ def get_opp_values(opportunity):
 #     print(checkin)
 
 
-@frappe.whitelist()
-def return_tab(technical_sheet_fibc):
-    tec = frappe.get_doc("Technical Sheet FIBC",technical_sheet_fibc)
-    return tec.payment_schedule
+
 
 @frappe.whitelist()
 def create_product_budget(doc,method):
@@ -926,10 +834,7 @@ def create_product_budget(doc,method):
             pb.save(ignore_permissions=True)
 
 
-@frappe.whitelist()
-def get_item_conv_factor(item_code):
-    item = frappe.get_doc("Item",item_code)
-    return item.uoms
+
 
 # @frappe.whitelist()
 # def get_order_route(item_details_list,name):
@@ -948,10 +853,7 @@ def get_item_conv_factor(item_code):
         
 #     # seq.save(ignore_permissions=True)
 
-@frappe.whitelist()
-def get_tech_sheet_name(sales_order):
-    sale = frappe.get_doc("Sales Order Item",{'parent':sales_order})
-    return sale
+
 
 @frappe.whitelist()
 def get_parent_workstation(bom_no):

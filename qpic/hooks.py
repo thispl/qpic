@@ -105,7 +105,7 @@ doc_events = {
 		
 	},
 	'Update Employee Personal Info':{
-		'on_submit':'qpic.custom.update_employee'
+		'on_submit':'qpic.qpic.doctype.update_employee_personal_info.update_employee_personal_info.update_employee'
 	},
 	# ,'Resignation Form':{
 	# 	'on_submit':'qpic.utils.update_employee_status'

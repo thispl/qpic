@@ -3,7 +3,6 @@
 
 import frappe
 from frappe.model.document import Document
-
 class TechnicalSheetSB(Document):
 	def on_submit(self):
 		for opp_item in self.technical_costing_item:

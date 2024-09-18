@@ -19,10 +19,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-08-16 08:57:54.305254",
+ "modified": "2023-12-07 10:44:49.501985",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Delivery Terms",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -39,5 +40,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

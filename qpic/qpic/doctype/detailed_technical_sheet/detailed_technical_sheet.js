@@ -4,7 +4,7 @@
 frappe.ui.form.on('Detailed Technical Sheet', {
 	onload(frm){
 		frappe.call({
-			method: "qpic.custom.return_tab",
+			method: "qpic.qpic.doctype.detailed_technical_sheet.detailed_technical_sheet.return_tab",
 			args: {
 				technical_sheet_fibc: frm.doc.technical_sheet_fibc
 			},
@@ -43,7 +43,7 @@ frappe.ui.form.on('Detailed Technical Sheet', {
 	},
 	opportunity(frm){
 		frappe.call({
-			method: "qpic.custom.get_opp_values",
+			method: "qpic.qpic.doctype.detailed_technical_sheet.detailed_technical_sheet.get_opp_values",
 			args: {
 				opportunity: frm.doc.opportunity
 			},

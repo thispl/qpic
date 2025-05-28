@@ -2160,7 +2160,7 @@
    "link_fieldname": "commercial_costing_fabric"
   }
  ],
- "modified": "2023-01-24 21:56:43.466470",
+ "modified": "2024-10-25 15:32:20.945428",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Commercial Costing Fabric",
@@ -2182,5 +2182,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

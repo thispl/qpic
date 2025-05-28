@@ -21,7 +21,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-04 10:57:17.693214",
+ "modified": "2024-10-25 15:32:31.010523",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Work Location",
@@ -42,5 +42,7 @@
  ],
  "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
 }

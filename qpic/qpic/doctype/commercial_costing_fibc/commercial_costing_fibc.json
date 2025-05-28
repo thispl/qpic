@@ -2216,7 +2216,7 @@
    "link_fieldname": "commercial_costing_fibc"
   }
  ],
- "modified": "2023-01-21 17:17:14.950649",
+ "modified": "2024-10-25 15:32:22.454839",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Commercial Costing FIBC",
@@ -2238,5 +2238,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

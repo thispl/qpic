@@ -668,7 +668,7 @@
    "link_fieldname": "technical_sheet_fibc"
   }
  ],
- "modified": "2023-01-21 17:18:49.005577",
+ "modified": "2024-10-25 15:32:28.114698",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Technical Sheet FIBC",
@@ -690,5 +690,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

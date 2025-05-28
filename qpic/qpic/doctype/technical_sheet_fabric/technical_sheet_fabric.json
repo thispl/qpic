@@ -1960,7 +1960,7 @@
    "link_fieldname": "technical_sheet_fabric"
   }
  ],
- "modified": "2023-01-24 21:56:10.610159",
+ "modified": "2024-10-25 15:32:25.764925",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Technical Sheet Fabric",
@@ -1982,5 +1982,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

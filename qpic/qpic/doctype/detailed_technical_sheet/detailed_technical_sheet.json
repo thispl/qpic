@@ -2014,7 +2014,7 @@
    "link_fieldname": "d_tech_sheet"
   }
  ],
- "modified": "2023-01-18 13:27:31.593263",
+ "modified": "2024-10-25 15:32:28.964634",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Detailed Technical Sheet",
@@ -2036,5 +2036,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

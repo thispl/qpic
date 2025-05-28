@@ -187,7 +187,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-08-30 12:59:06.638549",
+ "modified": "2024-10-25 15:32:33.402061",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Leave Rejoining Form",
@@ -207,5 +207,7 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
 }

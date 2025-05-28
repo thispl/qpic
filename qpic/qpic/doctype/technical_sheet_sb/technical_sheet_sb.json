@@ -1967,7 +1967,7 @@
    "link_fieldname": "technical_costing"
   }
  ],
- "modified": "2023-02-15 09:07:43.134660",
+ "modified": "2024-10-25 15:32:19.293321",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Technical Sheet SB",
@@ -1989,5 +1989,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

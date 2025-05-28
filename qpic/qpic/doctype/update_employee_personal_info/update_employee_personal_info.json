@@ -316,7 +316,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-07-20 13:57:52.661192",
+ "modified": "2024-10-25 15:32:33.783179",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Update Employee Personal Info",
@@ -336,5 +336,7 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
 }

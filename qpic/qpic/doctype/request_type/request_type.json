@@ -19,7 +19,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-18 18:12:31.632999",
+ "modified": "2024-10-25 15:32:32.195037",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Request Type",
@@ -40,5 +40,7 @@
  ],
  "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
 }

@@ -40,7 +40,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-20 13:23:56.451618",
+ "modified": "2024-10-25 15:32:16.842428",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Incoterms",
@@ -62,5 +62,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

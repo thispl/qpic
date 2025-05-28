@@ -19,7 +19,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-19 09:06:32.588496",
+ "modified": "2024-10-25 15:32:32.451963",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Region",
@@ -39,5 +39,7 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
 }

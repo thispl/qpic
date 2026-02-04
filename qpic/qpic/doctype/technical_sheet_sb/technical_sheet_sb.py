@@ -3,7 +3,22 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe.utils import flt	
+
 class TechnicalSheetSB(Document):
+	# def validate(self):
+	# 	self.set("fabric_details", [])
+	# 	warp_wtsqm = self.tape_warp_mesh / 0.02254 * self.warp_denier / 9000
+	# 	warp_ratio = warp_wtsqm / (self.fabric_gsm)
+	# 	self.append("fabric_details", {
+	# 		"tape": "Warp"
+	# 		"width": self.warp_tape_width,
+	# 		"mesh": self.tape_warp_mesh,
+	# 		"denier": self.warp_denier,
+	# 		"wtsqm": warp_wtsqm,
+	# 		# "wt_ratio": 
+	# 	})
+	@frappe.whitelist()
 	def on_submit(self):
 		for opp_item in self.technical_costing_item:
 			tc_id = frappe.db.exists('Commercial Costing',{'name': self.name,'opportunity':self.opportunity}, ['*'])
@@ -24,7 +39,7 @@ class TechnicalSheetSB(Document):
 				tc.extra = self.extra
 				tc.bottom = self.bottom
 				tc.print = self.print
-				tc.unit_weight = self.unit_weight
+				# tc.uom_weight = self.uom_weight
 				tc.top_length = self.top_length
 				tc.bottom_length = self.bottom_length
 				tc.top_thread = self.top_thread
@@ -123,59 +138,178 @@ class TechnicalSheetSB(Document):
 					})
 				if self.laminationmaterial_combination:
 					for lam in self.laminationmaterial_combination:
-						tc.append("lamination_raw_material",{
-								"item_code": lam.item_code,
-								"item_description": lam.item_description,
-								"dosage": lam.dosage,
-								"qty": lam.qty,
-								"unit": lam.unit,
-							})
+						if lam.qty > 0:
+							tc.append("lamination_raw_material",{
+									"item_code": lam.item_code,
+									"item_description": lam.item_name,
+									"dosage": lam.dosage,
+									"qty": lam.qty,
+									"unit": lam.uom,
+									"rate": lam.rate / 3.64,
+									"amount": lam.amount / 3.64,
+								})	
 				else:
 					skipping_loop = "sample"
 
 				if self.weftmaterial_combination:
 					for weft in self.weftmaterial_combination:
-						tc.append("weft_raw_material",{
-								"item_code": weft.item_code,
-								"item_description": weft.item_description,
-								"dosage": weft.dosage,
-								"qty": weft.qty,
-								"unit": weft.unit,
-							})
+						if weft.qty > 0:
+							tc.append("weft_raw_material",{
+									"item_code": weft.item_code,
+									"item_description": weft.item_name,
+									"dosage": weft.dosage,
+									"qty": weft.qty,
+									"unit": weft.uom,
+									"rate": weft.rate / 3.64,
+									"amount": weft.amount / 3.64,
+								})
 				else:
 					skipping_loop = "sample"
 				if self.warpmaterial_combination:
 					for warp in self.warpmaterial_combination:
-						tc.append("warp_raw_material",{
-								"item_code": warp.item_code,
-								"item_description": warp.item_description,
-								"dosage": warp.dosage,
-								"qty": warp.qty,
-								"unit": warp.unit,
-							})
+						if warp.qty > 0:
+							tc.append("warp_raw_material",{
+									"item_code": warp.item_code,
+									"item_description": warp.item_name,
+									"dosage": warp.dosage,
+									"qty": warp.qty,
+									"unit": warp.uom,
+									"rate": warp.rate / 3.64,
+									"amount": warp.amount / 3.64,
+								})
 				else:
 					skipping_loop = "sample"
 				if self.stripmaterial_combination:
 					for strip in self.stripmaterial_combination:
-						tc.append("strip_raw_material",{
-								"item_code": strip.item_code,
-								"item_description": strip.item_description,
-								"dosage": strip.dosage,
-								"qty": strip.qty,
-								"unit": strip.unit,
-							})
+						if strip.qty > 0:
+							tc.append("strip_raw_material",{
+									"item_code": strip.item_code,
+									"item_description": strip.item_name,
+									"dosage": strip.dosage,
+									"qty": strip.qty,
+									"unit": strip.uom,
+									"rate": strip.rate / 3.64,
+									"amount": strip.amount / 3.64,
+								})
 				else:
 					skipping_loop = "sample"
 				if self.linermaterial_combination:
 					for liner in self.linermaterial_combination:
-						tc.append("liner_raw_material",{
-								"item_code": liner.item_code,
-								"item_description": liner.item_description,
-								"dosage": liner.dosage,
-								"qty": liner.qty,
-								"unit": liner.unit,
-							})
+						if liner.qty > 0:
+							tc.append("liner_raw_material",{
+									"item_code": liner.item_code,
+									"item_description": liner.item_name,
+									"dosage": liner.dosage,
+									"qty": liner.qty,
+									"unit": liner.uom,
+									"rate": liner.rate / 3.64,
+									"amount": liner.amount / 3.64,
+								})
 				else:
 					skipping_loop = "sample"
 					
 				tc.save(ignore_permissions=True)
+
+@frappe.whitelist()
+def get_ppm(fabric_loom, fabric_speed_percentage):
+	capacity = frappe.db.get_value("Workstation", fabric_loom, "capacity") or 0
+	ppm = (capacity * flt(fabric_speed_percentage)) / 100
+	# ppm = round(ppm, 0)
+	return ppm	
+
+@frappe.whitelist()
+def get_tape_capacity_width(width, denier):
+	value = frappe.db.get_value("Tape Capacity Width", {"tape_width": width}, str(denier)) or 0
+	value = 1000 / flt(value) if value > 0 else 0
+	return value
+
+@frappe.whitelist()
+def get_raw_materials(fg_item, operation):
+	items = frappe.db.sql("""
+			SELECT bi.item_code, bi.item_name, bi.stock_uom, i.valuation_rate, i.description
+			FROM `tabBOM` b
+			INNER JOIN `tabBOM Item` bi
+				ON bi.parent = b.name
+			INNER JOIN `tabItem` i
+				ON bi.item_code = i.name
+			WHERE b.is_active = 1 AND b.is_default = 1
+				AND b.item = %s AND bi.operation = %s
+			""", (fg_item, operation), as_dict=1)
+	data = []
+	for item in items:
+		data.append({
+			"item_code": item.item_code,
+			"item_name": item.item_name,
+			"uom": item.stock_uom,
+			"rate": item.valuation_rate,
+			"amount": item.valuation_rate,
+			"description": item.description
+		})
+	return data
+
+@frappe.whitelist()
+def get_overheads_and_others(operation, hrsmt, workstation=None, lamination_side=None, lamination_width=None, fabric_type=None):
+	items = frappe.db.get_all(
+		"Item",
+		{"operation": operation},
+		["name", "item_name", "stock_uom", "valuation_rate", "description", "operation"]
+	)
+	data = []
+	for item in items:
+		if not item.operation:
+			return
+		if not workstation:
+			if item.operation == "Tape":
+				workstation = "Tape Liner"
+			if item.operation == "Liner":
+				workstation = "Blown Film"
+			if item.operation == "Lamination":
+				workstation = "Lamination Machine"
+			if item.operation == "Loom":
+				workstation = "Small Loom"
+
+		winder_qty = frappe.db.get_value("Workstation", workstation, "winder_conversion_shift") or 0
+		operator_qty = frappe.db.get_value("Workstation", workstation, "operator_shift_mc") or 0
+		helper_qty = frappe.db.get_value("Workstation", workstation, "helper_shift_mc") or 0
+		supervisor_qty = frappe.db.get_value("Workstation", workstation, "supervision_shift_mc") or 0
+		power_cost = frappe.db.get_value("Workstation", workstation, "power")
+		item_name = (item.item_name or "").lower()
+		
+		if operation:
+			if "winder" in item_name:
+				qty = flt(winder_qty) * flt(hrsmt)
+			elif "operator" in item_name:
+				qty = flt(operator_qty) * flt(hrsmt)
+			elif "helper" in item_name:
+				qty = flt(helper_qty) * flt(hrsmt)
+			elif "supervisor" in item_name:
+				qty = flt(supervisor_qty) * flt(hrsmt)
+			elif "power" in item_name:
+				qty = flt(power_cost) * flt(hrsmt)
+			else:
+				qty = flt(hrsmt)
+		else:
+			qty = flt(hrsmt)
+   
+		if lamination_side and lamination_side != "No" and lamination_width:
+			if fabric_type:
+				machine_speed = frappe.db.get_value("Fabric Type", fabric_type, "speed")
+				qty = qty / (machine_speed * 60)
+			else:
+				qty = 0
+
+		data.append({
+			"item_code": item.name,
+			"item_name": item.item_name,
+			"qty": qty,
+			"uom": item.stock_uom,
+			"rate": item.valuation_rate,
+			"amount": item.valuation_rate * qty,
+			"description": item.description
+		})
+	return data
+
+def test_check():
+	data = "amarkarthickp"
+	if "amar" in data:
+		print("ldmeflkem")

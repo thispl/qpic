@@ -79,6 +79,8 @@
   "weft_cost_pmt",
   "column_break_68",
   "weft_raw_material_",
+  "section_break_99",
+  "others",
   "section_break_69",
   "strip_raw_material",
   "section_break_73",
@@ -99,6 +101,8 @@
   "warp_cost_pmt",
   "brreak",
   "warp_raw_material_",
+  "section_break_95",
+  "warp_others",
   "section_break_87",
   "tape_raw_material",
   "needle_loom_section",
@@ -121,6 +125,8 @@
   "lam_cost_pmt",
   "columnbreak_",
   "lamination_raw_material_",
+  "section_break_119",
+  "lamination_others",
   "section_break_96",
   "liner_raw_material",
   "section_break_98",
@@ -131,6 +137,8 @@
   "liner_cost_pmt",
   "___",
   "liner_raw_material_",
+  "section_break_131",
+  "liner_others",
   "section_break_61",
   "total_raw_material_cost",
   "column_break_117",
@@ -480,9 +488,9 @@
   },
   {
    "fieldname": "print",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Print",
-   "options": "No\nYes, One side\nYes, Two side",
+   "options": "SB Print",
    "read_only": 1
   },
   {
@@ -2351,12 +2359,52 @@
   {
    "fieldname": "column_break_165",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "others",
+   "fieldtype": "Table",
+   "label": "Others",
+   "options": "Commercial Costing Others"
+  },
+  {
+   "fieldname": "warp_others",
+   "fieldtype": "Table",
+   "label": "Others",
+   "options": "Commercial Costing Others"
+  },
+  {
+   "fieldname": "liner_others",
+   "fieldtype": "Table",
+   "label": "Others",
+   "options": "Commercial Costing Others"
+  },
+  {
+   "fieldname": "section_break_99",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_95",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_119",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "lamination_others",
+   "fieldtype": "Table",
+   "label": "Others",
+   "options": "Commercial Costing Others"
+  },
+  {
+   "fieldname": "section_break_131",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-25 15:32:14.628287",
+ "modified": "2026-01-12 05:37:57.467157",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Commercial Costing",

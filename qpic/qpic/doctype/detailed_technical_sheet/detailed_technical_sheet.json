@@ -363,6 +363,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "default": "0",
    "fieldname": "warp",
    "fieldtype": "Float",
    "label": "Warp (|||)"
@@ -374,11 +375,13 @@
    "options": "Heat Cut\nHemmed (US)\nHemmed (Thread)\nRoll to Roll\nFIBC"
   },
   {
+   "default": "0",
    "fieldname": "top_length",
    "fieldtype": "Float",
    "label": "Top Extra to Cut"
   },
   {
+   "default": "0",
    "fieldname": "top_thread",
    "fieldtype": "Float",
    "label": "Top Thread",
@@ -395,6 +398,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fieldname": "weft",
    "fieldtype": "Float",
    "label": "Weft(----)"
@@ -406,11 +410,13 @@
    "options": "SFSS\nSFDS\nDFSS\nDFDS\nRoll to Roll\nFIBC"
   },
   {
+   "default": "0",
    "fieldname": "bottom_length",
    "fieldtype": "Float",
    "label": "Bottom Extra to Cut"
   },
   {
+   "default": "0",
    "fieldname": "bottom_thread",
    "fieldtype": "Float",
    "label": "Bottom Thread",
@@ -427,6 +433,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fieldname": "width",
    "fieldtype": "Float",
    "label": "Width(cm)"
@@ -444,6 +451,7 @@
    "label": "Extra Width"
   },
   {
+   "default": "0",
    "fieldname": "thread_and_others",
    "fieldtype": "Float",
    "label": "Thread & Others"
@@ -453,11 +461,13 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fieldname": "length",
    "fieldtype": "Float",
    "label": "Length(cm)"
   },
   {
+   "default": "0",
    "fieldname": "unit_weight",
    "fieldtype": "Float",
    "label": "Unit Weight"
@@ -469,12 +479,14 @@
    "label": "Extra Weight"
   },
   {
+   "default": "0",
    "fieldname": "production_size_cut_leng_x",
    "fieldtype": "Float",
    "label": "Production Size",
    "read_only": 1
   },
   {
+   "default": "0",
    "fieldname": "production_size_cut_leng_y",
    "fieldtype": "Float",
    "label": "Production Size",
@@ -497,6 +509,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fieldname": "coating_gsm",
    "fieldtype": "Float",
    "label": "Coating GSM"
@@ -506,6 +519,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fieldname": "lamination_wt_per_pcs_gms",
    "fieldtype": "Float",
    "label": "Lamination wt. per pcs (gms)",
@@ -518,6 +532,7 @@
    "label": "Liner"
   },
   {
+   "default": "0",
    "fieldname": "liner_weight_gms",
    "fieldtype": "Float",
    "label": "Liner Weight (gms)"
@@ -528,6 +543,7 @@
    "label": "Unit Weight Biforcation"
   },
   {
+   "default": "0",
    "fieldname": "fabric_gms",
    "fieldtype": "Float",
    "label": "Fabric",
@@ -538,6 +554,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fieldname": "lamination_gms",
    "fieldtype": "Float",
    "label": "Lamination",
@@ -548,6 +565,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fieldname": "liner_gms",
    "fieldtype": "Float",
    "label": "Liner",
@@ -1671,6 +1689,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fieldname": "order_quantity",
    "fieldtype": "Float",
    "hidden": 1,
@@ -2014,7 +2033,7 @@
    "link_fieldname": "d_tech_sheet"
   }
  ],
- "modified": "2024-10-25 15:32:28.964634",
+ "modified": "2025-05-29 10:03:27.957189",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Detailed Technical Sheet",

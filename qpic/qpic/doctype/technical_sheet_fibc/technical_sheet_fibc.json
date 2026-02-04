@@ -486,30 +486,35 @@
    "read_only": 1
   },
   {
+   "default": "0",
    "fieldname": "top_total",
    "fieldtype": "Float",
    "hidden": 1,
    "label": "Top Total"
   },
   {
+   "default": "0",
    "fieldname": "bottom_total",
    "fieldtype": "Float",
    "hidden": 1,
    "label": "Bottom Total"
   },
   {
+   "default": "0",
    "fieldname": "body_total",
    "fieldtype": "Float",
    "hidden": 1,
    "label": "Body Total"
   },
   {
+   "default": "0",
    "fieldname": "loop_total",
    "fieldtype": "Float",
    "hidden": 1,
    "label": "Loop Total"
   },
   {
+   "default": "0",
    "fieldname": "liner_total",
    "fieldtype": "Float",
    "hidden": 1,
@@ -527,6 +532,7 @@
    "options": "Technical Sheet Data Others"
   },
   {
+   "default": "0",
    "fieldname": "item_total",
    "fieldtype": "Float",
    "hidden": 1,
@@ -668,7 +674,7 @@
    "link_fieldname": "technical_sheet_fibc"
   }
  ],
- "modified": "2024-10-25 15:32:28.114698",
+ "modified": "2025-05-29 14:22:37.656561",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Technical Sheet FIBC",

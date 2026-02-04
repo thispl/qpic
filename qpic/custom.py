@@ -282,6 +282,10 @@ def create_technical_costing(doc, method):
             tc.inco_terms = doc.inco_terms
             tc.country = doc.country_port
             tc.city = doc.city_port
+            if opp_item.sub_group == "PP Fabric - Small":
+                tc.lamination_production_wastage = 1.5
+            else:
+                tc.lamination_production_wastage = 1
             if doc.opportunity_from == "Lead":
                 tc.lead = doc.party_name
             else:

@@ -404,72 +404,74 @@ def create_leave_application(doc, method):
         #         frappe.db.commit()
         if doc.lop_days:
             lpa = frappe.new_doc('Leave Application')
+            frappe.errprint('EXE')
+
             lpa.employee = doc.employee
             lpa.leave_type = 'Leave Without Pay'
             # date = datetime.datetime.strptime(doc.custom_to_date, '%Y-%m-%d')
-            from_date = doc.custom_to_date - timedelta(days=doc.lop_days - 1)
-            frappe.errprint(from_date)
-            # lpa.from_date = from_date
-            # lpa.to_date = doc.custom_to_date
+            from_date = doc.to_date + timedelta(days=1)
             lpa.custom_from_date = from_date
             lpa.custom_to_date = doc.custom_to_date
             lpa.status = 'Approved'
-            lpa.save(ignore_permissions=True)
             frappe.db.commit()
+            lpa.save(ignore_permissions=True)
+            
 
 
-@frappe.whitelist()
-def create_item(doc, method):
-    opportunity = frappe.get_all(
-        'Opportunity', {'name': doc.name, 'docstatus': 0}, ['*'])
-    for opp in opportunity:
-        if opp.with_items == 0:
-            for new in doc.items_table:
-                items = frappe.get_all('Item', {'name': new.item_name}, ['*'])
-                if not items:
-                    frappe.errprint("Hiiiiii")
-                    frappe.errprint(items)
-                    item = frappe.new_doc("Item")
-                    item.item_code = new.item_code
-                    item.item_name = new.item_name
-                    item.stock_uom = new.uom
-                    item.qty = new.qty
-                    item.item_name = new.item_name
-                    item.item_name = new.item_name
-                    item.item_name = new.item_name
-                    item.item_name = new.item_name
+# @frappe.whitelist()
+# def create_item(doc, method):
+#     opportunity = frappe.get_all(
+#         'Opportunity', {'name': doc.name, 'docstatus': 0}, ['*'])
+#     for opp in opportunity:
+#         if opp.with_items == 0:
+#             for new in doc.items_table:
+#                 items = frappe.get_all('Item', {'name': new.item_name}, ['*'])
+#                 if not items:
+#                     frappe.errprint("Hiiiiii")
+#                     frappe.errprint(items)
+#                     item = frappe.new_doc("Item")
+#                     item.item_code = new.item_code
+#                     item.item_name = new.item_name
+#                     item.stock_uom = new.uom
+#                     item.qty = new.qty
+#                     item.item_name = new.item_name
+#                     item.item_name = new.item_name
+#                     item.item_name = new.item_name
+#                     item.item_name = new.item_name
 
-                    item.item_group = "Finish Goods"
-                    item.save(ignore_permissions=True)
+#                     item.item_group = "Finish Goods"
+#                     item.save(ignore_permissions=True)
 
 
 @frappe.whitelist()
 def create_technical_costing(doc, method):
-    if doc.with_new_items == 0:
-        for opp_item in doc.items_table:
-            tc_id = frappe.db.exists('Technical Costing',{'item_code': opp_item.name,'opportunity':doc.name}, ['*'])
-            frappe.errprint(tc_id)
-            if not tc_id:
-                tc = frappe.new_doc("Technical Costing")
-                tc.opportunity = doc.name
-                tc.item_code = opp_item.item_code
-                tc.item_name = opp_item.item_name
-                tc.item_group = opp_item.item_group
-                tc.uom = opp_item.uom
-                tc.qty = opp_item.qty
-                tc.append("technical_costing_item",{
-                    "item_code": opp_item.item_code,
-                    "item_name": opp_item.item_name,
-                    "item_group": opp_item.item_group,
-                    "uom": opp_item.uom,
-                    "qty": opp_item.qty,
-                    "qty_as_per_stock_uom":opp_item.qty_as_per_stock_uom,
-                    "stock_uom":opp_item.stock_uom,
-                    "conversion_factor":opp_item.conversion_factor,
-                    "country":opp_item.country,
-                    "sales_person":opp_item.sales_person,
-                })
-                tc.save(ignore_permissions=True)
+    frappe.errprint("Hiiiiiiiiii")
+    # for opp_item in doc.items:
+    #     tc_id = frappe.db.exists('Technical Costing',{'item_code': opp_item.name,'opportunity':doc.name}, ['*'])
+    #     frappe.errprint(tc_id)
+    #     if not tc_id:
+    #         frappe.errprint("Technical Costing Created")
+    #         tc = frappe.new_doc("Technical Costing")
+    #         tc.opportunity = doc.name
+    #         tc.item_code = opp_item.item_code
+    #         tc.item_name = opp_item.item_name
+    #         tc.item_group = opp_item.item_group
+    #         tc.uom = opp_item.uom
+    #         tc.qty = opp_item.qty
+    #         tc.append("technical_costing_item",{
+    #             "item_code": opp_item.item_code,
+    #             "item_name": opp_item.item_name,
+    #             "item_group": opp_item.item_group,
+    #             "sub_group":opp_item.sub_group,
+    #             "uom": opp_item.uom,
+    #             "qty": opp_item.qty,
+    #             "qty_as_per_stock_uom":opp_item.qty_as_per_stock_uom,
+    #             "stock_uom":opp_item.stock_uom,
+    #             "conversion_factor":opp_item.conversion_factor,
+    #             "country":opp_item.country,
+    #             "sales_person":opp_item.sales_person,
+    #         })
+    #         tc.save(ignore_permissions=True)
 
 
 @frappe.whitelist()

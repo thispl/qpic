@@ -119,8 +119,8 @@ doc_events = {
 		'on_submit':'qpic.custom.create_leave_application',
 	},
 	'Opportunity':{
-		'on_update':['qpic.custom.create_item',
-					'qpic.custom.create_technical_costing']
+		'validate':'qpic.custom.create_technical_costing'
+					# 'qpic.custom.create_item',
 	}
 
 	# 'Payroll Entry':{

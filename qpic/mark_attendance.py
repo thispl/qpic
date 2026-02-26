@@ -271,11 +271,11 @@ def mark_absent_employee():
 
 
 def mark_ot():
-    to_date = '2022-09-30'
-    from_date= '2022-09-01'
+    to_date = '2022-10-31'
+    from_date= '2022-10-01'
     # to_date = today()
     # from_date = add_days(from_date,-1)
-    attendance = frappe.db.sql("""select name,employee,shift,in_time,out_time,attendance_date,ot_hours from `tabAttendance` where docstatus != 2  and attendance_date between '%s' and '%s' """ % (from_date,to_date),as_dict=1)
+    attendance = frappe.db.sql("""select name,employee,shift,in_time,out_time,attendance_date,ot_hours from `tabAttendance` where docstatus != 2  and attendance_date between %s and %s """ % (from_date,to_date),as_dict=1)
     for att in attendance:
         print(att.attendance_date)
         if att.in_time and att.out_time:

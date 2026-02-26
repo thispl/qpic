@@ -39,7 +39,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-09-28 13:18:59.901796",
+ "modified": "2026-02-26 11:16:15.429612",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Lamination Technical Costing",
@@ -47,5 +47,6 @@
  "permissions": [],
  "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

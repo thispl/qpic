@@ -1,0 +1,272 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2026-02-19 07:29:05.872441",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "qty",
+  "uom",
+  "base_rate",
+  "base_amount",
+  "amount",
+  "pp_raffia_grade",
+  "type",
+  "filler_masterbatch_pp",
+  "mb_w",
+  "mb_c_l",
+  "mb_c_d",
+  "uv__pp",
+  "tpt_filler_pp",
+  "recycled_pp_mix",
+  "recycled_pp_white",
+  "antistatic_mb",
+  "pp_lamination_grade",
+  "ldpe_lamination_grade",
+  "printing_ink",
+  "thinner",
+  "mfpp_yarn_1200_denier",
+  "ldpe",
+  "lldpe",
+  "hdpe",
+  "biodegradable",
+  "liner_mb_w",
+  "liner_antistatic_mb",
+  "liner_filler_masterbatch_pe",
+  "antiblock",
+  "liner_recycled_pe_mix",
+  "liner_recycled_pe_clear",
+  "liner_tpt_filler__pe",
+  "liner_uv_pe"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "item",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item"
+  },
+  {
+   "columns": 2,
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty"
+  },
+  {
+   "columns": 1,
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "columns": 1,
+   "fieldname": "base_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Basic Rate (Company Currency)",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "columns": 1,
+   "fieldname": "base_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount (Company Currency)",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "columns": 1,
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "options": "currency"
+  },
+  {
+   "fieldname": "pp_raffia_grade",
+   "fieldtype": "Float",
+   "label": "PP Raffia Grade",
+   "precision": "3"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Data",
+   "label": "Type"
+  },
+  {
+   "fieldname": "filler_masterbatch_pp",
+   "fieldtype": "Float",
+   "label": "Filler Masterbatch (PP)",
+   "precision": "5"
+  },
+  {
+   "fieldname": "mb_w",
+   "fieldtype": "Float",
+   "label": "MB-W",
+   "precision": "5"
+  },
+  {
+   "fieldname": "mb_c_l",
+   "fieldtype": "Float",
+   "label": "MB-C-L",
+   "precision": "5"
+  },
+  {
+   "fieldname": "mb_c_d",
+   "fieldtype": "Float",
+   "label": "MB-C-D",
+   "precision": "5"
+  },
+  {
+   "fieldname": "uv__pp",
+   "fieldtype": "Float",
+   "label": "UV - PP",
+   "precision": "5"
+  },
+  {
+   "fieldname": "tpt_filler_pp",
+   "fieldtype": "Float",
+   "label": "TPT Filler - PP",
+   "precision": "5"
+  },
+  {
+   "fieldname": "recycled_pp_mix",
+   "fieldtype": "Float",
+   "label": "Recycled PP Mix",
+   "precision": "5"
+  },
+  {
+   "fieldname": "recycled_pp_white",
+   "fieldtype": "Float",
+   "label": "Recycled PP White",
+   "precision": "5"
+  },
+  {
+   "fieldname": "antistatic_mb",
+   "fieldtype": "Float",
+   "label": "Antistatic MB",
+   "precision": "5"
+  },
+  {
+   "fieldname": "pp_lamination_grade",
+   "fieldtype": "Float",
+   "label": "PP Lamination Grade",
+   "precision": "5"
+  },
+  {
+   "fieldname": "ldpe_lamination_grade",
+   "fieldtype": "Float",
+   "label": "LDPE Lamination Grade",
+   "precision": "5"
+  },
+  {
+   "fieldname": "printing_ink",
+   "fieldtype": "Float",
+   "label": "Printing Ink",
+   "precision": "5"
+  },
+  {
+   "fieldname": "thinner",
+   "fieldtype": "Float",
+   "label": "Thinner",
+   "precision": "5"
+  },
+  {
+   "fieldname": "mfpp_yarn_1200_denier",
+   "fieldtype": "Float",
+   "label": "MFPP yarn 1200 denier",
+   "precision": "5"
+  },
+  {
+   "fieldname": "ldpe",
+   "fieldtype": "Float",
+   "label": "LDPE",
+   "precision": "5"
+  },
+  {
+   "fieldname": "lldpe",
+   "fieldtype": "Float",
+   "label": "LLDPE",
+   "precision": "5"
+  },
+  {
+   "fieldname": "hdpe",
+   "fieldtype": "Float",
+   "label": "HDPE",
+   "precision": "5"
+  },
+  {
+   "fieldname": "biodegradable",
+   "fieldtype": "Float",
+   "label": "Biodegradable",
+   "precision": "5"
+  },
+  {
+   "fieldname": "liner_mb_w",
+   "fieldtype": "Float",
+   "label": "Liner MB W",
+   "precision": "5"
+  },
+  {
+   "fieldname": "liner_antistatic_mb",
+   "fieldtype": "Float",
+   "label": "Liner Antistatic MB",
+   "precision": "5"
+  },
+  {
+   "fieldname": "liner_filler_masterbatch_pe",
+   "fieldtype": "Float",
+   "label": "Liner Filler Masterbatch PE",
+   "precision": "5"
+  },
+  {
+   "fieldname": "antiblock",
+   "fieldtype": "Float",
+   "label": "Antiblock",
+   "precision": "5"
+  },
+  {
+   "fieldname": "liner_recycled_pe_mix",
+   "fieldtype": "Float",
+   "label": "Liner Recycled PE Mix",
+   "precision": "5"
+  },
+  {
+   "fieldname": "liner_recycled_pe_clear",
+   "fieldtype": "Float",
+   "label": "Liner Recycled PE Clear",
+   "precision": "5"
+  },
+  {
+   "fieldname": "liner_tpt_filler__pe",
+   "fieldtype": "Float",
+   "label": "Liner TPT Filler  PE",
+   "precision": "5"
+  },
+  {
+   "fieldname": "liner_uv_pe",
+   "fieldtype": "Float",
+   "label": "Liner UV PE",
+   "precision": "5"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-02-26 11:15:56.592460",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Tape Item Details",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

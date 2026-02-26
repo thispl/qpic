@@ -33,12 +33,13 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-08-30 13:44:51.232918",
+ "modified": "2026-02-26 11:16:14.969543",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Primary Nominee",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

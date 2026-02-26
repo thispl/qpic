@@ -1,0 +1,309 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2025-12-24 11:09:10.355318",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tape_width",
+  "section_break_2",
+  "400",
+  "450",
+  "500",
+  "550",
+  "600",
+  "650",
+  "column_break_8",
+  "700",
+  "750",
+  "800",
+  "850",
+  "900",
+  "950",
+  "column_break_9",
+  "1000",
+  "1050",
+  "1100",
+  "1150",
+  "1200",
+  "1250",
+  "column_break_6",
+  "1300",
+  "1350",
+  "1400",
+  "1450",
+  "1500",
+  "1550",
+  "column_break_10",
+  "1600",
+  "1650",
+  "1700",
+  "1750",
+  "1800",
+  "1850",
+  "column_break_13",
+  "1900",
+  "1950",
+  "2000",
+  "2050",
+  "2100"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "fieldname": "tape_width",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "<b>Tape Width</b>"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Capacity"
+  },
+  {
+   "fieldname": "400",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "400"
+  },
+  {
+   "fieldname": "450",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "450"
+  },
+  {
+   "fieldname": "500",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "500"
+  },
+  {
+   "fieldname": "550",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "550"
+  },
+  {
+   "fieldname": "600",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "600"
+  },
+  {
+   "fieldname": "650",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "650"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "700",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "700"
+  },
+  {
+   "fieldname": "750",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "750"
+  },
+  {
+   "fieldname": "800",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "800"
+  },
+  {
+   "fieldname": "850",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "850"
+  },
+  {
+   "fieldname": "900",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "900"
+  },
+  {
+   "fieldname": "950",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "950"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "1000",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1000"
+  },
+  {
+   "fieldname": "1050",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1050"
+  },
+  {
+   "fieldname": "1100",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1100"
+  },
+  {
+   "fieldname": "1150",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1150"
+  },
+  {
+   "fieldname": "1200",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1200"
+  },
+  {
+   "fieldname": "1250",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1250"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "1300",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1300"
+  },
+  {
+   "fieldname": "1350",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1350"
+  },
+  {
+   "fieldname": "1400",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1400"
+  },
+  {
+   "fieldname": "1450",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1450"
+  },
+  {
+   "fieldname": "1500",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1500"
+  },
+  {
+   "fieldname": "1550",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1550"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "1600",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1600"
+  },
+  {
+   "fieldname": "1650",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1650"
+  },
+  {
+   "fieldname": "1700",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1700"
+  },
+  {
+   "fieldname": "1750",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1750"
+  },
+  {
+   "fieldname": "1800",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1800"
+  },
+  {
+   "fieldname": "1850",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1850"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "1900",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1900"
+  },
+  {
+   "fieldname": "1950",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "1950"
+  },
+  {
+   "fieldname": "2000",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "2000"
+  },
+  {
+   "fieldname": "2050",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "2050"
+  },
+  {
+   "fieldname": "2100",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "2100"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-02-26 11:16:02.651954",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Tape Capacity Width",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

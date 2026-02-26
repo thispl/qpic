@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2026-02-17 13:30:48.132919",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "rawmaterial",
+  "cons__",
+  "qty_in_kgs_mt",
+  "rate",
+  "cost_mt_usd"
+ ],
+ "fields": [
+  {
+   "fieldname": "rawmaterial",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Rawmaterial",
+   "options": "Item"
+  },
+  {
+   "fieldname": "cons__",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Cons.  %"
+  },
+  {
+   "fieldname": "qty_in_kgs_mt",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty in kgs /MT"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate"
+  },
+  {
+   "fieldname": "cost_mt_usd",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Cost/ MT (USD)"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-02-26 11:16:00.675328",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Fabric Details",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,89 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2026-01-05 08:44:19.982982",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tape",
+  "width",
+  "mesh",
+  "denier",
+  "wtsqm",
+  "wt_ratio",
+  "strip__re_width",
+  "no_of_strip__re"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "tape",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tape"
+  },
+  {
+   "columns": 1,
+   "fieldname": "width",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Width"
+  },
+  {
+   "columns": 1,
+   "fieldname": "mesh",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Mesh"
+  },
+  {
+   "columns": 1,
+   "fieldname": "denier",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Denier"
+  },
+  {
+   "columns": 1,
+   "fieldname": "wtsqm",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Wt/Sqm"
+  },
+  {
+   "columns": 1,
+   "fieldname": "wt_ratio",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Wt Ratio"
+  },
+  {
+   "columns": 2,
+   "fieldname": "strip__re_width",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Strip / RE Width"
+  },
+  {
+   "columns": 2,
+   "fieldname": "no_of_strip__re",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "No of Strip / RE"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-02-26 11:16:02.384718",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Technical Sheet Fabric Detail",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

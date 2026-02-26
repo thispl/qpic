@@ -1,8 +1,9 @@
 {
  "actions": [],
- "allow_rename": 1,
- "creation": "2022-10-20 08:26:41.585535",
+ "autoname": "hash",
+ "creation": "2025-12-30 13:50:36.220945",
  "doctype": "DocType",
+ "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
@@ -20,7 +21,6 @@
   "image",
   "image_view",
   "quantity_and_rate",
-  "dosage",
   "qty",
   "stock_uom",
   "col_break2",
@@ -39,10 +39,10 @@
   "discount_amount",
   "base_rate_with_margin",
   "section_break_simple1",
-  "base_rate",
   "rate",
   "item_tax_template",
   "col_break3",
+  "base_rate",
   "base_amount",
   "amount",
   "pricing_rules",
@@ -115,28 +115,6 @@
    "width": "150px"
   },
   {
-   "columns": 1,
-   "default": "0",
-   "fieldname": "dosage",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Dosage"
-  },
-  {
-   "columns": 1,
-   "default": "0",
-   "fieldname": "qty",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Quantity",
-   "oldfieldname": "qty",
-   "oldfieldtype": "Currency",
-   "precision": "3",
-   "print_width": "100px",
-   "reqd": 1,
-   "width": "100px"
-  },
-  {
    "fieldname": "customer_item_code",
    "fieldtype": "Data",
    "hidden": 1,
@@ -165,7 +143,7 @@
    "print_hide": 1
   },
   {
-   "columns": 1,
+   "columns": 2,
    "fetch_from": "item_code.item_name",
    "fieldname": "item_name",
    "fieldtype": "Data",
@@ -240,6 +218,20 @@
    "fieldname": "quantity_and_rate",
    "fieldtype": "Section Break",
    "label": "Quantity and Rate"
+  },
+  {
+   "columns": 1,
+   "default": "1",
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity",
+   "oldfieldname": "qty",
+   "oldfieldtype": "Currency",
+   "precision": "3",
+   "print_width": "100px",
+   "reqd": 1,
+   "width": "100px"
   },
   {
    "depends_on": "eval:doc.uom != doc.stock_uom",
@@ -384,7 +376,6 @@
   {
    "columns": 1,
    "depends_on": "eval: doc.type != \"\"",
-   "fetch_from": "item_code.valuation_rate",
    "fieldname": "rate",
    "fieldtype": "Currency",
    "label": "Rate",
@@ -392,20 +383,6 @@
    "oldfieldtype": "Currency",
    "options": "currency",
    "print_width": "100px",
-   "width": "100px"
-  },
-  {
-   "columns": 1,
-   "fieldname": "amount",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Amount",
-   "oldfieldname": "export_amount",
-   "oldfieldtype": "Currency",
-   "options": "currency",
-   "precision": "4",
-   "print_width": "100px",
-   "read_only": 1,
    "width": "100px"
   },
   {
@@ -428,7 +405,6 @@
    "oldfieldname": "basic_rate",
    "oldfieldtype": "Currency",
    "options": "Company:company:default_currency",
-   "precision": "4",
    "print_hide": 1,
    "print_width": "100px",
    "read_only": 1,
@@ -443,8 +419,20 @@
    "oldfieldname": "amount",
    "oldfieldtype": "Currency",
    "options": "Company:company:default_currency",
-   "precision": "4",
    "print_hide": 1,
+   "print_width": "100px",
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 1,
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "oldfieldname": "export_amount",
+   "oldfieldtype": "Currency",
+   "options": "currency",
    "print_width": "100px",
    "read_only": 1,
    "width": "100px"
@@ -862,16 +850,17 @@
    "read_only": 1
   }
  ],
- "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-02-23 19:01:59.449727",
+ "modified": "2026-02-18 12:27:03.314797",
  "modified_by": "Administrator",
  "module": "QPIC",
- "name": "Liner Material Combination",
+ "name": "Technical Sheet Others",
+ "naming_rule": "Random",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

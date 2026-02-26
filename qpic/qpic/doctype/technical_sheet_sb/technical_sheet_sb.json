@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "TS-SB-.####",
+ "autoname": "TC-SB-.####",
  "creation": "2022-09-26 12:16:22.790876",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -3653,7 +3653,7 @@
    "link_fieldname": "technical_costing"
   }
  ],
- "modified": "2026-01-27 08:28:10.235230",
+ "modified": "2026-02-14 08:23:23.611307",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Technical Sheet SB",

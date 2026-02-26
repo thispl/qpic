@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "TS-FIBC-.####",
+ "autoname": "TC-FIBC-.####",
  "creation": "2022-11-30 07:35:56.864441",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -674,7 +674,7 @@
    "link_fieldname": "technical_sheet_fibc"
   }
  ],
- "modified": "2025-05-29 14:22:37.656561",
+ "modified": "2026-02-14 08:25:55.823121",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Technical Sheet FIBC",

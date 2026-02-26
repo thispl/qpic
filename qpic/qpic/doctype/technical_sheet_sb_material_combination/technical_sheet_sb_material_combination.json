@@ -1,8 +1,9 @@
 {
  "actions": [],
- "allow_rename": 1,
- "creation": "2022-10-20 08:26:41.585535",
+ "autoname": "hash",
+ "creation": "2025-12-22 07:43:45.656658",
  "doctype": "DocType",
+ "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
@@ -39,10 +40,11 @@
   "discount_amount",
   "base_rate_with_margin",
   "section_break_simple1",
-  "base_rate",
   "rate",
+  "cost_usd",
   "item_tax_template",
   "col_break3",
+  "base_rate",
   "base_amount",
   "amount",
   "pricing_rules",
@@ -100,7 +102,6 @@
  ],
  "fields": [
   {
-   "bold": 1,
    "columns": 2,
    "fieldname": "item_code",
    "fieldtype": "Link",
@@ -113,28 +114,6 @@
    "print_width": "150px",
    "reqd": 1,
    "width": "150px"
-  },
-  {
-   "columns": 1,
-   "default": "0",
-   "fieldname": "dosage",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Dosage"
-  },
-  {
-   "columns": 1,
-   "default": "0",
-   "fieldname": "qty",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Quantity",
-   "oldfieldname": "qty",
-   "oldfieldtype": "Currency",
-   "precision": "3",
-   "print_width": "100px",
-   "reqd": 1,
-   "width": "100px"
   },
   {
    "fieldname": "customer_item_code",
@@ -165,7 +144,7 @@
    "print_hide": 1
   },
   {
-   "columns": 1,
+   "columns": 2,
    "fetch_from": "item_code.item_name",
    "fieldname": "item_name",
    "fieldtype": "Data",
@@ -240,6 +219,28 @@
    "fieldname": "quantity_and_rate",
    "fieldtype": "Section Break",
    "label": "Quantity and Rate"
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "dosage",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Dosage"
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity",
+   "oldfieldname": "qty",
+   "oldfieldtype": "Currency",
+   "precision": "3",
+   "print_width": "100px",
+   "reqd": 1,
+   "width": "100px"
   },
   {
    "depends_on": "eval:doc.uom != doc.stock_uom",
@@ -403,10 +404,15 @@
    "oldfieldname": "export_amount",
    "oldfieldtype": "Currency",
    "options": "currency",
-   "precision": "4",
    "print_width": "100px",
    "read_only": 1,
    "width": "100px"
+  },
+  {
+   "columns": 1,
+   "fieldname": "cost_usd",
+   "fieldtype": "Currency",
+   "label": "Cost (USD)"
   },
   {
    "fieldname": "item_tax_template",
@@ -428,7 +434,6 @@
    "oldfieldname": "basic_rate",
    "oldfieldtype": "Currency",
    "options": "Company:company:default_currency",
-   "precision": "4",
    "print_hide": 1,
    "print_width": "100px",
    "read_only": 1,
@@ -443,7 +448,6 @@
    "oldfieldname": "amount",
    "oldfieldtype": "Currency",
    "options": "Company:company:default_currency",
-   "precision": "4",
    "print_hide": 1,
    "print_width": "100px",
    "read_only": 1,
@@ -611,6 +615,7 @@
    "depends_on": "eval:doc.delivered_by_supplier!=1",
    "fieldname": "warehouse",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Delivery Warehouse",
    "oldfieldname": "reserved_warehouse",
    "oldfieldtype": "Link",
@@ -862,16 +867,17 @@
    "read_only": 1
   }
  ],
- "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-02-23 19:01:59.449727",
+ "modified": "2026-02-18 12:18:33.649352",
  "modified_by": "Administrator",
  "module": "QPIC",
- "name": "Liner Material Combination",
+ "name": "Technical Sheet SB Material Combination",
+ "naming_rule": "Random",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

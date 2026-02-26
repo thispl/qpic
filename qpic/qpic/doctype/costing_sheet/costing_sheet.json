@@ -1,0 +1,1055 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-02-14 08:17:02.567793",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "commercial_costing",
+  "quotation",
+  "details_section",
+  "costing_sheet_type",
+  "company",
+  "customer",
+  "lead",
+  "posting_date",
+  "column",
+  "naming_series",
+  "opportunity",
+  "opportunity_owner",
+  "technical_sheet",
+  "section_break_11",
+  "items",
+  "item_code",
+  "item_name",
+  "item_group",
+  "uom",
+  "qty",
+  "section_break_ypzg",
+  "currency",
+  "company_currency",
+  "column_break_ahch",
+  "exchange_rate",
+  "currency_conversion",
+  "section_break_nihs",
+  "print",
+  "column_break_ntaz",
+  "coating_side",
+  "column_break_rlqp",
+  "bag_weight",
+  "column_break_azut",
+  "pcs_mt",
+  "section_break_ipwz",
+  "width_cm",
+  "mesh",
+  "column_break_pnna",
+  "length_cm",
+  "tape_width",
+  "column_break_uiia",
+  "top",
+  "denier",
+  "column_break_vtrv",
+  "bottom",
+  "section_break_wpxm",
+  "rm_cost",
+  "base_rm_cost",
+  "column_break_usae",
+  "conversion",
+  "base_conversion",
+  "column_break_hhiw",
+  "price_mt_exf",
+  "base_price_mt_exf",
+  "column_break_bees",
+  "price_mt",
+  "base_price_mt",
+  "column_break_hezc",
+  "price_pcs_exf",
+  "base_price_pcs_exf",
+  "column_break_puoz",
+  "price_pcs",
+  "base_price_pcs",
+  "weight_per_pieces_section",
+  "fabric_weight_per_pieces",
+  "column_break_veod",
+  "lamination_weight_per_pieces",
+  "column_break_cinr",
+  "liner_weight_per_pieces",
+  "column_break_wnri",
+  "total_weight_per_pieces",
+  "gsm__microns_section",
+  "fabric_gsm_microns",
+  "column_break_lhcl",
+  "lamination_gsm_microns",
+  "column_break_vxxc",
+  "liner_gsm_microns",
+  "column_break_sueo",
+  "total_gsm_microns",
+  "freight_charges_section",
+  "freight_cnt",
+  "column_break_fcqc",
+  "mt_cnt",
+  "column_break_gtwg",
+  "mt_cnt_by_product",
+  "column_break_qijr",
+  "freight_cost_mt",
+  "commissions_tab",
+  "commission_section",
+  "commission_currency_mt",
+  "commission_percentage",
+  "column_break_ddyx",
+  "commission_description",
+  "column_break_bkbc",
+  "commission_total",
+  "commission_total_currency_mt",
+  "commission_total_currency_pcs",
+  "addons",
+  "addons_currency_mt",
+  "addons_percentage",
+  "column_break_wagn",
+  "addons_description",
+  "column_break_ykcs",
+  "addons_total",
+  "addons_total_currency_mt",
+  "addons_total_currency_pcs",
+  "total_section",
+  "grand_total",
+  "column_break_golm",
+  "grand_total_currency_mt",
+  "column_break_ncsi",
+  "grand_total_currency_pcs",
+  "items_tab",
+  "raw_material_section",
+  "fabric_items",
+  "lamination_items",
+  "liner_items",
+  "thread_ink_items",
+  "freight_for_export_only_section",
+  "delivery_term",
+  "mode_of_shipment",
+  "column_break_101",
+  "freight_quantity_per_cntrtruck",
+  "freight_no_of_cntrtruck_required",
+  "column_break_104",
+  "freight_notes",
+  "notes_tab",
+  "notes",
+  "payment_terms_section",
+  "payment_terms_template",
+  "payment_schedule",
+  "delivery_schedule_section",
+  "delivery_schedule",
+  "board_of_port_section",
+  "port_type",
+  "column_break_279",
+  "port",
+  "country",
+  "city",
+  "column_break_283",
+  "inco_terms",
+  "data_437",
+  "data_471",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "commercial_costing",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Commercial Costing",
+   "options": "Commercial Costing"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "quotation",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Quotation",
+   "options": "Quotation"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "costing_sheet_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Costing Sheet Type",
+   "options": "Small Bag\nFabric\nFIBC"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "depends_on": "customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "depends_on": "lead",
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Lead",
+   "options": "Lead"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "reqd": 1
+  },
+  {
+   "fieldname": "opportunity",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Opportunity",
+   "options": "Opportunity"
+  },
+  {
+   "fieldname": "opportunity_owner",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Opportunity Owner",
+   "options": "User"
+  },
+  {
+   "fieldname": "technical_sheet",
+   "fieldtype": "Link",
+   "label": "Technical Sheet",
+   "options": "Technical Sheet"
+  },
+  {
+   "fieldname": "section_break_11",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Costing Sheet Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Item Name"
+  },
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Item Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Order Quantity"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_ypzg",
+   "fieldtype": "Section Break",
+   "label": "Currency"
+  },
+  {
+   "default": "USD",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "default": "QAR",
+   "fieldname": "company_currency",
+   "fieldtype": "Link",
+   "label": "Company Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "column_break_ahch",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Rate at which customer's currency is converted to company's base currency",
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange Rate",
+   "precision": "9"
+  },
+  {
+   "fieldname": "currency_conversion",
+   "fieldtype": "Float",
+   "label": "Conversion"
+  },
+  {
+   "fieldname": "section_break_nihs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "refer_e_ts.print",
+   "fetch_if_empty": 1,
+   "fieldname": "print",
+   "fieldtype": "Link",
+   "label": "Printing",
+   "options": "SB Print",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ntaz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "coating_side",
+   "fieldtype": "Autocomplete",
+   "label": "Lamination",
+   "options": "No\nOne Side\nTwo Side",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_rlqp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bag_weight",
+   "fieldtype": "Float",
+   "label": "Bag Weight (g)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_azut",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "pcs_mt",
+   "fieldtype": "Float",
+   "label": "Pcs/MT",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_ipwz",
+   "fieldtype": "Section Break",
+   "label": "Dimensions"
+  },
+  {
+   "fieldname": "width_cm",
+   "fieldtype": "Float",
+   "label": "Width (Cm)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mesh",
+   "fieldtype": "Data",
+   "label": "Mesh",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pnna",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "length_cm",
+   "fieldtype": "Float",
+   "label": "Length (Cm)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tape_width",
+   "fieldtype": "Data",
+   "label": "Tape Width",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_uiia",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "refer_e_ts.top",
+   "fetch_if_empty": 1,
+   "fieldname": "top",
+   "fieldtype": "Link",
+   "label": "Top",
+   "options": "Stitching",
+   "read_only": 1
+  },
+  {
+   "fieldname": "denier",
+   "fieldtype": "Data",
+   "label": "Denier",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vtrv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "refer_e_ts.bottom",
+   "fetch_if_empty": 1,
+   "fieldname": "bottom",
+   "fieldtype": "Link",
+   "label": "Bottom",
+   "options": "Stitching",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_wpxm",
+   "fieldtype": "Section Break",
+   "label": "Prices"
+  },
+  {
+   "default": "0",
+   "fieldname": "rm_cost",
+   "fieldtype": "Currency",
+   "label": "RM Cost",
+   "options": "currency",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "base_rm_cost",
+   "fieldtype": "Currency",
+   "label": "RM Cost (QAR)",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_usae",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Need to automate",
+   "fieldname": "conversion",
+   "fieldtype": "Currency",
+   "label": "Conversion",
+   "options": "currency",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "Need to automate",
+   "fieldname": "base_conversion",
+   "fieldtype": "Currency",
+   "label": "Conversion (QAR)",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hhiw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "price_mt_exf",
+   "fieldtype": "Currency",
+   "label": "Price/MT (ExF)",
+   "options": "currency",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "base_price_mt_exf",
+   "fieldtype": "Currency",
+   "label": "Price/MT (ExF) (QAR)",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_bees",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "price_mt",
+   "fieldtype": "Currency",
+   "label": "Price/MT",
+   "options": "currency",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "base_price_mt",
+   "fieldtype": "Currency",
+   "label": "Price/MT (QAR)",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hezc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "price_pcs_exf",
+   "fieldtype": "Currency",
+   "label": "Price/pcs (ExF)",
+   "options": "currency",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "base_price_pcs_exf",
+   "fieldtype": "Currency",
+   "label": "Price/pcs (ExF) (QAR)",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_puoz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "price_pcs",
+   "fieldtype": "Currency",
+   "label": "Price/pcs",
+   "options": "currency",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "base_price_pcs",
+   "fieldtype": "Currency",
+   "label": "Price/pcs (QAR)",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "weight_per_pieces_section",
+   "fieldtype": "Section Break",
+   "label": "Weight Per Pieces"
+  },
+  {
+   "fieldname": "fabric_weight_per_pieces",
+   "fieldtype": "Float",
+   "label": "Fabric",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_veod",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lamination_weight_per_pieces",
+   "fieldtype": "Float",
+   "label": "Lamination",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_cinr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "liner_weight_per_pieces",
+   "fieldtype": "Float",
+   "label": "Liner",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_wnri",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_weight_per_pieces",
+   "fieldtype": "Float",
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gsm__microns_section",
+   "fieldtype": "Section Break",
+   "label": "GSM / Microns"
+  },
+  {
+   "fieldname": "fabric_gsm_microns",
+   "fieldtype": "Float",
+   "label": "Fabric",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_lhcl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lamination_gsm_microns",
+   "fieldtype": "Float",
+   "label": "Lamination",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vxxc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "liner_gsm_microns",
+   "fieldtype": "Float",
+   "label": "Liner",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sueo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_gsm_microns",
+   "fieldtype": "Float",
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "freight_charges_section",
+   "fieldtype": "Section Break",
+   "label": "Freight Charges"
+  },
+  {
+   "default": "0",
+   "fieldname": "freight_cnt",
+   "fieldtype": "Currency",
+   "label": "Freight/Cnt",
+   "options": "currency"
+  },
+  {
+   "fieldname": "column_break_fcqc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "mt_cnt",
+   "fieldtype": "Currency",
+   "label": "Mt/Cnt",
+   "options": "currency"
+  },
+  {
+   "fieldname": "column_break_gtwg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "mt_cnt_by_product",
+   "fieldtype": "Currency",
+   "label": "Mt/Cnt By Product",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qijr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "freight_cost_mt",
+   "fieldtype": "Currency",
+   "label": "Freight Cost/MT",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "commissions_tab",
+   "fieldtype": "Tab Break",
+   "label": "Commissions & Add-ons"
+  },
+  {
+   "fieldname": "commission_section",
+   "fieldtype": "Section Break",
+   "label": "Commission"
+  },
+  {
+   "default": "0",
+   "fieldname": "commission_currency_mt",
+   "fieldtype": "Currency",
+   "label": "Currency/MT",
+   "options": "currency"
+  },
+  {
+   "default": "0",
+   "fieldname": "commission_percentage",
+   "fieldtype": "Percent",
+   "label": "Percentage"
+  },
+  {
+   "fieldname": "column_break_ddyx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "commission_description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_bkbc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "commission_total",
+   "fieldtype": "Currency",
+   "label": "Total (Currency)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "commission_total_currency_mt",
+   "fieldtype": "Currency",
+   "label": "Total (Currency/MT)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "commission_total_currency_pcs",
+   "fieldtype": "Currency",
+   "label": "Total (Currency/Pcs)",
+   "options": "currency",
+   "precision": "4",
+   "read_only": 1
+  },
+  {
+   "fieldname": "addons",
+   "fieldtype": "Section Break",
+   "label": "Add-ons"
+  },
+  {
+   "default": "0",
+   "fieldname": "addons_currency_mt",
+   "fieldtype": "Currency",
+   "label": "Currency/MT",
+   "options": "currency"
+  },
+  {
+   "default": "0",
+   "fieldname": "addons_percentage",
+   "fieldtype": "Percent",
+   "label": "Percentage"
+  },
+  {
+   "fieldname": "column_break_wagn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "addons_description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_ykcs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "addons_total",
+   "fieldtype": "Currency",
+   "label": "Total (Currency)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "addons_total_currency_mt",
+   "fieldtype": "Currency",
+   "label": "Total (Currency/MT)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "addons_total_currency_pcs",
+   "fieldtype": "Currency",
+   "label": "Total (Currency/Pcs)",
+   "options": "currency",
+   "precision": "4",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_section",
+   "fieldtype": "Section Break",
+   "label": "Total"
+  },
+  {
+   "default": "0",
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total (Currency)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_golm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "grand_total_currency_mt",
+   "fieldtype": "Currency",
+   "label": "Grand Total (Currency/MT)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ncsi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "grand_total_currency_pcs",
+   "fieldtype": "Currency",
+   "label": "Grand Total (Currency/Pcs)",
+   "options": "currency",
+   "precision": "4",
+   "read_only": 1
+  },
+  {
+   "fieldname": "items_tab",
+   "fieldtype": "Tab Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "raw_material_section",
+   "fieldtype": "Section Break",
+   "label": "Raw Material"
+  },
+  {
+   "fieldname": "fabric_items",
+   "fieldtype": "Table",
+   "label": "Fabric",
+   "options": "Costing Sheet Fabric Item"
+  },
+  {
+   "fieldname": "lamination_items",
+   "fieldtype": "Table",
+   "label": "Lamination",
+   "options": "Costing Sheet Lamination Item"
+  },
+  {
+   "fieldname": "liner_items",
+   "fieldtype": "Table",
+   "label": "Liner",
+   "options": "Costing Sheet Liner Item"
+  },
+  {
+   "fieldname": "thread_ink_items",
+   "fieldtype": "Table",
+   "label": "Thread & Ink",
+   "options": "Costing Sheet Thread and Ink"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "freight",
+   "fieldname": "freight_for_export_only_section",
+   "fieldtype": "Tab Break",
+   "label": "Freight (for export only)"
+  },
+  {
+   "fieldname": "delivery_term",
+   "fieldtype": "Link",
+   "label": "Delivery Term",
+   "options": "Delivery Terms"
+  },
+  {
+   "fieldname": "mode_of_shipment",
+   "fieldtype": "Select",
+   "label": "Mode of shipment",
+   "options": "By Sea\nBy Road\nBy Air"
+  },
+  {
+   "fieldname": "column_break_101",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "freight_quantity_per_cntrtruck",
+   "fieldtype": "Float",
+   "label": "Quantity per Cntr/Truck"
+  },
+  {
+   "fieldname": "freight_no_of_cntrtruck_required",
+   "fieldtype": "Float",
+   "label": "No. of Cntr/Truck required"
+  },
+  {
+   "fieldname": "column_break_104",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "freight_notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes_tab",
+   "fieldtype": "Tab Break",
+   "label": "Terms"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "payment_terms_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Terms"
+  },
+  {
+   "fieldname": "payment_terms_template",
+   "fieldtype": "Link",
+   "label": "Payment Terms Template",
+   "options": "Payment Terms Template"
+  },
+  {
+   "fieldname": "payment_schedule",
+   "fieldtype": "Table",
+   "label": "Payment Schedule",
+   "options": "Payment Schedule"
+  },
+  {
+   "fieldname": "delivery_schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Delivery Schedule"
+  },
+  {
+   "fieldname": "delivery_schedule",
+   "fieldtype": "Link",
+   "label": "Delivery Schedule",
+   "options": "Delivery Terms"
+  },
+  {
+   "fieldname": "board_of_port_section",
+   "fieldtype": "Section Break",
+   "label": "Board of Port"
+  },
+  {
+   "fieldname": "port_type",
+   "fieldtype": "Select",
+   "label": "Port Type",
+   "options": "Air\nSea\nRoad"
+  },
+  {
+   "fieldname": "column_break_279",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.port_type != \"Road\"",
+   "fieldname": "port",
+   "fieldtype": "Link",
+   "label": "Port",
+   "options": "Port"
+  },
+  {
+   "depends_on": "eval:doc.port_type == \"Road\"",
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "depends_on": "eval:doc.port_type == \"Road\"",
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "column_break_283",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inco_terms",
+   "fieldtype": "Link",
+   "label": "INCO Terms",
+   "options": "Incoterms"
+  },
+  {
+   "fieldname": "data_437",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "data_471",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Technical Sheet",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-02-25 06:47:26.892130",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Costing Sheet",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

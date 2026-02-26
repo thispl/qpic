@@ -119,7 +119,8 @@ doc_events = {
 		'on_submit':'qpic.custom.create_leave_application',
 	},
 	'Opportunity':{
-		'on_submit':'qpic.custom.create_technical_costing'
+		# 'on_submit':'qpic.custom.create_technical_costing'
+		"on_submit": "qpic.custom.create_technical_sheet"
 	},
 	'Quotation':{
 		'on_update':'qpic.custom.get_quotation_name',

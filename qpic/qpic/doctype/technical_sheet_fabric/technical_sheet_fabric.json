@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "TS-FB-.####",
+ "autoname": "TC-FB-.####",
  "creation": "2023-01-18 20:33:46.084868",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -1960,7 +1960,7 @@
    "link_fieldname": "technical_sheet_fabric"
   }
  ],
- "modified": "2024-10-25 15:32:25.764925",
+ "modified": "2026-02-14 08:25:30.586363",
  "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Technical Sheet Fabric",

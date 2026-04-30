@@ -1,0 +1,109 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:cutting_name",
+ "creation": "2026-04-16 12:45:01.527382",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "cutting_name",
+  "pcs__minute",
+  "power_consumption_kw",
+  "no_of_bags__hour",
+  "column_break_eikh",
+  "no_of_operators",
+  "no_of_helpers",
+  "no_of_packing_helpers",
+  "multiply_with_ts_pe_length"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "pcs__minute",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Pcs / Minute"
+  },
+  {
+   "default": "0",
+   "fieldname": "no_of_operators",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "No of Operators"
+  },
+  {
+   "default": "0",
+   "fieldname": "power_consumption_kw",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Power Consumption (kW)"
+  },
+  {
+   "default": "0",
+   "fieldname": "no_of_bags__hour",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "No of Bags / Hour",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_eikh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cutting_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Cutting Name",
+   "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "no_of_helpers",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "No of Helpers"
+  },
+  {
+   "default": "0",
+   "fieldname": "no_of_packing_helpers",
+   "fieldtype": "Float",
+   "label": "No of Packing Helpers"
+  },
+  {
+   "default": "0",
+   "fieldname": "multiply_with_ts_pe_length",
+   "fieldtype": "Check",
+   "label": "Multiply with TS PE length"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-16 16:44:19.422703",
+ "modified_by": "amar.p@groupteampro.com",
+ "module": "QPIC",
+ "name": "PE Cutting",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

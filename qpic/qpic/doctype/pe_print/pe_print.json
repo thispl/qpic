@@ -1,0 +1,159 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:print_name",
+ "creation": "2026-04-13 08:18:07.869266",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "print_name",
+  "no_of_sides",
+  "no_of_colors",
+  "column_break_4",
+  "roller",
+  "speed",
+  "column_break_7",
+  "target",
+  "bags_per_hr",
+  "section_break_10",
+  "ink",
+  "thinner",
+  "column_break_12",
+  "column_break_14",
+  "mp_per_mc",
+  "mp_per_bag",
+  "power_cons_kw__mc"
+ ],
+ "fields": [
+  {
+   "fieldname": "print_name",
+   "fieldtype": "Data",
+   "label": "Print Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "no_of_sides",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "No of Sides",
+   "options": "\n1\n2"
+  },
+  {
+   "fieldname": "no_of_colors",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "No of Colors",
+   "options": "\n1\n2\n3\n4\n5\n6"
+  },
+  {
+   "default": "0",
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "roller",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Roller"
+  },
+  {
+   "default": "0",
+   "fieldname": "ink",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Ink (mg)"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "thinner",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Thinner (mg)"
+  },
+  {
+   "default": "0",
+   "fieldname": "target",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Target (Shift)"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "speed",
+   "fieldtype": "Int",
+   "label": "Speed (m/min)"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "bags_per_hr",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Bags/Hr"
+  },
+  {
+   "default": "0",
+   "fieldname": "mp_per_mc",
+   "fieldtype": "Float",
+   "label": "MP/Mc"
+  },
+  {
+   "default": "0",
+   "fieldname": "mp_per_bag",
+   "fieldtype": "Float",
+   "label": "MP/Bag",
+   "precision": "5"
+  },
+  {
+   "fieldname": "power_cons_kw__mc",
+   "fieldtype": "Float",
+   "label": "Power Cons (kW) / Mc"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-13 09:38:07.077382",
+ "modified_by": "amar.p@groupteampro.com",
+ "module": "QPIC",
+ "name": "PE Print",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

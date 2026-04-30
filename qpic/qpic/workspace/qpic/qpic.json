@@ -1,0 +1,60 @@
+{
+ "app": "qpic",
+ "charts": [],
+ "content": "[]",
+ "creation": "2026-02-26 09:36:11.446738",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "hide_custom": 0,
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "QPIC",
+ "link_type": "DocType",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Opportunity",
+   "link_count": 0,
+   "link_to": "Opportunity",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Technical Sheet",
+   "link_count": 0,
+   "link_to": "Technical Sheet",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Costing Sheet",
+   "link_count": 0,
+   "link_to": "Costing Sheet",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-03-24 09:39:59.408309",
+ "modified_by": "pradeep@qatarpac.net",
+ "module": "QPIC",
+ "name": "QPIC",
+ "number_cards": [],
+ "owner": "Administrator",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 0.0,
+ "shortcuts": [],
+ "title": "QPIC",
+ "type": "Workspace"
+}

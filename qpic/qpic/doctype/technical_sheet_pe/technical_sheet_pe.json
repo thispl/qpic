@@ -1,0 +1,1337 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-04-09 14:55:17.161156",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "technical_sheet_type",
+  "company",
+  "customer",
+  "lead",
+  "posting_date",
+  "column_break_aypa",
+  "naming_series",
+  "opportunity",
+  "opportunity_owner",
+  "currency_and_price_list_section",
+  "currency",
+  "price_list",
+  "column_break_tdsj",
+  "exchange_rate",
+  "company_exchange",
+  "section_break_vuhl",
+  "items",
+  "costing_sheet_qty",
+  "pe_roll_section",
+  "thickness_micron",
+  "roll_width",
+  "column_break_feos",
+  "roll_gusset_1",
+  "roll_gusset_2",
+  "column_break_vmur",
+  "roll_printing",
+  "roll_color",
+  "column_break_nevl",
+  "roll_printing_speed",
+  "core",
+  "roll_weightkg",
+  "loading_quantities_section",
+  "mt_per_container",
+  "pieces_per_container",
+  "pieces_per_bundle",
+  "column_break_nudk",
+  "time_to_pack_one_bundle",
+  "no_of_labour",
+  "bag_section",
+  "bag_color",
+  "bag_width",
+  "bag_thickness",
+  "printing",
+  "column_break_etyg",
+  "external_width",
+  "gusset_1",
+  "bag_weight",
+  "printing_speed",
+  "column_break_sspz",
+  "external_length",
+  "gusset_2",
+  "cutting",
+  "t_shirt_and_d_cut_section",
+  "t_cut",
+  "actual_cut_area_sqcm",
+  "t_cut_adjustments",
+  "column_break_sxsl",
+  "d_cut",
+  "area",
+  "hook_",
+  "pe_roll_section_2",
+  "color",
+  "workstation",
+  "output_kghr",
+  "pe_roll",
+  "column_break_xqux",
+  "width",
+  "roll_type",
+  "no_of_layers",
+  "column_break_ejrn",
+  "gusset",
+  "width_factor",
+  "speed_factor",
+  "density_kgcbm",
+  "column_break_irio",
+  "thickness",
+  "speed",
+  "wtmtr_g",
+  "quantity_hours_tab",
+  "quantity_section",
+  "pe_roll_in_kg",
+  "column_break_bgza",
+  "pe_roll_in_mtr",
+  "man_hours_section",
+  "blown_film_operator",
+  "printing_machine_operator",
+  "column_break_ahla",
+  "conversion_machine_operator",
+  "helper",
+  "machnine_hours_section",
+  "blown_film_machine",
+  "printing_machine",
+  "column_break_dzde",
+  "conversion_machine",
+  "material_combination_tab",
+  "raw_material_combination",
+  "section_break_aueq",
+  "l1_dosage",
+  "l2_dosage",
+  "l3_dosage",
+  "column_break_eewf",
+  "l1_qty",
+  "l2_qty",
+  "l3_qty",
+  "column_break_qarb",
+  "total_dosage",
+  "total_qty_kg",
+  "total_qty_kgmt",
+  "total_qty_kgso",
+  "section_break_onma",
+  "remarks",
+  "extrusion__pe_roll_tab",
+  "production_wastage_roll",
+  "printing_hrsmt",
+  "base_material_cost",
+  "base_core_amount",
+  "column_break_vzzs",
+  "bf_output_kghr",
+  "base_pe_roll_total_cost",
+  "material_cost",
+  "core_amount",
+  "column_break_tmbw",
+  "bf_hrsmt",
+  "pe_roll_total_cost",
+  "selling_price",
+  "mmt",
+  "column_break_caxx",
+  "printing_mtrmt",
+  "overhead",
+  "conversion",
+  "pe_roll_material_combination",
+  "section_break_meio",
+  "pe_roll_items",
+  "pe_roll_others",
+  "pe_bag_tab",
+  "production_wastage_bag",
+  "ban__dcut_weight_g",
+  "conversion_quot_currencypcs",
+  "material_cost_currencymt",
+  "conversion_quot_currencymt",
+  "column_break_kpjv",
+  "conversion_bags__hr",
+  "bag_weight_g",
+  "overhead_currencypcs",
+  "cost__mt",
+  "base_pe_bag_total_cost",
+  "column_break_xcra",
+  "ban__dcut_area_sqm",
+  "printing_hrs_bag",
+  "material_cost_currencypiece",
+  "selling_price_act_currencymt",
+  "pe_bag_total_cost",
+  "column_break_llxq",
+  "wtsqm_g",
+  "conversion_act_currencypcs",
+  "overhead_currencymt",
+  "conversion_act_currencymt",
+  "pe_roll_quantity",
+  "pe_bag_material_combination",
+  "section_break_xicl",
+  "pe_bag_items",
+  "pe_bag_others",
+  "amended_from",
+  "terms_tab",
+  "notes",
+  "payment_terms_section",
+  "payment_terms_template",
+  "payment_schedule",
+  "delivery_schedule_section",
+  "delivery_schedule",
+  "board_of_port_section",
+  "port_type",
+  "column_break_ayqc",
+  "port",
+  "country",
+  "city",
+  "column_break_nolz",
+  "incoterms"
+ ],
+ "fields": [
+  {
+   "fieldname": "technical_sheet_type",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Technical Sheet Type",
+   "link_filters": "[[\"Technical Sheet Type\",\"name\",\"in\",[\"PE Roll\",\"PE Bag\"]]]",
+   "options": "Technical Sheet Type"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "depends_on": "customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "depends_on": "lead",
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Lead",
+   "options": "Lead"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "column_break_aypa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series"
+  },
+  {
+   "fieldname": "opportunity",
+   "fieldtype": "Link",
+   "label": "Opportunity",
+   "options": "Opportunity"
+  },
+  {
+   "fieldname": "opportunity_owner",
+   "fieldtype": "Link",
+   "label": "Opportunity Owner",
+   "options": "User"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "currency_and_price_list_section",
+   "fieldtype": "Section Break",
+   "label": "Currency and Price List"
+  },
+  {
+   "default": "USD",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_tdsj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange Rate",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "company_exchange",
+   "fieldtype": "Float",
+   "label": "Company Exchange",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_vuhl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Technical Sheet PE Item"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "loading_quantities_section",
+   "fieldtype": "Section Break",
+   "label": "Loading Quantities"
+  },
+  {
+   "default": "0",
+   "fieldname": "mt_per_container",
+   "fieldtype": "Float",
+   "label": "MT / Container"
+  },
+  {
+   "default": "0",
+   "fieldname": "pieces_per_container",
+   "fieldtype": "Float",
+   "label": "Pieces / Container"
+  },
+  {
+   "default": "0",
+   "fieldname": "pieces_per_bundle",
+   "fieldtype": "Float",
+   "label": "Pieces / Bundle"
+  },
+  {
+   "fieldname": "column_break_nudk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "time_to_pack_one_bundle",
+   "fieldtype": "Float",
+   "label": "Pack / Bundle (min)"
+  },
+  {
+   "default": "0",
+   "fieldname": "no_of_labour",
+   "fieldtype": "Float",
+   "label": "No. of Labour"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval: doc.technical_sheet_type == \"PE Bag\"",
+   "fieldname": "bag_section",
+   "fieldtype": "Section Break",
+   "label": "Bag"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Color",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "width",
+   "fieldtype": "Float",
+   "label": "Width (cm)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "thickness",
+   "fieldtype": "Float",
+   "label": "Thickness (\u03bc)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_etyg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "external_width",
+   "fieldtype": "Float",
+   "label": "External Width (cm)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "gusset_1",
+   "fieldtype": "Float",
+   "label": "Gusset 1"
+  },
+  {
+   "fieldname": "column_break_sspz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "gusset_2",
+   "fieldtype": "Float",
+   "label": "Gusset 2"
+  },
+  {
+   "fieldname": "cutting",
+   "fieldtype": "Link",
+   "label": "Cutting",
+   "options": "PE Cutting"
+  },
+  {
+   "fieldname": "printing",
+   "fieldtype": "Link",
+   "label": "Printing",
+   "options": "PE Print"
+  },
+  {
+   "default": "0",
+   "fieldname": "bag_weight",
+   "fieldtype": "Float",
+   "label": "Bag Weight (g)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "external_length",
+   "fieldtype": "Float",
+   "label": "External Length (cm)"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval: doc.technical_sheet_type == \"PE Bag\"",
+   "fieldname": "t_shirt_and_d_cut_section",
+   "fieldtype": "Section Break",
+   "label": "T Shirt and D Cut"
+  },
+  {
+   "fieldname": "t_cut",
+   "fieldtype": "Link",
+   "label": "T Cut",
+   "options": "T Cut"
+  },
+  {
+   "fieldname": "column_break_sxsl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "d_cut",
+   "fieldtype": "Link",
+   "label": "D Cut",
+   "options": "D Cut"
+  },
+  {
+   "default": "No",
+   "fieldname": "hook_",
+   "fieldtype": "Select",
+   "label": "Hook",
+   "options": "\nYes\nNo"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval: doc.technical_sheet_type == \"PE Roll\"",
+   "fieldname": "pe_roll_section",
+   "fieldtype": "Section Break",
+   "label": "PE Roll"
+  },
+  {
+   "fieldname": "pe_roll",
+   "fieldtype": "Data",
+   "label": "PE Roll",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_xqux",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ejrn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_irio",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "t_cut_adjustments",
+   "fieldtype": "Float",
+   "label": "T Cut Adjustment"
+  },
+  {
+   "default": "0",
+   "fieldname": "bag_width",
+   "fieldtype": "Float",
+   "label": "Width"
+  },
+  {
+   "default": "0",
+   "fieldname": "bag_thickness",
+   "fieldtype": "Float",
+   "label": "Thickness"
+  },
+  {
+   "fieldname": "bag_color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Color"
+  },
+  {
+   "fieldname": "workstation",
+   "fieldtype": "Link",
+   "label": "Workstation",
+   "options": "Workstation"
+  },
+  {
+   "default": "0",
+   "fieldname": "output_kghr",
+   "fieldtype": "Float",
+   "label": "Output (kg/hr)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "roll_type",
+   "fieldtype": "Link",
+   "label": "Roll Type",
+   "options": "Fabrics"
+  },
+  {
+   "default": "0",
+   "fieldname": "no_of_layers",
+   "fieldtype": "Float",
+   "label": "No. of Layers"
+  },
+  {
+   "default": "0",
+   "fieldname": "speed_factor",
+   "fieldtype": "Float",
+   "label": "Speed Factor"
+  },
+  {
+   "default": "0",
+   "fieldname": "density_kgcbm",
+   "fieldtype": "Float",
+   "label": "Density (kg/cbm)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "speed",
+   "fieldtype": "Float",
+   "label": "Speed (m/min)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "wtmtr_g",
+   "fieldtype": "Float",
+   "label": "wt/mtr (g)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "roll_width",
+   "fieldtype": "Float",
+   "label": "Width"
+  },
+  {
+   "default": "0",
+   "fieldname": "roll_gusset_1",
+   "fieldtype": "Float",
+   "label": "Gusset 1"
+  },
+  {
+   "fieldname": "column_break_feos",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vmur",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "roll_color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Color"
+  },
+  {
+   "fieldname": "core",
+   "fieldtype": "Autocomplete",
+   "label": "Core"
+  },
+  {
+   "default": "0",
+   "fieldname": "roll_weightkg",
+   "fieldtype": "Float",
+   "label": "Roll Weight(kg)"
+  },
+  {
+   "fieldname": "pe_roll_section_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "roll_gusset_2",
+   "fieldtype": "Float",
+   "label": "Gusset 2"
+  },
+  {
+   "fieldname": "roll_printing",
+   "fieldtype": "Link",
+   "label": "Printing",
+   "options": "PE Print"
+  },
+  {
+   "fieldname": "column_break_nevl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quantity_hours_tab",
+   "fieldtype": "Tab Break",
+   "label": "Quantity & Hours"
+  },
+  {
+   "fieldname": "quantity_section",
+   "fieldtype": "Section Break",
+   "label": "Quantity"
+  },
+  {
+   "default": "0",
+   "fieldname": "pe_roll_in_kg",
+   "fieldtype": "Float",
+   "label": "PE Roll (Kg)"
+  },
+  {
+   "fieldname": "column_break_bgza",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "pe_roll_in_mtr",
+   "fieldtype": "Float",
+   "label": "PE Roll (Mtr)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "man_hours_section",
+   "fieldtype": "Section Break",
+   "label": "Man Hours"
+  },
+  {
+   "default": "0",
+   "fieldname": "blown_film_operator",
+   "fieldtype": "Float",
+   "label": "Blown Film Operator",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "printing_machine_operator",
+   "fieldtype": "Float",
+   "label": "Printing Machine Operator",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ahla",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "conversion_machine_operator",
+   "fieldtype": "Float",
+   "label": "Conversion Machine Operator",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "helper",
+   "fieldtype": "Float",
+   "label": "Helper",
+   "read_only": 1
+  },
+  {
+   "fieldname": "machnine_hours_section",
+   "fieldtype": "Section Break",
+   "label": "Machnine Hours"
+  },
+  {
+   "default": "0",
+   "fieldname": "blown_film_machine",
+   "fieldtype": "Float",
+   "label": "Blown Film Machine",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "printing_machine",
+   "fieldtype": "Float",
+   "label": "Printing Machine",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "conversion_machine",
+   "fieldtype": "Float",
+   "label": "Conversion Machine",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dzde",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "thickness_micron",
+   "fieldtype": "Float",
+   "label": "Thickness (Micron)"
+  },
+  {
+   "fieldname": "gusset",
+   "fieldtype": "Data",
+   "label": "Gusset (cm)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "roll_type.width_factor",
+   "fieldname": "width_factor",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Width Factor"
+  },
+  {
+   "fieldname": "material_combination_tab",
+   "fieldtype": "Tab Break",
+   "label": "Material Combination"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "raw_material_combination",
+   "fieldtype": "Table",
+   "label": "Raw Material Combination",
+   "options": "Technical Sheet PE Raw Material Combination"
+  },
+  {
+   "fieldname": "extrusion__pe_roll_tab",
+   "fieldtype": "Tab Break",
+   "label": "Extrusion / PE Roll"
+  },
+  {
+   "fieldname": "pe_bag_tab",
+   "fieldtype": "Tab Break",
+   "label": "PE Bag"
+  },
+  {
+   "default": "3",
+   "fieldname": "production_wastage_roll",
+   "fieldtype": "Float",
+   "label": "Production Wastage"
+  },
+  {
+   "default": "0",
+   "fieldname": "bf_output_kghr",
+   "fieldtype": "Float",
+   "label": "BF Output (kg/hr)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "bf_hrsmt",
+   "fieldtype": "Float",
+   "label": "BF Hrs/MT",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "printing_mtrmt",
+   "fieldtype": "Float",
+   "label": "Printing mtr/MT",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "printing_hrsmt",
+   "fieldtype": "Float",
+   "label": "Printing Hrs/MT",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_tmbw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "pe_roll_material_combination",
+   "fieldtype": "Check",
+   "label": "Material Combination"
+  },
+  {
+   "fieldname": "section_break_meio",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "pe_roll_material_combination",
+   "fieldname": "pe_roll_items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Technical Sheet PE Roll Item"
+  },
+  {
+   "depends_on": "pe_roll_material_combination",
+   "fieldname": "pe_roll_others",
+   "fieldtype": "Table",
+   "label": "Others",
+   "options": "Technical Sheet PE Roll Others"
+  },
+  {
+   "default": "0",
+   "fieldname": "overhead",
+   "fieldtype": "Currency",
+   "label": "Overhead",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "material_cost",
+   "fieldtype": "Currency",
+   "label": "Material Cost",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "base_material_cost",
+   "fieldtype": "Currency",
+   "label": "Material Cost (QAR)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "selling_price",
+   "fieldtype": "Currency",
+   "label": "Selling Price",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "conversion",
+   "fieldtype": "Currency",
+   "label": "Conversion",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vzzs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fetch_from": "cutting.no_of_bags__hour",
+   "fetch_if_empty": 1,
+   "fieldname": "conversion_bags__hr",
+   "fieldtype": "Float",
+   "label": "Conversion Bags / Hr",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "ban__dcut_area_sqm",
+   "fieldtype": "Float",
+   "label": "Ban / Dcut Area (sqm)",
+   "precision": "9",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "wtsqm_g",
+   "fieldtype": "Float",
+   "label": "wt/sqm (g)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "ban__dcut_weight_g",
+   "fieldtype": "Float",
+   "label": "Ban / Dcut Weight (g)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "bag_weight_g",
+   "fieldtype": "Float",
+   "label": "Bag Weight (g)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "printing_hrs_bag",
+   "fieldtype": "Float",
+   "label": "Printing Hrs/ Bag",
+   "precision": "9",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "conversion_act_currencypcs",
+   "fieldtype": "Currency",
+   "label": "Conversion Act (Currency/Pcs)",
+   "options": "currency",
+   "precision": "9",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "conversion_quot_currencypcs",
+   "fieldtype": "Currency",
+   "label": "Conversion Quot (Currency/Pcs)",
+   "options": "currency",
+   "precision": "9",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "overhead_currencypcs",
+   "fieldtype": "Currency",
+   "label": "Overhead (Currency/Pcs)",
+   "options": "currency",
+   "precision": "9",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "material_cost_currencypiece",
+   "fieldtype": "Currency",
+   "label": "Material Cost (Currency/piece)",
+   "options": "currency",
+   "precision": "9",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "overhead_currencymt",
+   "fieldtype": "Currency",
+   "label": "Overhead (Currency/MT)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "material_cost_currencymt",
+   "fieldtype": "Currency",
+   "label": "Material Cost (Currency/MT)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "cost__mt",
+   "fieldtype": "Currency",
+   "label": "Cost / MT",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "selling_price_act_currencymt",
+   "fieldtype": "Currency",
+   "label": "Selling Price Act (Currency/MT)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "conversion_act_currencymt",
+   "fieldtype": "Currency",
+   "label": "Conversion Act (Currency/MT)",
+   "options": "currency",
+   "precision": "9",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "conversion_quot_currencymt",
+   "fieldtype": "Currency",
+   "label": "Conversion Quot (Currency/MT)",
+   "options": "currency",
+   "precision": "9",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_kpjv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xcra",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_llxq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "pe_bag_material_combination",
+   "fieldtype": "Check",
+   "label": "Material Combination"
+  },
+  {
+   "fieldname": "section_break_xicl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "pe_bag_material_combination",
+   "fieldname": "pe_bag_items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Technical Sheet PE Bag Item"
+  },
+  {
+   "depends_on": "pe_bag_material_combination",
+   "fieldname": "pe_bag_others",
+   "fieldtype": "Table",
+   "label": "Others",
+   "options": "Technical Sheet PE Bag Others"
+  },
+  {
+   "fetch_from": "roll_printing.speed",
+   "fieldname": "roll_printing_speed",
+   "fieldtype": "Float",
+   "label": "Printing Speed"
+  },
+  {
+   "default": "Standard Buying",
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "label": "Price List",
+   "options": "Price List",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "pe_roll_total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "t_cut.actual_cut_area_sqcm",
+   "fieldname": "actual_cut_area_sqcm",
+   "fieldtype": "Float",
+   "label": "Actual Cut Area (sqcm)",
+   "precision": "9",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "d_cut.area",
+   "fieldname": "area",
+   "fieldtype": "Float",
+   "label": "Area",
+   "precision": "9",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "printing.speed",
+   "fieldname": "printing_speed",
+   "fieldtype": "Float",
+   "label": "Printing Speed",
+   "read_only": 1
+  },
+  {
+   "default": "2",
+   "fieldname": "production_wastage_bag",
+   "fieldtype": "Float",
+   "label": "Production Wastage"
+  },
+  {
+   "fieldname": "column_break_caxx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "base_pe_roll_total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost (QAR)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "base_core_amount",
+   "fieldtype": "Currency",
+   "label": "Core Amount (QAR)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "base_pe_bag_total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost (QAR)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "pe_bag_total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "pe_roll_quantity",
+   "fieldtype": "Float",
+   "label": "PE Roll Quantity",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "core_amount",
+   "fieldtype": "Currency",
+   "label": "Core Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "mmt",
+   "fieldtype": "Float",
+   "label": "m/MT",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "costing_sheet_qty",
+   "fieldtype": "Float",
+   "label": "Costing Sheet Quantity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Technical Sheet PE",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_aueq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "l1_dosage",
+   "fieldtype": "Float",
+   "label": "L1 Dosage",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_eewf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "l2_dosage",
+   "fieldtype": "Float",
+   "label": "L2 Dosage",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qarb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "l3_dosage",
+   "fieldtype": "Float",
+   "label": "L3 Dosage",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_onma",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "l1_qty",
+   "fieldtype": "Float",
+   "label": "L1 Qty",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "l2_qty",
+   "fieldtype": "Float",
+   "label": "L2 Qty",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "l3_qty",
+   "fieldtype": "Float",
+   "label": "L3 Qty",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_dosage",
+   "fieldtype": "Float",
+   "label": "Total Dosage",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_qty_kgso",
+   "fieldtype": "Float",
+   "label": "Total Qty (Kg/SO)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_qty_kg",
+   "fieldtype": "Float",
+   "label": "Total Qty (Kg)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_qty_kgmt",
+   "fieldtype": "Float",
+   "label": "Total Qty (Kg/Mt)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "terms_tab",
+   "fieldtype": "Tab Break",
+   "label": "Terms"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "payment_terms_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Terms"
+  },
+  {
+   "fieldname": "payment_terms_template",
+   "fieldtype": "Link",
+   "label": "Payment Terms Template",
+   "options": "Payment Terms Template"
+  },
+  {
+   "fieldname": "payment_schedule",
+   "fieldtype": "Table",
+   "label": "Payment Schedule",
+   "options": "Payment Schedule"
+  },
+  {
+   "fieldname": "delivery_schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Delivery Schedule"
+  },
+  {
+   "fieldname": "delivery_schedule",
+   "fieldtype": "Link",
+   "label": "Delivery Schedule",
+   "options": "Delivery Terms"
+  },
+  {
+   "fieldname": "board_of_port_section",
+   "fieldtype": "Section Break",
+   "label": "Board of Port"
+  },
+  {
+   "fieldname": "port_type",
+   "fieldtype": "Select",
+   "label": "Port Type",
+   "options": "Air\nSea\nRoad"
+  },
+  {
+   "fieldname": "column_break_ayqc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.port_type != \"Road\"",
+   "fieldname": "port",
+   "fieldtype": "Link",
+   "label": "Port",
+   "options": "Port"
+  },
+  {
+   "depends_on": "eval:doc.port_type == \"Road\"",
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "depends_on": "eval:doc.port_type == \"Road\"",
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "column_break_nolz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "incoterms",
+   "fieldtype": "Link",
+   "label": "Incoterms",
+   "options": "Incoterms"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-30 12:47:00.208924",
+ "modified_by": "amar.p@groupteampro.com",
+ "module": "QPIC",
+ "name": "Technical Sheet PE",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "amar.p@groupteampro.com",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

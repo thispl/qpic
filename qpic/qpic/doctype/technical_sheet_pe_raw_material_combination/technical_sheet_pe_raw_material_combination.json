@@ -1,0 +1,208 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-04-13 13:44:17.838972",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "item_group",
+  "volume",
+  "column_break_qsxy",
+  "item_name",
+  "uom",
+  "density",
+  "section_break_fgkf",
+  "layer_1_dosage",
+  "layer_1_qty",
+  "column_break_facx",
+  "layer_2_dosage",
+  "layer_2_qty",
+  "column_break_qmhl",
+  "layer_3_dosage",
+  "layer_3_qty",
+  "total_section",
+  "total_dosage",
+  "total_qty_kg",
+  "column_break_cnab",
+  "total_qty_kgmt",
+  "total_qty_kgso"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Raw Material",
+   "link_filters": "[]",
+   "options": "Item",
+   "sticky": 1
+  },
+  {
+   "fetch_from": "item_code.item_group",
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "label": "Item Group",
+   "options": "Item Group",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "item_code.custom_volume",
+   "fieldname": "volume",
+   "fieldtype": "Float",
+   "label": "Volume",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qsxy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fetch_from": "item_code.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name",
+   "read_only": 1,
+   "sticky": 1
+  },
+  {
+   "fetch_from": "item_code.stock_uom",
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "density",
+   "fieldtype": "Float",
+   "label": "Density",
+   "precision": "9",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_fgkf",
+   "fieldtype": "Section Break",
+   "label": "Layer"
+  },
+  {
+   "default": "0",
+   "fieldname": "layer_1_dosage",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "L1 Dosage"
+  },
+  {
+   "default": "0",
+   "fieldname": "layer_1_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "L1 Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_facx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "layer_2_dosage",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "L2 Dosage"
+  },
+  {
+   "default": "0",
+   "fieldname": "layer_2_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "L2 Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qmhl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "layer_3_dosage",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "L3 Dosage"
+  },
+  {
+   "default": "0",
+   "fieldname": "layer_3_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "L3 Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_section",
+   "fieldtype": "Section Break",
+   "label": "Total"
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "total_dosage",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Dosage",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "total_qty_kg",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Qty (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_cnab",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "total_qty_kgmt",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Qty (kg/MT)",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "total_qty_kgso",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Qty (kg/SO)",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-30 13:08:28.675023",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Technical Sheet PE Raw Material Combination",
+ "owner": "amar.p@groupteampro.com",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

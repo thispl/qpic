@@ -1,0 +1,84 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "OH-.#####",
+ "creation": "2026-04-06 15:14:52.190015",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "group",
+  "overhead_type",
+  "current_value",
+  "column_break_nolk",
+  "month",
+  "month_value"
+ ],
+ "fields": [
+  {
+   "fieldname": "group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Group",
+   "options": "Overheads Group",
+   "reqd": 1
+  },
+  {
+   "fieldname": "current_value",
+   "fieldtype": "Currency",
+   "label": "Current Value",
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_nolk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Select",
+   "label": "Month",
+   "options": "JAN\nFEB\nMAR\nAPR\nMAY\nJUN\nJUL\nAUG\nSEP\nOCT\nNOV\nDEC",
+   "reqd": 1
+  },
+  {
+   "fieldname": "month_value",
+   "fieldtype": "Currency",
+   "label": "Month Value"
+  },
+  {
+   "fieldname": "overhead_type",
+   "fieldtype": "Data",
+   "label": "Overhead Type",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-07 17:09:40.530338",
+ "modified_by": "divya.p@groupteampro.com",
+ "module": "QPIC",
+ "name": "Overhead Details",
+ "naming_rule": "Expression",
+ "owner": "divya.p@groupteampro.com",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

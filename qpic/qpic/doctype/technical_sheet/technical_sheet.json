@@ -24,6 +24,7 @@
   "currency",
   "column_break_16",
   "exchange_rate",
+  "company_exchange",
   "section_break_11",
   "technical_costing_item",
   "item_code",
@@ -66,6 +67,7 @@
   "external_length",
   "internal_length",
   "column_break_26",
+  "bag_color",
   "bag_weight",
   "cutting_operation",
   "stitching_operation",
@@ -104,23 +106,23 @@
   "actual_loom_ppm",
   "fabric_section",
   "fabric_width",
-  "coating_side",
-  "fabric_type",
-  "cut_length",
+  "coating_gsm",
+  "fabric_type_size",
+  "fabric_speed_percentage",
   "column_break_37",
   "fabric_strength",
   "fabric_color",
-  "fabric_type_size",
   "weft_addn_gsm",
+  "fabric_ppm",
   "column_break_34",
   "fabric_total_gsm",
-  "coating_gsm",
   "fabric_gsm",
+  "cut_length",
   "wtmtr",
   "column_break_97",
+  "coating_side",
+  "fabric_type",
   "fabric_loom",
-  "fabric_speed_percentage",
-  "fabric_ppm",
   "lamination_wt_per_pcs_gms",
   "section_break_31",
   "loom",
@@ -135,19 +137,6 @@
   "column_break_11",
   "bailing",
   "freight",
-  "loom_section",
-  "section_break_165",
-  "loom_width_factor",
-  "column_break_166",
-  "loom_mhr",
-  "column_break_169",
-  "loom_wthr",
-  "column_break_171",
-  "loom_hrsmt",
-  "loom_material_combination",
-  "section_break_167",
-  "loommaterial_combination",
-  "loom_others",
   "tape_section",
   "section_break_25",
   "warp_tape_name",
@@ -323,25 +312,36 @@
   "fabric_tab",
   "fabric_details",
   "fabric",
+  "loom_section",
+  "section_break_165",
+  "loom_width_factor",
+  "column_break_166",
+  "loom_mhr",
+  "column_break_169",
+  "loom_wthr",
+  "column_break_171",
+  "loom_hrsmt",
+  "loom_material_combination",
+  "section_break_167",
+  "loommaterial_combination",
+  "loom_others",
   "lamination_section",
   "section_break_378",
   "lamination_production_wastage",
   "lamination_mtrmt",
+  "convsn_quot_usdpcs_lamination",
+  "lamination_material_cost",
   "column_break_380",
   "lamination_width",
-  "lamination_material_cost",
+  "selling_price_lamination",
+  "conversion_act_lamination",
   "currency_382",
   "lamination_wtsqm",
+  "conversion_usd_lamination",
   "currency_384",
   "lamination_wt_ratio",
-  "lamination_material_combination",
-  "section_break_145",
-  "conversion_usd_lamination",
   "material_cost_lamination",
-  "selling_price_lamination",
-  "column_break_344",
-  "conversion_act_lamination",
-  "convsn_quot_usdpcs_lamination",
+  "lamination_material_combination",
   "section_break_173",
   "laminationmaterial_combination",
   "lamination_others",
@@ -518,10 +518,9 @@
   "city",
   "column_break_283",
   "inco_terms",
-  "data_437",
-  "data_471",
   "item_data_details_tab",
   "tape_item_details",
+  "technical_sheet_quantity_details",
   "commission__add_ons_tab",
   "commission_usd_mt",
   "add_ons_usd_mt",
@@ -556,6 +555,7 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Technical Sheet Type",
+   "link_filters": "[[\"Technical Sheet Type\",\"name\",\"in\",[\"Small Bag\",\"Fabric\",\"FIBC\"]]]",
    "options": "Technical Sheet Type"
   },
   {
@@ -628,8 +628,7 @@
    "fieldname": "technical_costing_item",
    "fieldtype": "Table",
    "label": "Technical Costing Item",
-   "options": "Technical Costing Item",
-   "read_only": 1
+   "options": "Technical Costing Item"
   },
   {
    "fieldname": "item_code",
@@ -666,6 +665,7 @@
    "label": "Order Quantity"
   },
   {
+   "depends_on": "eval: [\"Fabric\", \"Small Bag\"].includes(doc.technical_sheet_type)",
    "fieldname": "section_break_15",
    "fieldtype": "Section Break"
   },
@@ -673,7 +673,7 @@
    "bold": 1,
    "fieldname": "fabric_column",
    "fieldtype": "Column Break",
-   "label": "<b>Fabric</b>"
+   "label": "Fabric"
   },
   {
    "fieldname": "fabric_gsm_details",
@@ -697,9 +697,11 @@
    "label": "Fabric GSM wo RF"
   },
   {
+   "depends_on": "eval: doc.technical_sheet_type == \"Small Bag\"",
    "fieldname": "bbag_adjustmentsb_column",
    "fieldtype": "Column Break",
-   "label": "<b>Bag Adjustments</b>"
+   "label": "Bag Adjustments",
+   "not_nullable": 1
   },
   {
    "fieldname": "bag_fabric_width_details",
@@ -722,9 +724,10 @@
    "label": "Liner Length"
   },
   {
+   "depends_on": "eval: [\"Fabric\", \"Small Bag\"].includes(doc.technical_sheet_type)",
    "fieldname": "bfabric_adjustmentsb_column",
    "fieldtype": "Column Break",
-   "label": "<b>Fabric Adjustments</b>"
+   "label": "Fabric Adjustments"
   },
   {
    "fieldname": "denier_vs_mesh_against",
@@ -761,7 +764,7 @@
   {
    "fieldname": "liner_quantity_column",
    "fieldtype": "Column Break",
-   "label": "<b>Liner Quantity</b>"
+   "label": "Liner Quantity"
   },
   {
    "default": "0",
@@ -822,11 +825,13 @@
    "label": "Bag"
   },
   {
+   "depends_on": "eval: [\"Small Bag\", \"PE Bag\"].includes(doc.technical_sheet_type)",
    "fieldname": "external_width",
    "fieldtype": "Float",
    "label": "External Width (cm)"
   },
   {
+   "depends_on": "eval: [\"Small Bag\"].includes(doc.technical_sheet_type)",
    "fieldname": "internal_width",
    "fieldtype": "Float",
    "label": "Internal Width (cm)",
@@ -837,11 +842,13 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval: [\"Small Bag\", \"PE Bag\"].includes(doc.technical_sheet_type)",
    "fieldname": "external_length",
    "fieldtype": "Float",
    "label": "External Length (cm)"
   },
   {
+   "depends_on": "eval: [\"Small Bag\"].includes(doc.technical_sheet_type)",
    "fieldname": "internal_length",
    "fieldtype": "Float",
    "label": "Internal Length (cm)",
@@ -852,17 +859,20 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval: [\"PE Bag\", \"Small Bag\"].includes(doc.technical_sheet_type)",
    "fieldname": "bag_weight",
    "fieldtype": "Float",
    "label": "Bag Weight (g)"
   },
   {
+   "depends_on": "eval: [\"PE Bag\", \"Small Bag\"].includes(doc.technical_sheet_type)",
    "fieldname": "cutting_operation",
    "fieldtype": "Autocomplete",
    "label": "Cutting",
    "options": "Small bag Conversion (AC)\nSmall bag Conversion (ACL)\nSmall bag Conversion (ACLH)\nSmall bag Conversion (ACH)"
   },
   {
+   "depends_on": "eval: [\"Small Bag\"].includes(doc.technical_sheet_type)",
    "fieldname": "stitching_operation",
    "fieldtype": "Autocomplete",
    "label": "Stitching",
@@ -1158,7 +1168,8 @@
   {
    "fieldname": "fabric_gsm",
    "fieldtype": "Float",
-   "label": "Fabric GSM"
+   "label": "Fabric GSM",
+   "read_only": 1
   },
   {
    "fieldname": "wtmtr",
@@ -1283,7 +1294,7 @@
   },
   {
    "collapsible": 1,
-   "depends_on": "loom",
+   "depends_on": "eval: doc.lamination || doc.loom || (doc.coating_side && doc.coating_side != \"No\")",
    "fieldname": "loom_section",
    "fieldtype": "Tab Break",
    "label": "Loom"
@@ -2268,7 +2279,8 @@
    "depends_on": "strip3_width",
    "fieldname": "strip3_tape_wastage",
    "fieldtype": "Data",
-   "label": "Production Wastage %"
+   "label": "Production Wastage %",
+   "length": 5
   },
   {
    "depends_on": "strip3_width",
@@ -2401,7 +2413,8 @@
    "depends_on": "strip4_width",
    "fieldname": "strip4_tape_wastage",
    "fieldtype": "Data",
-   "label": "Production Wastage %"
+   "label": "Production Wastage %",
+   "length": 5
   },
   {
    "depends_on": "strip4_width",
@@ -2488,6 +2501,7 @@
   {
    "fieldname": "lamination_material_cost",
    "fieldtype": "Currency",
+   "hidden": 1,
    "label": "Lamination Material Cost"
   },
   {
@@ -2518,10 +2532,6 @@
    "fieldname": "lamination_material_combination",
    "fieldtype": "Check",
    "label": "Material Combination"
-  },
-  {
-   "fieldname": "section_break_145",
-   "fieldtype": "Section Break"
   },
   {
    "depends_on": "lamination_material_combination",
@@ -3019,14 +3029,6 @@
    "fieldtype": "Link",
    "label": "INCO Terms",
    "options": "Incoterms"
-  },
-  {
-   "fieldname": "data_437",
-   "fieldtype": "Data"
-  },
-  {
-   "fieldname": "data_471",
-   "fieldtype": "Data"
   },
   {
    "fieldname": "amended_from",
@@ -3541,39 +3543,35 @@
    "default": "0",
    "fieldname": "conversion_usd_lamination",
    "fieldtype": "Float",
-   "label": "Conversion (USD) Lamination",
+   "label": "Conversion (USD)",
    "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "material_cost_lamination",
    "fieldtype": "Currency",
-   "label": "Material cost Lamination",
+   "label": "Material Cost",
    "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "selling_price_lamination",
    "fieldtype": "Currency",
-   "label": "Selling price Lamination",
+   "label": "Selling Price",
    "read_only": 1
-  },
-  {
-   "fieldname": "column_break_344",
-   "fieldtype": "Column Break"
   },
   {
    "default": "0",
    "fieldname": "conversion_act_lamination",
    "fieldtype": "Currency",
-   "label": "Conversion (Act) Lamination",
+   "label": "Conversion (Act)",
    "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "convsn_quot_usdpcs_lamination",
    "fieldtype": "Float",
-   "label": "Convsn - Quot (USD/pcs) Lamination",
+   "label": "Convsn - Quot (USD/pcs)",
    "read_only": 1
   },
   {
@@ -3581,20 +3579,24 @@
    "fieldtype": "Section Break"
   },
   {
+   "collapsible": 1,
    "fieldname": "currency_and_price_list_section",
    "fieldtype": "Section Break",
    "label": "Currency and Price List"
   },
   {
+   "default": "USD",
    "fieldname": "currency",
    "fieldtype": "Link",
    "label": "Currency",
-   "options": "Currency"
+   "options": "Currency",
+   "reqd": 1
   },
   {
    "fieldname": "exchange_rate",
    "fieldtype": "Float",
-   "label": "Exchange Rate"
+   "label": "Exchange Rate",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_16",
@@ -3649,6 +3651,25 @@
    "fieldname": "add_ons_percentage",
    "fieldtype": "Percent",
    "label": "Add Ons Percentage"
+  },
+  {
+   "fieldname": "company_exchange",
+   "fieldtype": "Float",
+   "label": "Company Exchange",
+   "reqd": 1
+  },
+  {
+   "fieldname": "technical_sheet_quantity_details",
+   "fieldtype": "Table",
+   "label": "Technical Sheet Quantity Details",
+   "options": "Technical Sheet Quantity Details"
+  },
+  {
+   "depends_on": "eval: [\"PE Bag\"].includes(doc.technical_sheet_type)",
+   "fieldname": "bag_color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Color"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -3659,8 +3680,8 @@
    "link_fieldname": "technical_sheet"
   }
  ],
- "modified": "2026-02-25 18:58:29.916752",
- "modified_by": "Administrator",
+ "modified": "2026-04-30 12:43:20.272614",
+ "modified_by": "amar.p@groupteampro.com",
  "module": "QPIC",
  "name": "Technical Sheet",
  "naming_rule": "By \"Naming Series\" field",
@@ -3679,6 +3700,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

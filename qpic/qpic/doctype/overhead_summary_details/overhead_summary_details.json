@@ -1,0 +1,124 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-04-06 16:01:08.035592",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "column_break_npaf",
+  "group",
+  "column_break_qksz",
+  "percentage",
+  "section_break_hwts",
+  "foh",
+  "gae",
+  "column_break_dfrv",
+  "s_and_d",
+  "bi_and_c",
+  "column_break_swvk",
+  "aoh",
+  "total"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_npaf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fieldname": "group",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Group"
+  },
+  {
+   "fieldname": "column_break_qksz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "percentage",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Percentage",
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_hwts",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "foh",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "FOH",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "gae",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "GAE",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dfrv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "s_and_d",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "S&D",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "bi_and_c",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "BI&C",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_swvk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "aoh",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "AOH",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-30 13:08:29.203191",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Overhead Summary Details",
+ "owner": "divya.p@groupteampro.com",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

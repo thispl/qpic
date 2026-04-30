@@ -31,7 +31,10 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+    "Opportunity" : "public/js/opportunity.js",
+    "Item" : "public/js/item.js"
+}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -120,7 +123,7 @@ doc_events = {
 	},
 	'Opportunity':{
 		# 'on_submit':'qpic.custom.create_technical_costing'
-		"on_submit": "qpic.custom.create_technical_sheet"
+		"on_submit": "qpic.teampro_py.opportunity.create_technical_sheet"
 	},
 	'Quotation':{
 		'on_update':'qpic.custom.get_quotation_name',

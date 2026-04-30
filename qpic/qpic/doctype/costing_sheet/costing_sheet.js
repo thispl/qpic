@@ -3,9 +3,38 @@
 
 frappe.ui.form.on("Costing Sheet", {
     // Events
-	// refresh(frm) {
+	refresh(frm) {
+        if (frm.doc.docstatus == 1) {
+            frm.add_custom_button(__("Print"), () => {
+                let f_name = frm.doc.name;
+                let print_format = "Costing Sheet";
 
-	// },
+                let url = frappe.urllib.get_full_url(
+                    "/api/method/frappe.utils.print_format.download_pdf?"
+                    + "doctype=" + encodeURIComponent(frm.doctype)
+                    + "&name=" + encodeURIComponent(f_name)
+                    + "&trigger_print=1"
+                    + "&format=" + encodeURIComponent(print_format)
+                    + "&no_letterhead=0"
+                );
+
+                window.open(url);
+            });
+        }
+
+        frm.set_df_property("commission_currency_mt", "label", "" + frm.doc.currency + "/MT");
+        frm.set_df_property("addons_currency_mt", "label", "" + frm.doc.currency + "/MT");
+        frm.set_df_property("commission_total", "label", "Total (" + frm.doc.currency + ")");
+        frm.set_df_property("addons_total", "label", "Total (" + frm.doc.currency + ")");
+        frm.set_df_property("grand_total", "label", "Grand Total (" + frm.doc.currency + ")");
+        frm.set_df_property("commission_total_currency_mt", "label", "Total (" + frm.doc.currency + "/MT)");
+        frm.set_df_property("addons_total_currency_mt", "label", "Total (" + frm.doc.currency + "/MT)");
+        frm.set_df_property("grand_total_currency_mt", "label", "Grand Total (" + frm.doc.currency + "/MT)");
+        frm.set_df_property("commission_total_currency_pcs", "label", "Total (" + frm.doc.currency + "/Pcs)");
+        frm.set_df_property("addons_total_currency_pcs", "label", "Total (" + frm.doc.currency + "/Pcs)");
+        frm.set_df_property("grand_total_currency_pcs", "label", "Grand Total (" + frm.doc.currency + "/Pcs)");
+	},
+    
      validate(frm) {
         calculate_fabric_items(frm);
         calculate_lamination_items(frm);
@@ -33,6 +62,33 @@ frappe.ui.form.on("Costing Sheet", {
 
 		}
 	},
+    commission_total_currency_pcs(frm) {
+        calculate_grand_total_currency_pcs(frm);
+    },
+    addons_total_currency_pcs(frm) {
+        calculate_grand_total_currency_pcs(frm);
+    },
+    addons_currency_mt(frm){
+        calculate_add_ons(frm);
+        frm.trigger("calculate_add_ons_total");
+        calculate_addons_total_currency_pcs(frm)
+    },
+    conversion(frm){
+        frm.trigger("calculate_add_ons_total");
+    },
+    addons_percentage(frm){
+        frm.trigger("calculate_add_ons_total");
+        calculate_addons_total_currency_pcs(frm)
+    },
+    addons_total(frm){
+        calculate_grand_total(frm);
+    },
+    commission_total(frm){
+        calculate_grand_total(frm);
+    },
+    rm_cost(frm){   
+        frm.trigger("calculate_add_ons_total");
+    },
     commission_percentage(frm) {
         frm.trigger("calculate_commission_total_currency_mt");
         frm.trigger("calculate_commission_total_currency_pcs");
@@ -49,9 +105,12 @@ frappe.ui.form.on("Costing Sheet", {
     },
     commission_total_currency_mt(frm) {
         calculate_total_currency(frm, frm.doc.commission_total_currency_mt, "commission_total");
+        calculate_grand_total_currency_mt(frm);
     },
     addons_total_currency_mt(frm) {
         calculate_total_currency(frm, frm.doc.addons_total_currency_mt, "addons_total");
+        calculate_grand_total_currency_mt(frm);
+        // frm.trigger("")
     },
     freight_cost_mt(frm) {
         frm.trigger("calculate_price_mt");
@@ -92,6 +151,12 @@ frappe.ui.form.on("Costing Sheet", {
         frm.set_value("base_price_pcs", price_pcs * frm.doc.exchange_rate);
     },
 
+    calculate_add_ons_total(frm) {
+        let value=(((frm.doc.rm_cost+frm.doc.conversion)/1.06)*(frm.doc.addons_percentage/100))+frm.doc.addons_currency_mt;
+        frm.set_value("addons_total_currency_mt", value);
+        frm.refresh_field("addons_total_currency_mt");
+    }
+
     // Add-ons Calculation
     // calculate_addons_total_currency_mt(frm) {
     //     let=(((H5+H6)/1.06)*(D18))+C18
@@ -111,6 +176,7 @@ function calculate_total_currency(frm, total_currency_mt, total_currency_field) 
     
     frm.set_value(total_currency_field, total_currency)
 }
+
 function calculate_fabric_items(frm) {
 
     if (frm.doc.technical_sheet) {
@@ -184,6 +250,7 @@ function calculate_fabric_items(frm) {
                             row.item_name = i.item_name;
                             row.description = i.description;
                             row.rate = i.rate;
+                            row.base_rate = i.base_rate;
                             row.cons__ = cons_value;
                             row.qty = i.qty;
                             row.uom = i.uom;
@@ -225,6 +292,7 @@ function calculate_lamination_items(frm) {
                             row.item_name = i.item_name;
                             row.description = i.description;
                             row.rate = i.rate;
+                            row.base_rate = i.base_rate;
                             row.cons__ = cons_value;
                             row.qty = i.qty;
                             row.uom = i.uom;
@@ -266,6 +334,7 @@ function calculate_liner_items(frm) {
                             row.item_name = i.item_name;
                             row.description = i.description;
                             row.rate = i.rate;
+                            row.base_rate = i.base_rate;
                             row.cons__ = cons_value;
                             row.qty = i.qty;
                             row.uom = i.uom;
@@ -302,7 +371,8 @@ function calculate_thread_items(frm) {
                             row.item_code = i.item_code;
                             row.item_name = i.item_name;
                             row.description = i.description;
-                            row.rate = i.rate;
+                            row.rate = i.rate*1000000;
+                            row.base_rate = i.base_rate;
                             row.qty = i.qty;
                             row.uom = i.uom;
                             row.conversion_factor = i.conversion_factor;
@@ -591,4 +661,63 @@ function calculate_from_technical_sheet(frm) {
             frm.refresh_field("thread_ink_items");
             frm.refresh_field("liner_items");
         });
+}
+function calculate_add_ons(frm) {
+    let addons_total_mt = 0;
+    let qty = frm.doc.items?.[0].qty;
+    if (frm.doc.costing_sheet_type == "Fabric") {
+        if(frm.doc.addons_currency_mt>0){
+            addons_total_mt = qty/1000*frm.doc.addons_total_currency_mt;
+        }
+        else{
+            addons_total_mt = 0;
+        }
+    }
+    else {
+        if(frm.doc.addons_currency_mt>0){
+            addons_total_mt = (qty*frm.doc.bag_weight/1000/1000)*frm.doc.addons_total_currency_mt;
+        }
+        else{
+            addons_total_mt = 0;
+        }
+    }
+    frm.set_value("addons_total", addons_total_mt);
+    frm.refresh_field("addons_total");
+}
+function calculate_addons_total_currency_pcs(frm) {
+    if (frm.doc.costing_sheet_type == "Small Bag") {
+        let material_cost = 0;
+        frappe.db.get_value("Technical Sheet", frm.doc.technical_sheet, "material_cost", (r) => {
+            if(r.material_cost){
+                material_cost = r.material_cost;
+            }
+        });
+        conv_quote=0;
+        frappe.db.get_value("Technical Sheet", frm.doc.technical_sheet, "convsn_quot_usdmt", (r) => {
+            if(r.convsn_quot_usdmt){
+                conv_quote = r.convsn_quot_usdmt*frm.doc.bag_weight/1000000;
+            }
+        });
+        let value=((((material_cost+conv_quote)/1.06)*frm.doc.addons_percentage/100)+(frm.doc.addons_currency_mt*frm.doc.bag_weight/1000000));
+    
+        frm.set_value("addons_total_currency_pcs", value);
+        frm.refresh_field("addons_total_currency_pcs");
+        }
+        else {
+            frm.set_value("addons_total_currency_pcs", 0);
+            frm.refresh_field("addons_total_currency_pcs");
+        }
+
+}
+function calculate_grand_total(frm) {
+    let grand_total =flt(frm.doc.addons_total) + flt(frm.doc.commission_total);
+    frm.set_value("grand_total", grand_total);
+}
+function calculate_grand_total_currency_mt(frm) {
+    let grand_total_currency_mt = flt(frm.doc.addons_total_currency_mt) + flt(frm.doc.commission_total_currency_mt);
+    frm.set_value("grand_total_currency_mt", grand_total_currency_mt);
+}
+function calculate_grand_total_currency_pcs(frm) {
+    let grand_total_currency_pcs = flt(frm.doc.addons_total_currency_pcs) + flt(frm.doc.commission_total_currency_pcs);
+    frm.set_value("grand_total_currency_pcs", grand_total_currency_pcs);
 }

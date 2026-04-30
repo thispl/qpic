@@ -2,7 +2,316 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Technical Sheet', {
+	weft_tape_wastage(frm){
+		calculate_qty_data(frm);
+	},
+	reenf_tape_wastage(frm){
+		calculate_qty_data(frm);
+	},
+	wastage(frm){
+		calculate_qty_data(frm);
+	},
+	strip1_tape_wastage(frm){
+		calculate_qty_data(frm);
+	},
+	strip2_tape_wastage(frm){
+		calculate_qty_data(frm);
+	},
+	strip3_tape_wastage(frm){
+		calculate_qty_data(frm);
+	},
+	strip4_tape_wastage(frm){
+		calculate_qty_data(frm);
+	},
+	technical_sheet_type(frm){
+		calculate_qty_data(frm);
+	},
+	setup(frm) {
+		frm.set_query("item_code", "warpmaterial_combination", function(doc, cdt, cdn) {
+			let row = locals[cdt][cdn];
+
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+
+			return {
+				filters: {
+					item_group: row.item_group
+				}
+			};
+		});
+		frm.set_query("item_code", "weftmaterial_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "stripmaterial_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "strip2material_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "strip3material_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "strip3material_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "loommaterial_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "laminationmaterial_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "linermaterial_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+	},
 	refresh : function(frm){
+		// Alertuser, if the currency is in QAR 
+        if (frm.doc.currency === "QAR") {
+            frm.dashboard.clear_headline();
+            frm.dashboard.add_comment(
+                __("The currency is currently set to QAR. Please update it if this is not correct"),
+                "yellow",
+                true
+            );
+        }
+		frm.set_query("item_code", "warpmaterial_combination", function(doc, cdt, cdn) {
+			let row = locals[cdt][cdn];
+
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+
+			return {
+				filters: {
+					item_group: row.item_group
+				}
+			};
+		});
+		frm.set_query("item_code", "weftmaterial_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "stripmaterial_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "strip2material_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "strip3material_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "strip3material_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "loommaterial_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "laminationmaterial_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
+		frm.set_query("item_code", "linermaterial_combination", function(doc, cdt, cdn) {
+            let row = locals[cdt][cdn];
+			if (!row.item_group) {
+				return {
+					filters: {
+						name: ["in", []]
+					}
+				};
+			}
+            return {
+                filters: {
+                    item_group: row.item_group
+                }
+            };
+        });
 		// frm.add_custom_button(("Costing Sheet"), ()=> {
 		// 	var f_name = frm.doc.name
 		// 	var print_format = "Costing Sheet";
@@ -325,6 +634,7 @@ frappe.ui.form.on('Technical Sheet', {
 	// 	sync_printing_items_to_tape(frm);
 	// },
 	printing_material_combination(frm) {
+	sync_printing_items_to_tape(frm);
 	if (frm.doc.printing_material_combination == 1) {
 
 		let exchange_rate = flt(frm.doc.exchange_rate) || 1;
@@ -361,10 +671,10 @@ frappe.ui.form.on('Technical Sheet', {
 				let base_rate = flt(d.base_rate);
 
 				let base_amount = qty * base_rate;                // QAR
-				let rate = base_rate / exchange_rate;             // USD
-				let amount = base_amount / exchange_rate;         // USD
+				let rate = flt(d.base_rate) / exchange_rate;      // USD
+				let amount =flt(d.base_rate) *flt(d.qty) / exchange_rate;         // USD
 
-				frappe.db.get_value("Item", d.item_code, ["item_name", "description"])
+				frappe.db.get_value("Item", d.item_code, ["item_name", "description","item_group"])
 					.then(r => {
 
 						frm.add_child("printingmaterial_combination", {
@@ -372,6 +682,7 @@ frappe.ui.form.on('Technical Sheet', {
 							item_name: r.message.item_name,
 							description: r.message.description,
 							qty: qty,
+							item_group: r.message.item_group,
 							uom: d.uom,
 							base_rate: base_rate,
 							rate: rate,
@@ -472,15 +783,15 @@ frappe.ui.form.on('Technical Sheet', {
 				let base_rate = flt(d.base_rate);
 
 				let base_amount = qty * base_rate;        // QAR
-				let rate = base_rate / exchange_rate;     // USD
-				let amount = base_amount / exchange_rate; // USD
-
-				frappe.db.get_value("Item", d.item_code, ["item_name", "description"])
+				let rate = flt(d.base_rate) / exchange_rate;    // USD
+				let amount = flt(d.base_rate)*flt(d.qty) / exchange_rate; // USD
+				frappe.db.get_value("Item", d.item_code, ["item_name", "description","item_group"])
 					.then(r => {
 
 						frm.add_child("printing_others", {
 							item_code: d.item_code,
 							item_name: r.message.item_name,
+							item_group: r.message.item_group,
 							description: r.message.description,
 							qty: qty,
 							uom: d.uom,
@@ -496,15 +807,61 @@ frappe.ui.form.on('Technical Sheet', {
 		});
 
 		frm.refresh_field("printingmaterial_combination");
+		sync_printing_items_to_tape(frm);
 		frm.refresh_field("printing_others");
 	}
 
 	sync_printing_items_to_tape(frm);
+
 },
 	validate(frm) {
+		if (frm.doc.technical_sheet_quantity_details.length == 0) {
+
+			let qty = [
+				"Total Quantity",
+				"Fabric wo Lamination",
+				"Fabric w lamination",
+				"Tape - Warp",
+				"Tape - Weft",
+				"Tape - Reinf",
+				"Tape - Strip 1",
+				"Tape - Strip 2",
+				"Tape - Strip 3",
+				"Tape - Strip 4"
+			];
+
+			qty.forEach(function(item) {
+				let row = frm.add_child("technical_sheet_quantity_details");
+				row.quantity = item;
+			});
+
+			frm.refresh_field("technical_sheet_quantity_details");
+		}
 		update_lamination_quote_value(frm);
 		calculate_warp_sqm(frm);
-		// sync_printing_items_to_tape(frm);
+		sync_lamination_items_to_tape(frm);
+		generate_liner_item(frm);
+		// update_warp_others_total(frm);
+		// update_weft_others_total(frm);
+		sync_printing_items_to_tape(frm);
+		generate_tape_item(frm, {
+			type: "Warp",
+			width_field: "warp_tape_width",
+			denier_field: "warp_denier",
+			color_field: "tape_warp_color",
+			material_table: "warpmaterial_combination",
+			wt_ratio_field: "wt_ratio_warp",
+			wastage_field: "warp_tape_wastage"
+		});
+		generate_tape_item(frm, {
+			type: "Weft",
+			width_field: "weft_tape_width",
+			denier_field: "weft_denier",
+			color_field: "tape_weft_color",
+			material_table: "weftmaterial_combination",
+			wt_ratio_field: "wt_ratio_weft",
+			wastage_field: "weft_tape_wastage"
+		});
 		set_warp_pp_raffia_qty(frm);
 		set_master_batch_qty(frm);
 		set_mb_w_qty(frm);
@@ -634,7 +991,9 @@ frappe.ui.form.on('Technical Sheet', {
 	coating_side(frm) {
 		frm.trigger('fabric_section_calculation');
 		frm.trigger('calculate_lamination_wtsqm');
+		frm.trigger('calculate_cut_length');
 		generate_fabric_item(frm);
+		
 	},
 	fabric_gsm_wo_rf(frm) {
 		// Weft Addn GSM Calculation
@@ -745,7 +1104,8 @@ frappe.ui.form.on('Technical Sheet', {
 		});
 	},
 	reenf_tape_width(frm) {
-		frm.set_value('reen_tape_width_calc', calculation_for_widht_calc_field(frm.doc.reen_tape_width))
+		// Field reen_tape_width_calc not exists
+		// frm.set_value('reen_tape_width_calc', calculation_for_widht_calc_field(frm.doc.reen_tape_width))
 		generate_tape_item(frm, {
 			type: "Reenf",
 			width_field: "reenf_tape_width",
@@ -905,13 +1265,69 @@ frappe.ui.form.on('Technical Sheet', {
 	strip4_denier_calc(frm) {
 		calculate_hrsmt(frm, frm.doc.strip4_tape_width_calc, frm.doc.strip4_denier_calc, 'strip4_hrsmt');
 	},
+	wt_sqm_warp(frm) {
+		frm.trigger("calculate_fabric_gsm_wo_rf");
+	},
+	wt_sqm_weft(frm) {
+		frm.trigger("calculate_fabric_gsm_wo_rf");
+	},
+	wt_sqm_renf(frm) {
+		frm.trigger("calculate_fabric_gsm_wo_rf");
+	},
+	wt_sqm_strip_one(frm) {
+		frm.trigger("calculate_fabric_gsm_wo_rf");
+	},
+	wt_sqm_strip_two(frm) {
+		frm.trigger("calculate_fabric_gsm_wo_rf");
+	},
+	wt_sqm_strip_three(frm) {
+		frm.trigger("calculate_fabric_gsm_wo_rf");
+	},
+	wt_sqm_strip_four(frm) {
+		frm.trigger("calculate_fabric_gsm_wo_rf");
+	},
 	// Tape tab -> Warp Section
 	warp_material_combination(frm) {
-		get_raw_materials_and_others(frm, 'warp_material_combination', 'warpmaterial_combination', 'warp_others', 'warp_hrsmt', 'Tape');
+		frappe.run_serially([
+			()=> get_raw_materials_and_others(frm, 'warp_material_combination', 'warpmaterial_combination', 'warp_others', 'warp_hrsmt', 'Tape'),
+			()=> generate_tape_item(frm, {
+				type: "Warp",
+				width_field: "warp_tape_width",
+				denier_field: "warp_denier",
+				color_field: "tape_warp_color",
+				material_table: "warpmaterial_combination",
+				wt_ratio_field: "wt_ratio_warp",
+				wastage_field: "warp_tape_wastage"
+			}),
+			()=> {
+				setTimeout(() => {
+					update_warp_others_total(frm)
+				}, 100);
+			}
+		]);
+		
+		
 	},
 	// Tape tab -> Weft Section
 	weft_material_combination(frm) {
-		get_raw_materials_and_others(frm, 'weft_material_combination', 'weftmaterial_combination', 'weft_others', 'weft_hrsmt', 'Tape');
+		frappe.run_serially([
+			()=> get_raw_materials_and_others(frm, 'weft_material_combination', 'weftmaterial_combination', 'weft_others', 'weft_hrsmt', 'Tape'),
+			()=> generate_tape_item(frm, {
+				type: "Weft",
+				width_field: "weft_tape_width",
+				denier_field: "weft_denier",
+				color_field: "tape_weft_color",
+				material_table: "weftmaterial_combination",
+				wt_ratio_field: "wt_ratio_weft",
+				wastage_field: "weft_tape_wastage"
+			}),
+			()=> {
+				setTimeout(() => {
+					update_weft_others_total(frm);
+				}, 100);
+			}
+		]);
+		
 	},
 	tape_warp_color(frm){
 		generate_tape_item(frm, {
@@ -1018,7 +1434,7 @@ frappe.ui.form.on('Technical Sheet', {
 	},
 	weft_addn_tape_width(frm) {
 		let tape_weft_addn_mesh = 0;
-		if (weft_addn_tape_width > 0) {
+		if (frm.doc.weft_addn_tape_width > 0) {
 			tape_weft_addn_mesh = (frm.doc.weft_addn_gsm / (frm.doc.weft_addn_denier / 9000)) / (100 / 2.54);
 		}
 		frm.set_value('tape_weft_addn_mesh', tape_weft_addn_mesh)
@@ -1136,7 +1552,15 @@ frappe.ui.form.on('Technical Sheet', {
 	},
 	// Liner tab
 	liner_material_combination(frm) {
-		get_raw_materials_and_others(frm, 'liner_material_combination', 'linermaterial_combination', 'liner_others', 'liner_hrsmt', 'Liner');
+		frappe.run_serially([
+			() => frm.trigger('liner_section_calculation'),
+			() => get_raw_materials_and_others(frm, 'liner_material_combination', 'linermaterial_combination', 'liner_others', 'liner_hrsmt', 'Liner'),
+			() => {
+				setTimeout(() => {
+					update_liner_others_total(frm);
+				}, 100);
+			}
+		]);
 	},
 	// Lamination tab
 	lamination_wtsqm(frm) {
@@ -1165,6 +1589,7 @@ frappe.ui.form.on('Technical Sheet', {
 	},
     bag_weight(frm) {
         frm.trigger('fabric_gsm_calculation');
+		calculate_qty_data(frm);
     },
 	thread(frm) {
         frm.trigger('fabric_gsm_calculation');
@@ -1174,6 +1599,7 @@ frappe.ui.form.on('Technical Sheet', {
     },
     cut_length(frm) {
         frm.trigger('fabric_gsm_calculation');
+		calculate_qty_data(frm);	
     },
 	
 	// Calculations
@@ -1306,7 +1732,7 @@ frappe.ui.form.on('Technical Sheet', {
 			frm.set_value("cut_length", cut_length);
 		}
 		else {
-			frm.set_value("cut_length", 0);
+			frm.set_value("cut_length", 100);
 		}
 	},
 	// PPM Calculation
@@ -1493,7 +1919,18 @@ frappe.ui.form.on('Technical Sheet', {
 		frm.set_value('liner_material_cost', material_cost)
 	},
 
-
+	calculate_fabric_gsm_wo_rf(frm) {
+		let wt_sqm_warp = (frm.doc.tape_warp_mesh / 0.0254) * (frm.doc.warp_denier / 9000)
+		let wt_sqm_weft = (frm.doc.tape_weft_mesh / 0.0254) * (frm.doc.weft_denier / 9000)
+		let wt_sqm_renf = (frm.doc.tape_renf_mesh / 0.0254) * (frm.doc.renf_denier / 9000)
+		let wt_sqm_strip_one = (frm.doc.strip1_mesh / 0.0254) * (frm.doc.strip1_denier / 9000)
+		let wt_sqm_strip_two = (frm.doc.strip2_mesh / 0.0254) * (frm.doc.strip2_denier / 9000)
+		let wt_sqm_strip_three = (frm.doc.strip3_mesh / 0.0254) * (frm.doc.strip3_denier / 9000)
+		let wt_sqm_strip_four = (frm.doc.strip4_mesh / 0.0254) * (frm.doc.strip4_denier / 9000)
+		
+		const total = (wt_sqm_warp || 0) + (wt_sqm_weft || 0) + (wt_sqm_renf || 0) + (wt_sqm_strip_one || 0) + (wt_sqm_strip_two || 0) + (wt_sqm_strip_three || 0) + (wt_sqm_strip_four || 0)
+		frm.set_value("fabric_gsm_wo_rf", total);
+	}
 });
 
 
@@ -1501,6 +1938,32 @@ frappe.ui.form.on('Technical Sheet', {
 // Child Doctype
 
 frappe.ui.form.on('Technical Sheet SB Material Combination', {
+	item_code(frm, cdt, cdn) {
+        const row = locals[cdt][cdn];
+        if (row.item_code) {
+            frappe.call({
+                method: "qpic.qpic.doctype.technical_sheet.technical_sheet.get_raw_materials_itemwise",
+                args: {
+                    item_code:row.item_code,
+                    exchange_rate: frm.doc.exchange_rate || 1
+                },
+                callback: function (r) {
+                    if (r.message) {
+
+
+                            frappe.model.set_value(cdt, cdn, "item_name", r.message.item_name);
+                            frappe.model.set_value(cdt, cdn, "uom", r.message.uom);
+                            frappe.model.set_value(cdt, cdn, "base_rate", r.message.base_rate);
+                            frappe.model.set_value(cdt, cdn, "rate", r.message.rate);
+                            frappe.model.set_value(cdt, cdn, "description", r.message.description);
+
+                            frm.trigger('calculate_amount', cdt, cdn);
+							frm.refresh_fields(["warpmaterial_combination", "weftmaterial_combination"]);
+                    }
+                }
+            });
+        }
+    },
     dosage(frm, cdt, cdn) {
         const row = locals[cdt][cdn];
         const wastage = flt(frm.doc.weft_tape_wastage);
@@ -1527,6 +1990,7 @@ frappe.ui.form.on('Technical Sheet SB Material Combination', {
 			wt_ratio_field: "wt_ratio_warp",
 			wastage_field: "warp_tape_wastage"
 		});
+		
 		frm.refresh_fields(["warpmaterial_combination", "weftmaterial_combination"]);
     },
 
@@ -1550,12 +2014,13 @@ frappe.ui.form.on('Technical Sheet SB Material Combination', {
 		let base_amount = qty * base_rate;
 
 		// USD
-		let rate = base_rate / exchange_rate;
-		let amount = base_amount / exchange_rate;
+		let rate = flt(row.base_rate) / exchange_rate;
+		let amount = flt(row.qty)*flt(row.base_rate) / exchange_rate;
 
 		frappe.model.set_value(cdt, cdn, "rate", rate);
 		frappe.model.set_value(cdt, cdn, "base_amount", base_amount);
 		frappe.model.set_value(cdt, cdn, "amount", amount);
+		calculate_qty_data(frm);
 		frm.refresh_fields(["warpmaterial_combination", "weftmaterial_combination"]);
 	}
 });
@@ -1594,8 +2059,8 @@ frappe.ui.form.on('Technical Sheet Others', {
 		let base_amount = qty * base_rate;
 
 		// USD
-		let rate = base_rate / exchange_rate;
-		let amount = base_amount / exchange_rate;
+		let rate = flt(row.base_rate) / exchange_rate;
+		let amount = flt(row.qty)*flt(row.base_rate) / exchange_rate;
 
 		frappe.model.set_value(cdt, cdn, "rate", rate);
 		frappe.model.set_value(cdt, cdn, "base_amount", base_amount);
@@ -1613,11 +2078,36 @@ function update_warp_others_total(frm) {
     (frm.doc.warp_others || []).forEach(row => {
         total += flt(row.amount);
     });
-
     frm.set_value("warp_tape_conversion", total);
 }
 
 frappe.ui.form.on('Liner Material Combination', {
+	item_code(frm, cdt, cdn) {
+        const row = locals[cdt][cdn];
+        if (row.item_code) {
+            frappe.call({
+                method: "qpic.qpic.doctype.technical_sheet.technical_sheet.get_raw_materials_itemwise",
+                args: {
+                    item_code:row.item_code,
+                    exchange_rate: frm.doc.exchange_rate || 1
+                },
+                callback: function (r) {
+                    if (r.message) {
+
+
+                            frappe.model.set_value(cdt, cdn, "item_name", r.message.item_name);
+                            frappe.model.set_value(cdt, cdn, "uom", r.message.uom);
+                            frappe.model.set_value(cdt, cdn, "base_rate", r.message.base_rate);
+                            frappe.model.set_value(cdt, cdn, "rate", r.message.rate);
+                            frappe.model.set_value(cdt, cdn, "description", r.message.description);
+
+                            frm.trigger('calculate_amount', cdt, cdn);
+							frm.refresh_fields("laminationmaterial_combination");
+                    }
+                }
+            });
+        }
+    },
 	// Fields
 	dosage(frm, cdt, cdn) {
         const row = locals[cdt][cdn];
@@ -1648,7 +2138,6 @@ frappe.ui.form.on('Liner Material Combination', {
     // },
 	calculate_amount(frm, cdt, cdn) {
 		const row = locals[cdt][cdn];
-
 		const qty = flt(row.qty);
 		const base_rate = flt(row.base_rate);
 		const exchange_rate = flt(frm.doc.exchange_rate) || 1; // USD -> QAR
@@ -1657,8 +2146,8 @@ frappe.ui.form.on('Liner Material Combination', {
 		let base_amount = qty * base_rate;
 
 		// USD
-		let rate = base_rate / exchange_rate;
-		let amount = base_amount / exchange_rate;
+		let rate = flt(row.base_rate) / exchange_rate;
+		let amount = flt(row.base_rate)*flt(row.qty) / exchange_rate;
 
 		frappe.model.set_value(cdt, cdn, "rate", rate);
 		frappe.model.set_value(cdt, cdn, "base_amount", base_amount);
@@ -1674,11 +2163,37 @@ function update_liner_others_total(frm) {
     (frm.doc.liner_others || []).forEach(row => {
         total += flt(row.amount);
     });
-
+	
     frm.set_value("conversion_liner", total);
 }
 
 frappe.ui.form.on('Lamination Material Combination', {
+	item_code(frm, cdt, cdn) {
+        const row = locals[cdt][cdn];
+        if (row.item_code) {
+            frappe.call({
+                method: "qpic.qpic.doctype.technical_sheet.technical_sheet.get_raw_materials_itemwise",
+                args: {
+                    item_code:row.item_code,
+                    exchange_rate: frm.doc.exchange_rate || 1
+                },
+                callback: function (r) {
+                    if (r.message) {
+
+
+                            frappe.model.set_value(cdt, cdn, "item_name", r.message.item_name);
+                            frappe.model.set_value(cdt, cdn, "uom", r.message.uom);
+                            frappe.model.set_value(cdt, cdn, "base_rate", r.message.base_rate);
+                            frappe.model.set_value(cdt, cdn, "rate", r.message.rate);
+                            frappe.model.set_value(cdt, cdn, "description", r.message.description);
+
+                            frm.trigger('calculate_amount', cdt, cdn);
+							frm.refresh_fields("laminationmaterial_combination");
+                    }
+                }
+            });
+        }
+    },
 	// Fields
 	dosage(frm, cdt, cdn) {
         const row = locals[cdt][cdn];
@@ -1723,8 +2238,8 @@ frappe.ui.form.on('Lamination Material Combination', {
 		let base_amount = qty * base_rate;
 
 		// USD
-		let rate = base_rate / exchange_rate;
-		let amount = base_amount / exchange_rate;
+		let rate = flt(row.base_rate) / exchange_rate;
+		let amount = flt(row.qty)*flt(row.base_rate) / exchange_rate;
 
 		frappe.model.set_value(cdt, cdn, "rate", rate);
 		frappe.model.set_value(cdt, cdn, "base_amount", base_amount);
@@ -1737,6 +2252,32 @@ frappe.ui.form.on('Lamination Material Combination', {
 });
 
 frappe.ui.form.on('Loom Material Combination', {
+	item_code(frm, cdt, cdn) {
+        const row = locals[cdt][cdn];
+        if (row.item_code) {
+            frappe.call({
+                method: "qpic.qpic.doctype.technical_sheet.technical_sheet.get_raw_materials_itemwise",
+                args: {
+                    item_code:row.item_code,
+                    exchange_rate: frm.doc.exchange_rate || 1
+                },
+                callback: function (r) {
+                    if (r.message) {
+
+
+                            frappe.model.set_value(cdt, cdn, "item_name", r.message.item_name);
+                            frappe.model.set_value(cdt, cdn, "uom", r.message.uom);
+                            frappe.model.set_value(cdt, cdn, "base_rate", r.message.base_rate);
+                            frappe.model.set_value(cdt, cdn, "rate", r.message.rate);
+                            frappe.model.set_value(cdt, cdn, "description", r.message.description);
+
+                            frm.trigger('calculate_amount', cdt, cdn);
+							frm.refresh_fields("loommaterial_combination");
+                    }
+                }
+            });
+        }
+    },
 	// Fields
 	dosage(frm, cdt, cdn) {
         const row = locals[cdt][cdn];
@@ -1776,8 +2317,8 @@ frappe.ui.form.on('Loom Material Combination', {
 		let base_amount = qty * base_rate;
 
 		// USD
-		let rate = base_rate / exchange_rate;
-		let amount = base_amount / exchange_rate;
+		let rate = flt(row.base_rate) / exchange_rate;
+		let amount = flt(row.base_rate)*flt(row.qty) / exchange_rate;
 
 		frappe.model.set_value(cdt, cdn, "rate", rate);
 		frappe.model.set_value(cdt, cdn, "base_amount", base_amount);
@@ -1944,36 +2485,35 @@ function calculate_hrsmt(frm, width_calc, denier_calc, field) {
 function get_raw_materials_and_others(frm, check_field, material_combination, others, hrsmt, operation) {
     if (frm.doc[check_field]) {
 		// Raw Materials
-		if (frm.doc[material_combination].length == 0) {
-			frappe.call({
-				method: "qpic.qpic.doctype.technical_sheet.technical_sheet.get_raw_materials",
-				args: {
-					fg_item: frm.doc.technical_costing_item?.[0].item_code,
-					operation: operation,
-					exchange_rate:frm.doc.exchange_rate   
-				},
-				freeze: true,
-				callback(r) {
-					if (r && r.message) {
-						frm.clear_table(material_combination);
-						let exchnage_rate=frm.doc.exchange_rate||1;
-						r.message.forEach(row => {
+		// if (frm.doc[material_combination].length == 0) {
+		// 	frappe.call({
+		// 		method: "qpic.qpic.doctype.technical_sheet.technical_sheet.get_raw_materials",
+		// 		args: {
+		// 			fg_item: frm.doc.technical_costing_item?.[0].item_code,
+		// 			operation: operation,
+		// 			exchange_rate:frm.doc.exchange_rate   
+		// 		},
+		// 		freeze: true,
+		// 		callback(r) {
+		// 			if (r && r.message) {
+		// 				frm.clear_table(material_combination);
+		// 				let exchnage_rate=frm.doc.exchange_rate||1;
+		// 				r.message.forEach(row => {
 							
-							let child = frm.add_child(material_combination);
-
-							Object.entries(row).forEach(([key, value]) => {
-								frappe.model.set_value(child.doctype, child.name, key, value);
-							});
+		// 					let child = frm.add_child(material_combination);
+		// 					Object.entries(row).forEach(([key, value]) => {
+		// 						frappe.model.set_value(child.doctype, child.name, key, value);
+		// 					});
 							
-							// Trigger fetch_from for link fields
-							frappe.model.trigger(child.doctype, "item_code", child.name);
-						});
+		// 					// Trigger fetch_from for link fields
+		// 					frappe.model.trigger(child.doctype, "item_code", child.name);
+		// 				});
 
-						frm.refresh_field(material_combination);
-					}
-				}
-			})
-		}
+		// 				frm.refresh_field(material_combination);
+		// 			}
+		// 		}
+		// 	})
+		// }
 		// Others
 		if (frm.doc[others].length == 0) {
 			frappe.call({
@@ -2002,35 +2542,35 @@ function get_raw_materials_and_others(frm, check_field, material_combination, ot
 function get_raw_materials_and_others_lamination(frm, check_field, material_combination, others, hrsmt, operation) {
     if (frm.doc[check_field]) {
 		// Raw Materials
-		if (frm.doc[material_combination].length == 0) {
-			frappe.call({
-				method: "qpic.qpic.doctype.technical_sheet.technical_sheet.get_raw_materials",
-				args: {
-					fg_item: frm.doc.technical_costing_item?.[0].item_code,
-					operation: operation,
-					exchange_rate:frm.doc.exchange_rate
-				},
-				freeze: true,
-				callback(r) {
-					if (r && r.message) {
-						frm.clear_table(material_combination);
+		// if (frm.doc[material_combination].length == 0) {
+		// 	frappe.call({
+		// 		method: "qpic.qpic.doctype.technical_sheet.technical_sheet.get_raw_materials",
+		// 		args: {
+		// 			fg_item: frm.doc.technical_costing_item?.[0].item_code,
+		// 			operation: operation,
+		// 			exchange_rate:frm.doc.exchange_rate
+		// 		},
+		// 		freeze: true,
+		// 		callback(r) {
+		// 			if (r && r.message) {
+		// 				frm.clear_table(material_combination);
 
-						r.message.forEach(row => {
-							let child = frm.add_child(material_combination);
+		// 				r.message.forEach(row => {
+		// 					let child = frm.add_child(material_combination);
 
-							Object.entries(row).forEach(([key, value]) => {
-								frappe.model.set_value(child.doctype, child.name, key, value);
-							});
+		// 					Object.entries(row).forEach(([key, value]) => {
+		// 						frappe.model.set_value(child.doctype, child.name, key, value);
+		// 					});
 
-							// Trigger fetch_from for link fields
-							frappe.model.trigger(child.doctype, "item_code", child.name);
-						});
+		// 					// Trigger fetch_from for link fields
+		// 					frappe.model.trigger(child.doctype, "item_code", child.name);
+		// 				});
 
-						frm.refresh_field(material_combination);
-					}
-				}
-			})
-		}
+		// 				frm.refresh_field(material_combination);
+		// 			}
+		// 		}
+		// 	})
+		// }
 		// Others
 		if (frm.doc[others].length == 0) {
 			frappe.call({
@@ -2063,35 +2603,35 @@ function get_raw_materials_and_others_lamination(frm, check_field, material_comb
 function get_raw_materials_and_others_loom(frm, check_field, material_combination, others, hrsmt, operation) {
     if (frm.doc[check_field]) {
 		// Raw Materials
-		if (frm.doc[material_combination].length == 0) {
-			frappe.call({
-				method: "qpic.qpic.doctype.technical_sheet.technical_sheet.get_raw_materials",
-				args: {
-					fg_item: frm.doc.technical_costing_item?.[0].item_code,
-					operation: operation,
-					exchange_rate:frm.doc.exchange_rate
-				},
-				freeze: true,
-				callback(r) {
-					if (r && r.message) {
-						frm.clear_table(material_combination);
+		// if (frm.doc[material_combination].length == 0) {
+		// 	frappe.call({
+		// 		method: "qpic.qpic.doctype.technical_sheet.technical_sheet.get_raw_materials",
+		// 		args: {
+		// 			fg_item: frm.doc.technical_costing_item?.[0].item_code,
+		// 			operation: operation,
+		// 			exchange_rate:frm.doc.exchange_rate
+		// 		},
+		// 		freeze: true,
+		// 		callback(r) {
+		// 			if (r && r.message) {
+		// 				frm.clear_table(material_combination);
 
-						r.message.forEach(row => {
-							let child = frm.add_child(material_combination);
+		// 				r.message.forEach(row => {
+		// 					let child = frm.add_child(material_combination);
 
-							Object.entries(row).forEach(([key, value]) => {
-								frappe.model.set_value(child.doctype, child.name, key, value);
-							});
+		// 					Object.entries(row).forEach(([key, value]) => {
+		// 						frappe.model.set_value(child.doctype, child.name, key, value);
+		// 					});
 
-							// Trigger fetch_from for link fields
-							frappe.model.trigger(child.doctype, "item_code", child.name);
-						});
+		// 					// Trigger fetch_from for link fields
+		// 					frappe.model.trigger(child.doctype, "item_code", child.name);
+		// 				});
 
-						frm.refresh_field(material_combination);
-					}
-				}
-			})
-		}
+		// 				frm.refresh_field(material_combination);
+		// 			}
+		// 		}
+		// 	})
+		// }
 		// Others
 		if (frm.doc[others].length == 0) {
 			frappe.call({
@@ -2203,13 +2743,11 @@ function update_lamination_others_total(frm) {
         total += flt(row.amount);
 		lam_total+=flt(row.amount);
     });
-	console.log("Lamination Others Total:", lam_total);
 	(frm.doc.loom_others || []).forEach(row => {
         total += flt(row.amount);
 		loom_total+=flt(row.amount);
     });
 
-	console.log("Lamination + Loom Others Total:", loom_total);
     // ----------------------------------
     // 2️⃣ Get quantities from tape_item_details
     // ----------------------------------
@@ -2574,7 +3112,7 @@ function generate_tape_item(frm, config) {
     if (!frm.doc[config.width_field]) return;
 
     let type   = config.type;   // warp / weft / strip1 etc
-    let width  = frm.doc[config.width_field] || "";
+    let width  = flt(frm.doc[config.width_field], 2) || "";
     let denier = Math.round(frm.doc[config.denier_field] || 0);
     let color  = frm.doc[config.color_field] || "";
 
@@ -2696,7 +3234,6 @@ function sync_lamination_items_to_tape(frm) {
     frm.refresh_field("tape_item_details");
 }
 function sync_printing_items_to_tape(frm) {
-
     let existing_items = [];
 
     (frm.doc.tape_item_details || []).forEach(row => {
@@ -3707,4 +4244,119 @@ function set_liner_qty(frm) {
     });
 
     frm.refresh_field("tape_item_details");
+}
+function calculate_qty_data(frm) {
+
+    if (frm.doc.technical_sheet_type == "Fabric") {
+
+        let total_qty = (frm.doc.technical_costing_item[0].qty * frm.doc.bag_weight / 1000);
+
+        let fabric_w_lamination_qty = (
+            frm.doc.lamination_wt_per_pcs_gms *
+            (frm.doc.cut_length / 100) *
+            frm.doc.technical_costing_item[0].qty / 1000 *
+            (1 + frm.doc.wastage)
+        );
+        let fabric_wo_lamination_qty = (
+            fabric_w_lamination_qty *
+            frm.doc.wtmtr /
+            frm.doc.lamination_wt_per_pcs_gms
+        );
+        let warp_item_qty = 0;
+		let weft_item_qty=0;
+		let weft_addn_item_qty=0;
+		let reenf_item_qty=0;
+		let strip1_item_qty=0;
+		let strip2_item_qty=0;
+		 let strip3_item_qty=0;
+		 let strip4_item_qty=0;
+		 let fab_wo_mtr=fabric_wo_lamination_qty/(frm.doc.wtmtr/1000);
+		 let fab_w_mtr=fabric_w_lamination_qty/(frm.doc.lamination_wt_per_pcs_gms/1000);
+		 
+        (frm.doc.tape_item_details || []).forEach(function(row) {
+            if (row.type == "Warp") {
+                warp_item_qty = row.qty || 0;
+            }
+			if(row.type == "Weft") {
+				weft_item_qty = row.qty || 0;
+			}
+			if(row.type == "Weft Addn") {
+				weft_addn_item_qty = row.qty || 0;
+			}
+			if(row.type == "Reenf") {
+				reenf_item_qty = row.qty || 0;
+			}
+			if(row.type == "Strip 1") {
+				strip1_item_qty = row.qty || 0;
+			}
+			if(row.type == "Strip 2") {
+				strip2_item_qty = row.qty || 0;
+			}
+			 if(row.type == "Strip 3") {
+				strip3_item_qty = row.qty || 0;
+			}
+			 if(row.type == "Strip 4") {
+				strip4_item_qty = row.qty || 0;
+			 }
+        });
+        let tape_warp_qty = fabric_w_lamination_qty * (1 + (frm.doc.warp_tape_wastage || 0)) * warp_item_qty;
+		let tape_weft_qty = (fabric_w_lamination_qty *(1+frm.doc.weft_tape_wastage)*weft_item_qty)+(fabric_w_lamination_qty*(1+frm.doc.weft_tape_wastage)*weft_addn_item_qty);
+		let tape_reenf_qty = fabric_w_lamination_qty * (1 + (frm.doc.reenf_tape_wastage || 0)) * reenf_item_qty;
+		let tape_strip1_qty = fabric_w_lamination_qty * (1 + (frm.doc.strip1_tape_wastage || 0)) * strip1_item_qty;
+		let tape_strip2_qty = fabric_w_lamination_qty * (1 + (frm.doc.strip2_tape_wastage || 0)) * strip2_item_qty;
+		let tape_strip3_qty = fabric_w_lamination_qty * (1 + (frm.doc.strip3_tape_wastage || 0)) * strip3_item_qty;
+		let tape_strip4_qty = fabric_w_lamination_qty * (1 + (frm.doc.strip4_tape_wastage || 0)) * strip4_item_qty;
+		let tape_warpmtr=tape_warp_qty*frm.doc.warp_mmt/1000;
+		let tape_weft_mtr=tape_weft_qty*frm.doc.weft_mmt/1000;
+		 let tape_reenf_mtr=tape_reenf_qty*frm.doc.reenf_mmt/1000;
+		 let tape_strip1_mtr=tape_strip1_qty*frm.doc.strip1_mmt/1000;
+		 let tape_strip2_mtr=tape_strip2_qty*frm.doc.strip2_mmt/1000;
+		 let tape_strip3_mtr=tape_strip3_qty*frm.doc.strip3_mmt/1000;
+		 let tape_strip4_mtr=tape_strip4_qty*frm.doc.strip4_mmt/1000;
+        (frm.doc.technical_sheet_quantity_details || []).forEach(function(row) {
+            if (row.quantity == "Total Quantity") {
+                row.kg = total_qty;
+				row.mtr=0;
+            }
+			if(row.quantity == "Fabric wo Lamination") {
+				row.kg = fabric_wo_lamination_qty;
+				row.mtr=fab_wo_mtr;
+			}
+			if(row.quantity == "Fabric w lamination") {
+				row.kg = fabric_w_lamination_qty;
+				row.mtr=fab_w_mtr;
+			}
+			if(row.quantity == "Tape - Warp") {
+				row.kg = tape_warp_qty;
+				row.mtr=tape_warpmtr;	
+			}
+			if(row.quantity == "Tape - Weft") {
+				row.kg = tape_weft_qty;
+				row.mtr=tape_weft_mtr;
+
+			}
+			if(row.quantity == "Tape - Reinf") {
+				row.kg = tape_reenf_qty;
+				row.mtr=tape_reenf_mtr;
+			}
+			if(row.quantity == "Tape - Strip 1") {
+				row.kg = tape_strip1_qty;
+				row.mtr=tape_strip1_mtr;
+			}
+			if(row.quantity == "Tape - Strip 2") {
+				row.kg = tape_strip2_qty;
+				row.mtr=tape_strip2_mtr;
+			}
+			if(row.quantity == "Tape - Strip 3") {
+				row.kg = tape_strip3_qty;
+				row.mtr=tape_strip3_mtr;
+			}
+			if(row.quantity == "Tape - Strip 4") {
+				row.kg = tape_strip4_qty;
+				row.mtr=tape_strip4_mtr;
+			}
+        });
+        frm.refresh_field("technical_sheet_quantity_details");
+    }
+	
 }

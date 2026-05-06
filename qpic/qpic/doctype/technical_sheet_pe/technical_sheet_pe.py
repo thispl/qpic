@@ -21,7 +21,8 @@ class TechnicalSheetPE(Document):
    
 		self.calculate_totals()
 		self.calculate_mmt()
-  
+		self.calculate_quantity_and_hours()
+   
 	def on_submit(self):
 		self.make_costing_sheet()
   
@@ -88,60 +89,62 @@ class TechnicalSheetPE(Document):
 			Calculations for the Quantity and Hours sections
 			from  Costing Sheet
   		"""
-		
-		first_row = self.items[0]
-		uom = first_row.uom
-		pe_roll_sfg_qty = frappe.db.get_value("Technical Sheet PE Bag Item", {"item_code": self.pe_roll, "parent": self.name}, "qty") or 0
-		self.pe_roll_in_kg = 0
-		self.blown_film_operator = 0
-		self.printing_machine_operator = 0
-		self.conversion_machine_operator = 0
-		self.helper = 0
-		self.printing_machine = 0
-		self.conversion_machine = 0
-  
-		if self.technical_sheet_type == "PE Roll":
-			if uom == "Kg":
-				self.pe_roll_in_kg = self.costing_sheet_qty
-			self.blown_film_operator = get_qty_from_item_table(self, "blown_film_operator", "Technical Sheet PE Roll Others") * self.pe_roll_in_kg / 1000
-			self.printing_machine_operator = get_qty_from_item_table(self, "printing_machine_operator", "Technical Sheet PE Roll Others") * self.costing_sheet_qty / 1000
-			self.helper = get_qty_from_item_table(self, "helper", "Technical Sheet PE Roll Others") * self.pe_roll_in_kg / 1000
-			self.printing_machine = self.printing_hrsmt * self.pe_roll_in_kg / 1000
-   
-		if self.technical_sheet_type == "PE Bag":
-			if uom == "Nos":
-				self.pe_roll_in_kg = pe_roll_sfg_qty * self.costing_sheet_qty / 1000
-				self.blown_film_operator = (get_qty_from_item_table(self, "blown_film_operator", "Technical Sheet PE Roll Others") / 1000) * (self.bag_weight * self.costing_sheet_qty / 1000)
-				self.printing_machine_operator = get_qty_from_item_table(self, "printing_machine_operator", "Technical Sheet PE Bag Others") * self.costing_sheet_qty
-				self.conversion_machine_operator = get_qty_from_item_table(self, "conversion_machine_operator", "Technical Sheet PE Bag Others") * self.costing_sheet_qty
-				self.helper = ((get_qty_from_item_table(self, "Packing Helper", "Technical Sheet PE Bag Others", 1) + get_qty_from_item_table(self, "Additional Packing Helper", "Technical Sheet PE Bag Others", 1) + get_qty_from_item_table(self, "Helper - D cut", "Technical Sheet PE Bag Others", 1)) * self.pe_roll_in_kg) + (get_qty_from_item_table(self, "helper", "Technical Sheet PE Roll Others") * self.pe_roll_in_kg / 1000)    
-				self.conversion_machine =  self.costing_sheet_qty / self.conversion_bags__hr
     
-			elif uom == "Kg":
-				self.pe_roll_in_kg = (pe_roll_sfg_qty / self.bag_weight) * self.costing_sheet_qty
+		if len(self.items) > 0:
+			first_row = self.items[0]
+			qty = first_row.qty
+			uom = first_row.uom
+			pe_roll_sfg_qty = frappe.db.get_value("Technical Sheet PE Bag Item", {"item_code": self.pe_roll, "parent": self.name}, "qty") or 0
+			self.pe_roll_in_kg = 0
+			self.blown_film_operator = 0
+			self.printing_machine_operator = 0
+			self.conversion_machine_operator = 0
+			self.helper = 0
+			self.printing_machine = 0
+			self.conversion_machine = 0
+	
+			if self.technical_sheet_type == "PE Roll":
+				if uom == "Kg":
+					self.pe_roll_in_kg = qty
 				self.blown_film_operator = get_qty_from_item_table(self, "blown_film_operator", "Technical Sheet PE Roll Others") * self.pe_roll_in_kg / 1000
-				self.printing_machine_operator = (get_qty_from_item_table(self, "printing_machine_operator", "Technical Sheet PE Bag Others") / self.bag_weight) * self.pe_roll_in_kg * 1000
-				self.conversion_machine_operator = (get_qty_from_item_table(self, "conversion_machine_operator", "Technical Sheet PE Bag Others") / self.bag_weight) * self.pe_roll_in_kg * 1000
-				self.helper = ((get_qty_from_item_table(self, "Packing Helper", "Technical Sheet PE Bag Others", 1) + get_qty_from_item_table(self, "Additional Packing Helper", "Technical Sheet PE Bag Others", 1) + get_qty_from_item_table(self, "Helper - D cut", "Technical Sheet PE Bag Others", 1)) / self.bag_weight * self.pe_roll_in_kg * 1000) + (get_qty_from_item_table(self, "helper", "Technical Sheet PE Roll Others") * self.pe_roll_in_kg / 1000)
-				self.conversion_machine = self.pe_roll_in_kg / (self.conversion_bags__hr * self.bag_weight / 1000)
-    
-			self.printing_machine = 1000 * self.printing_hrs_bag / self.bag_weight * self.pe_roll_in_kg
-   
-		self.pe_roll_in_mtr = self.pe_roll_in_kg * 1000 / self.wtmtr_g
-		self.blown_film_machine = self.pe_roll_in_kg / self.output_kghr
-  
-		# Since the document might be submitted, used db_set
-		self.db_set({
-			"pe_roll_in_kg": self.pe_roll_in_kg,
-			"pe_roll_in_mtr": self.pe_roll_in_mtr,
-			"blown_film_operator": self.blown_film_operator,
-			"printing_machine_operator": self.printing_machine_operator,
-			"conversion_machine_operator": self.conversion_machine_operator,
-			"helper": self.helper,
-			"blown_film_machine": self.blown_film_machine,
-			"printing_machine": self.printing_machine,
-			"conversion_machine": self.conversion_machine,
-		})
+				self.printing_machine_operator = get_qty_from_item_table(self, "printing_machine_operator", "Technical Sheet PE Roll Others") * qty / 1000
+				self.helper = get_qty_from_item_table(self, "helper", "Technical Sheet PE Roll Others") * self.pe_roll_in_kg / 1000
+				self.printing_machine = self.printing_hrsmt * self.pe_roll_in_kg / 1000
+	
+			if self.technical_sheet_type == "PE Bag":
+				if uom == "Nos":
+					self.pe_roll_in_kg = pe_roll_sfg_qty * qty / 1000
+					self.blown_film_operator = (get_qty_from_item_table(self, "blown_film_operator", "Technical Sheet PE Roll Others") / 1000) * (self.bag_weight * qty / 1000)
+					self.printing_machine_operator = get_qty_from_item_table(self, "printing_machine_operator", "Technical Sheet PE Bag Others") * qty
+					self.conversion_machine_operator = get_qty_from_item_table(self, "conversion_machine_operator", "Technical Sheet PE Bag Others") * qty
+					self.helper = ((get_qty_from_item_table(self, "Packing Helper", "Technical Sheet PE Bag Others", 1) + get_qty_from_item_table(self, "Additional Packing Helper", "Technical Sheet PE Bag Others", 1) + get_qty_from_item_table(self, "Helper - D cut", "Technical Sheet PE Bag Others", 1)) * self.pe_roll_in_kg) + (get_qty_from_item_table(self, "helper", "Technical Sheet PE Roll Others") * self.pe_roll_in_kg / 1000)    
+					self.conversion_machine =  (qty / self.conversion_bags__hr) if self.conversion_bags__hr > 0 else 0
+		
+				elif uom == "Kg":
+					self.pe_roll_in_kg = ((pe_roll_sfg_qty / self.bag_weight) * qty) if self.bag_weight > 0 else 0
+					self.blown_film_operator = get_qty_from_item_table(self, "blown_film_operator", "Technical Sheet PE Roll Others") * self.pe_roll_in_kg / 1000
+					self.printing_machine_operator = ((get_qty_from_item_table(self, "printing_machine_operator", "Technical Sheet PE Bag Others") / self.bag_weight) * self.pe_roll_in_kg * 1000) if self.bag_weight > 0 else 0
+					self.conversion_machine_operator = ((get_qty_from_item_table(self, "conversion_machine_operator", "Technical Sheet PE Bag Others") / self.bag_weight) * self.pe_roll_in_kg * 1000) if self.bag_weight > 0 else 0
+					self.helper = (((get_qty_from_item_table(self, "Packing Helper", "Technical Sheet PE Bag Others", 1) + get_qty_from_item_table(self, "Additional Packing Helper", "Technical Sheet PE Bag Others", 1) + get_qty_from_item_table(self, "Helper - D cut", "Technical Sheet PE Bag Others", 1)) / self.bag_weight * self.pe_roll_in_kg * 1000) + (get_qty_from_item_table(self, "helper", "Technical Sheet PE Roll Others") * self.pe_roll_in_kg / 1000)) if self.bag_weight > 0 else 0
+					self.conversion_machine = (self.pe_roll_in_kg / (self.conversion_bags__hr * self.bag_weight / 1000)) if (self.conversion_bags__hr * self.bag_weight) > 0 else 0
+		
+				self.printing_machine = (1000 * self.printing_hrs_bag / self.bag_weight * self.pe_roll_in_kg) if (self.bag_weight * self.pe_roll_in_kg) > 0 else 0
+	
+			self.pe_roll_in_mtr = (self.pe_roll_in_kg * 1000 / self.wtmtr_g) if self.wtmtr_g > 0 else 0
+			self.blown_film_machine = (self.pe_roll_in_kg / self.output_kghr) if self.output_kghr > 0 else 0
+	
+			# Since the document might be submitted, used db_set
+			self.db_set({
+				"pe_roll_in_kg": self.pe_roll_in_kg,
+				"pe_roll_in_mtr": self.pe_roll_in_mtr,
+				"blown_film_operator": self.blown_film_operator,
+				"printing_machine_operator": self.printing_machine_operator,
+				"conversion_machine_operator": self.conversion_machine_operator,
+				"helper": self.helper,
+				"blown_film_machine": self.blown_film_machine,
+				"printing_machine": self.printing_machine,
+				"conversion_machine": self.conversion_machine,
+			})
 
 	@frappe.whitelist()
 	def make_costing_sheet(self):
@@ -275,6 +278,12 @@ class TechnicalSheetPE(Document):
 		cs.order_quantity = order_quantity
 		cs.order_value = order_value
 		cs.mt_cnt_by_product = by_product
+  
+		# Commisions & Addons
+		cs.commission_currency_mt = self.commission_currencymt
+		cs.commission_percentage = self.commision_percentage
+		cs.addons_currency_mt = self.add_ons_currencymt
+		cs.addons_percentage = self.add_ons_percentage
 		
 		# Costing Sheet PE Roll Item
 		for rm in self.raw_material_combination:

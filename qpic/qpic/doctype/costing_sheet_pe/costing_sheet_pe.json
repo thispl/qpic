@@ -17,9 +17,9 @@
   "posting_date",
   "column",
   "naming_series",
+  "technical_sheet",
   "opportunity",
   "opportunity_owner",
-  "technical_sheet",
   "section_break_11",
   "items",
   "item_code",
@@ -102,6 +102,7 @@
   "total_section",
   "column_break_ncsi",
   "total_currency_mt",
+  "is_triggered",
   "column_break_ekss",
   "total_percentage",
   "column_break_aplz",
@@ -219,6 +220,7 @@
   {
    "fieldname": "opportunity",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_standard_filter": 1,
    "label": "Opportunity",
    "options": "Opportunity"
@@ -226,6 +228,7 @@
   {
    "fieldname": "opportunity_owner",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_standard_filter": 1,
    "label": "Opportunity Owner",
    "options": "User"
@@ -238,7 +241,8 @@
    "fieldname": "items",
    "fieldtype": "Table",
    "label": "Items",
-   "options": "Costing Sheet PE Item"
+   "options": "Costing Sheet PE Item",
+   "read_only": 1
   },
   {
    "fieldname": "item_code",
@@ -304,7 +308,8 @@
    "fieldname": "exchange_rate",
    "fieldtype": "Float",
    "label": "Exchange Rate",
-   "precision": "9"
+   "precision": "9",
+   "read_only": 1
   },
   {
    "default": "0",
@@ -563,13 +568,15 @@
    "fieldname": "commission_currency_mt",
    "fieldtype": "Currency",
    "label": "Currency/MT",
-   "options": "currency"
+   "options": "currency",
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "commission_percentage",
    "fieldtype": "Percent",
-   "label": "Percentage"
+   "label": "Percentage",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_ddyx",
@@ -610,13 +617,15 @@
    "fieldname": "addons_currency_mt",
    "fieldtype": "Currency",
    "label": "Currency/MT",
-   "options": "currency"
+   "options": "currency",
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "addons_percentage",
    "fieldtype": "Percent",
-   "label": "Percentage"
+   "label": "Percentage",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_wagn",
@@ -976,13 +985,20 @@
    "label": "Ask. Price (ExF)",
    "precision": "9",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_triggered",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Triggered"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-04-28 16:32:55.613492",
- "modified_by": "amar.p@groupteampro.com",
+ "modified": "2026-05-05 14:44:02.306374",
+ "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Costing Sheet PE",
  "naming_rule": "By \"Naming Series\" field",

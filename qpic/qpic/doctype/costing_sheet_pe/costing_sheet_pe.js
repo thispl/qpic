@@ -22,6 +22,20 @@ frappe.ui.form.on("Costing Sheet PE", {
             });
         }
         frm.trigger('change_field_labels');
+
+        if (!frm.doc.is_triggered) {
+            frm.trigger('commission_currency_mt');
+            frm.trigger('commission_percentage');
+            frm.trigger('addons_currency_mt');
+            frm.trigger('addons_percentage');
+            frm.set_value('is_triggered', 1);
+            // frm.save();
+            // Alert
+            frappe.show_alert({
+                message: "Commissions & Add-ons Calculated",
+                indicator: "green"
+            }, 5);
+        }
 	},
 
     // Fields
@@ -249,9 +263,7 @@ frappe.ui.form.on("Costing Sheet PE Item", {
         frm.trigger('calculate_order_value');
     },
     qty(frm, cdt, cdn) {
-        // let row = locals[cdt][cdn];
         frm.trigger('calculate_order_value');
-        // frappe.db.set_value("Technical Sheet PE", frm.doc.technical_sheet, "costing_sheet_qty", row.qty)
     },
 });
 

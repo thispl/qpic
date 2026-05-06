@@ -17,9 +17,9 @@
   "posting_date",
   "column",
   "naming_series",
+  "technical_sheet",
   "opportunity",
   "opportunity_owner",
-  "technical_sheet",
   "section_break_11",
   "items",
   "item_code",
@@ -225,16 +225,20 @@
   {
    "fieldname": "opportunity",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_standard_filter": 1,
    "label": "Opportunity",
-   "options": "Opportunity"
+   "options": "Opportunity",
+   "read_only": 1
   },
   {
    "fieldname": "opportunity_owner",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_standard_filter": 1,
    "label": "Opportunity Owner",
-   "options": "User"
+   "options": "User",
+   "read_only": 1
   },
   {
    "fieldname": "technical_sheet",
@@ -1025,7 +1029,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-04-30 08:15:51.177312",
+ "modified": "2026-05-05 10:15:33.048012",
  "modified_by": "amar.p@groupteampro.com",
  "module": "QPIC",
  "name": "Costing Sheet",

@@ -5,28 +5,58 @@ frappe.ui.form.on("Technical Sheet PE", {
     // Events
 	refresh(frm) {
         frm.trigger('change_field_labels');
+        
+        // Hide add row for items table
+        let grid = frm.get_field("items").grid;
+        grid.wrapper.find('.grid-remove-rows').hide();
+        grid.wrapper.find('.grid-add-row').hide();
+        grid.wrapper.find('.grid-add-row').hide();
+        grid.wrapper.find('.grid-add-multiple-rows').hide();
+        grid.wrapper.find('.grid-upload').hide();
+        grid.wrapper.find('.grid-duplicate-rows').hide();
+        // Edit view
+        grid.wrapper.find('.grid-delete-row').hide();
+        grid.wrapper.find('.grid-insert-row-below').hide();
+        grid.wrapper.find('.grid-insert-row').hide();
+        grid.wrapper.find('.grid-duplicate-row').hide();
+        grid.wrapper.find('.grid-move-row').hide();
 
         // Button to create Costing Sheet
-        frm.add_custom_button(__('Costing Sheet'), function() {
-            frm.call({
-                method: "make_costing_sheet",
-                doc: frm.doc,
-                callback(r) {
-                    if (r && r.message) {
-                        frappe.set_route("Form", "Costing Sheet PE", r.message);
-                    }
-                },
-            })
-        });
+        // frm.add_custom_button(__('Costing Sheet'), function() {
+        //     frm.call({
+        //         method: "make_costing_sheet",
+        //         doc: frm.doc,
+        //         callback(r) {
+        //             if (r && r.message) {
+        //                 frappe.set_route("Form", "Costing Sheet PE", r.message);
+        //             }
+        //         },
+        //     })
+
+        // });
 
         // Alertuser, if the currency is in QAR 
         if (frm.doc.currency === "QAR") {
             frm.dashboard.clear_headline();
             frm.dashboard.add_comment(
                 __("The currency is currently set to QAR. Please update it if this is not correct"),
-                "yellow",
+                "red",
                 true
             );
+        }
+        if (frm.doc.docstatus == 0 && !frm.doc.__islocal) {
+            frm.page.clear_primary_action();
+            frm.page.set_primary_action("Submit", () => {    
+                frappe.warn(
+                    title = "Confirm",
+                    message = "After submission, the Commission and Add-ons in the Technical Sheet cannot be edited. These values will be carried forward to the next document and will remain non-editable. Do you want to continue?",
+                    proceed_action = 
+                    () => {
+                        frm.save("Submit");
+                    },
+                    primary_label = "Yes, proceed",
+                );
+            });
         }
 	},
     setup(frm) {
@@ -266,7 +296,7 @@ frappe.ui.form.on("Technical Sheet PE", {
     bag_weight_g(frm) {
         frm.trigger('calculate_conversion_act_currencypcs');
         frm.trigger('calculate_conversion_quot_currencypcs');
-        frm.trigget('calculate_overhead_currencymt');
+        frm.trigger('calculate_overhead_currencymt');
         frm.trigger('calculate_material_cost_currencymt');
     },
     conversion_quot_currencymt(frm) {
@@ -355,6 +385,20 @@ frappe.ui.form.on("Technical Sheet PE", {
     },
     cost__mt(frm) {
         frm.trigger('calculate_selling_price_act_currencymt');
+    },
+    add_ons_currencymt(frm) {
+        frm.trigger('calculate_selling_price_act_currencymt');
+    },
+    add_ons_percentage(frm) {
+        frm.trigger('calculate_selling_price_act_currencymt');
+    },
+    no_of_layers(frm) {
+        if (frm.doc.no_of_layers > 3) {
+            frappe.msgprint(
+                "Choose layers bet",
+                "Invalid Layer",
+            )
+        }
     },
 
     // Calculations
@@ -506,7 +550,12 @@ frappe.ui.form.on("Technical Sheet PE", {
         frm.set_value("conversion_quot_currencypcs", conversion_quot_currencypcs);
     },
     calculate_overhead_currencymt(frm) {
-        const overhead_currencymt = frm.doc.overhead_currencypcs * 1000000 / frm.doc.bag_weight_g;
+        if (frm.doc.bag_weight_g > 0) {
+            const overhead_currencymt = frm.doc.overhead_currencypcs * 1000000 / frm.doc.bag_weight_g;
+        }
+        else {
+            const overhead_currencymt = 0;
+        }
         frm.set_value("overhead_currencymt", overhead_currencymt);
     },
     calculate_material_cost_currencymt(frm) {
@@ -523,9 +572,9 @@ frappe.ui.form.on("Technical Sheet PE", {
     },
     calculate_selling_price_act_currencymt(frm) {
         // Need to calculate
-        const cost_sheet_c18 = 0;
-        const cost_sheet_d18 = 0;
-        const selling_price_act_currencymt =  (frm.doc.cost__mt * (1.06 + cost_sheet_d18)) + cost_sheet_c18
+        const cost_sheet_c18 = frm.doc.add_ons_currencymt;
+        const cost_sheet_d18 = frm.doc.add_ons_percentage;
+        const selling_price_act_currencymt =  (frm.doc.cost__mt * (1.06 + (cost_sheet_d18 / 100))) + cost_sheet_c18
         frm.set_value("selling_price_act_currencymt", selling_price_act_currencymt);
     },
     calculate_conversion_quot_currencymt(frm) {

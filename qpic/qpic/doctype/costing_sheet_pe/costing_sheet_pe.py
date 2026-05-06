@@ -13,7 +13,6 @@ class CostingSheetPE(Document):
    
 	def validate(self):
 		self.calculate_totals()
-		self.update_technical_sheet()
 
 	def calculate_totals(self):
 		qty = 0
@@ -35,14 +34,4 @@ class CostingSheetPE(Document):
 		pe_roll_in_kg = frappe.db.get_value("Technical Sheet PE", self.technical_sheet, "pe_roll_in_kg")
 		commission_total = pe_roll_in_kg / 1000 * self.commission_total_currency_mt
 		return commission_total
-	
-	def update_technical_sheet(self):
-		first_row = self.items[0]
-		qty = first_row.qty
-		frappe.db.set_value("Technical Sheet PE", self.technical_sheet, "costing_sheet_qty", qty) or 0 # update the qty to technical sheet
-  
-		# Trigger technical sheet's Qty & Hrs calculation
-		if frappe.db.exists("Technical Sheet PE", self.technical_sheet):
-			tspe = frappe.get_doc("Technical Sheet PE", self.technical_sheet)
-			tspe.calculate_quantity_and_hours()
 		

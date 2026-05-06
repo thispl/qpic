@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-05-06 07:50:54.468092",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tape_tab",
+  "tape_items",
+  "tape_others",
+  "liner_tab",
+  "liner_items",
+  "liner_others",
+  "loom_tab",
+  "loom_items",
+  "loom_others",
+  "lamination_tab",
+  "lamination_items",
+  "lamination_others",
+  "pe_roll_tab",
+  "pe_roll_section",
+  "pe_roll_items",
+  "pe_roll_others"
+ ],
+ "fields": [
+  {
+   "fieldname": "tape_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tape"
+  },
+  {
+   "fieldname": "tape_items",
+   "fieldtype": "Table",
+   "label": "Tape Items",
+   "options": "Material Combination Raw Material"
+  },
+  {
+   "fieldname": "tape_others",
+   "fieldtype": "Table",
+   "label": "Tape Others",
+   "options": "Material Combination Other"
+  },
+  {
+   "fieldname": "liner_tab",
+   "fieldtype": "Tab Break",
+   "label": "Liner"
+  },
+  {
+   "fieldname": "liner_items",
+   "fieldtype": "Table",
+   "label": "Liner Items",
+   "options": "Material Combination Raw Material"
+  },
+  {
+   "fieldname": "liner_others",
+   "fieldtype": "Table",
+   "label": "Liner Others",
+   "options": "Material Combination Other"
+  },
+  {
+   "fieldname": "loom_tab",
+   "fieldtype": "Tab Break",
+   "label": "Loom"
+  },
+  {
+   "fieldname": "loom_items",
+   "fieldtype": "Table",
+   "label": "Loom Items",
+   "options": "Material Combination Raw Material"
+  },
+  {
+   "fieldname": "loom_others",
+   "fieldtype": "Table",
+   "label": "Loom Others",
+   "options": "Material Combination Other"
+  },
+  {
+   "fieldname": "lamination_tab",
+   "fieldtype": "Tab Break",
+   "label": "Lamination"
+  },
+  {
+   "fieldname": "lamination_items",
+   "fieldtype": "Table",
+   "label": "Lamination Items",
+   "options": "Material Combination Raw Material"
+  },
+  {
+   "fieldname": "lamination_others",
+   "fieldtype": "Table",
+   "label": "Lamination Others",
+   "options": "Material Combination Other"
+  },
+  {
+   "fieldname": "pe_roll_tab",
+   "fieldtype": "Tab Break",
+   "label": "PE Roll"
+  },
+  {
+   "fieldname": "pe_roll_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pe_roll_items",
+   "fieldtype": "Table",
+   "label": "PE Roll Items",
+   "options": "Material Combination Raw Material"
+  },
+  {
+   "fieldname": "pe_roll_others",
+   "fieldtype": "Table",
+   "label": "PE Roll Others",
+   "options": "Material Combination Other"
+  }
+ ],
+ "grid_page_length": 50,
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-05-06 08:35:20.353676",
+ "modified_by": "Administrator",
+ "module": "QPIC",
+ "name": "Material Combination",
+ "owner": "amar.p@groupteampro.com",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

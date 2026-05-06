@@ -13,6 +13,7 @@
   "posting_date",
   "column_break_aypa",
   "naming_series",
+  "amended_from",
   "opportunity",
   "opportunity_owner",
   "currency_and_price_list_section",
@@ -23,7 +24,6 @@
   "company_exchange",
   "section_break_vuhl",
   "items",
-  "costing_sheet_qty",
   "pe_roll_section",
   "thickness_micron",
   "roll_width",
@@ -117,6 +117,12 @@
   "total_qty_kgso",
   "section_break_onma",
   "remarks",
+  "commissions_and_add_ons_tab",
+  "commission_currencymt",
+  "add_ons_currencymt",
+  "column_break_abli",
+  "commision_percentage",
+  "add_ons_percentage",
   "extrusion__pe_roll_tab",
   "production_wastage_roll",
   "printing_hrsmt",
@@ -168,7 +174,6 @@
   "section_break_xicl",
   "pe_bag_items",
   "pe_bag_others",
-  "amended_from",
   "terms_tab",
   "notes",
   "payment_terms_section",
@@ -269,6 +274,7 @@
    "fieldname": "exchange_rate",
    "fieldtype": "Float",
    "label": "Exchange Rate",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -276,6 +282,7 @@
    "fieldname": "company_exchange",
    "fieldtype": "Float",
    "label": "Company Exchange",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -508,12 +515,6 @@
   },
   {
    "default": "0",
-   "fieldname": "no_of_layers",
-   "fieldtype": "Float",
-   "label": "No. of Layers"
-  },
-  {
-   "default": "0",
    "fieldname": "speed_factor",
    "fieldtype": "Float",
    "label": "Speed Factor"
@@ -610,7 +611,8 @@
    "default": "0",
    "fieldname": "pe_roll_in_kg",
    "fieldtype": "Float",
-   "label": "PE Roll (Kg)"
+   "label": "PE Roll (Kg)",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_bgza",
@@ -1117,13 +1119,6 @@
    "read_only": 1
   },
   {
-   "default": "0",
-   "fieldname": "costing_sheet_qty",
-   "fieldtype": "Float",
-   "label": "Costing Sheet Quantity",
-   "read_only": 1
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -1301,14 +1296,58 @@
    "fieldtype": "Link",
    "label": "Incoterms",
    "options": "Incoterms"
+  },
+  {
+   "fieldname": "commissions_and_add_ons_tab",
+   "fieldtype": "Tab Break",
+   "label": "Commission & Add Ons"
+  },
+  {
+   "default": "0",
+   "fieldname": "commission_currencymt",
+   "fieldtype": "Float",
+   "label": "Commission (Currency/MT)"
+  },
+  {
+   "default": "0",
+   "fieldname": "add_ons_currencymt",
+   "fieldtype": "Float",
+   "label": "Add Ons (Currency/MT)"
+  },
+  {
+   "fieldname": "column_break_abli",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "commision_percentage",
+   "fieldtype": "Percent",
+   "label": "Commision Percentage"
+  },
+  {
+   "default": "0",
+   "fieldname": "add_ons_percentage",
+   "fieldtype": "Percent",
+   "label": "Add Ons Percentage"
+  },
+  {
+   "fieldname": "no_of_layers",
+   "fieldtype": "Autocomplete",
+   "label": "No. of Layers",
+   "options": "1\n2\n3"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2026-04-30 12:47:00.208924",
- "modified_by": "amar.p@groupteampro.com",
+ "links": [
+  {
+   "link_doctype": "Costing Sheet PE",
+   "link_fieldname": "technical_sheet"
+  }
+ ],
+ "modified": "2026-05-05 17:31:35.439663",
+ "modified_by": "Administrator",
  "module": "QPIC",
  "name": "Technical Sheet PE",
  "naming_rule": "By \"Naming Series\" field",
